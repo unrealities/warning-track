@@ -1,0 +1,3230 @@
+{
+  "subject": "game_events",
+  "copyright": "Copyright 2015 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "data": {
+    "game": {
+      "inning": [{
+        "num": "1",
+        "bottom": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Dexter Fowler flies out to left fielder Matt Holliday.  ",
+            "b": "1",
+            "event_num": "52",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "1",
+            "batter": "451594",
+            "des_es": "Dexter Fowler batea elevado de out a jardinero izquierdo Matt Holliday.  ",
+            "event_es": "Elevado de Out",
+            "num": "6",
+            "start_tfs_zulu": "2015-04-08T18:36:23Z",
+            "s": "1",
+            "event": "Flyout",
+            "b1": "",
+            "pitch": [{
+              "start_speed": "90.7",
+              "des": "Ball",
+              "sv_id": "150408_133902",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.5",
+              "des": "Swinging Strike",
+              "sv_id": "150408_133914",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "92.1",
+              "des": "In play, out(s)",
+              "sv_id": "150408_133929",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "183623"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jorge Soler strikes out swinging.  ",
+            "b": "3",
+            "event_num": "61",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "2",
+            "batter": "624585",
+            "des_es": "Jorge Soler se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "7",
+            "start_tfs_zulu": "2015-04-08T18:37:23Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "pitch": [{
+              "start_speed": "91.5",
+              "des": "Called Strike",
+              "sv_id": "150408_134002",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.3",
+              "des": "Ball",
+              "sv_id": "150408_134015",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.2",
+              "des": "Called Strike",
+              "sv_id": "150408_134028",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "89.3",
+              "des": "Ball",
+              "sv_id": "150408_134042",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "86.5",
+              "des": "Ball",
+              "sv_id": "150408_134057",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "93.8",
+              "des": "Swinging Strike",
+              "sv_id": "150408_134116",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "183723"
+          }, {
+            "home_team_runs": "0",
+            "des": "Anthony Rizzo grounds out, second baseman Kolten Wong to first baseman Matt Adams.  ",
+            "b": "2",
+            "event_num": "67",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "3",
+            "batter": "519203",
+            "des_es": "Anthony Rizzo batea rodado de out, segunda base Kolten Wong a primera base Matt Adams.  ",
+            "event_es": "Roletazo de Out",
+            "num": "8",
+            "start_tfs_zulu": "2015-04-08T18:39:11Z",
+            "s": "0",
+            "event": "Groundout",
+            "b1": "",
+            "pitch": [{
+              "start_speed": "89.0",
+              "des": "Ball",
+              "sv_id": "150408_134150",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.8",
+              "des": "Ball",
+              "sv_id": "150408_134206",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.7",
+              "des": "In play, out(s)",
+              "sv_id": "150408_134224",
+              "pitch_type": "FT",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "183911"
+          }]
+        },
+        "top": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Matt Carpenter walks.  ",
+            "b": "4",
+            "event_num": "9",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "0",
+            "batter": "572761",
+            "des_es": "Matt Carpenter recibe base por bolas.  ",
+            "event_es": "Base por Bolas",
+            "num": "1",
+            "start_tfs_zulu": "2015-04-08T18:22:22Z",
+            "s": "1",
+            "event": "Walk",
+            "b1": "572761",
+            "play_guid": "8ca290fb-3856-4c9b-8ec3-76768eb2ee96",
+            "pitch": [{
+              "start_speed": "93.5",
+              "des": "Called Strike",
+              "sv_id": "150408_132510",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "93.7",
+              "des": "Ball",
+              "sv_id": "150408_132528",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "94.1",
+              "des": "Ball",
+              "sv_id": "150408_132550",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.1",
+              "des": "Ball",
+              "sv_id": "150408_132615",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "94.2",
+              "des": "Ball",
+              "sv_id": "150408_132637",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "182222"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jason Heyward grounds into a force out, third baseman Tommy La Stella to second baseman Arismendy Alcantara.   Matt Carpenter out at 2nd.    Jason Heyward to 1st.  ",
+            "b": "2",
+            "event_num": "21",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "1",
+            "batter": "518792",
+            "des_es": "Jason Heyward batea rodado batea para out forzado, tercera base Tommy La Stella a segunda base Arismendy Alcantara.   Matt Carpenter a cabo a 2da.    Jason Heyward a 1ra.  ",
+            "event_es": "Out Forzado",
+            "num": "2",
+            "start_tfs_zulu": "2015-04-08T18:24:20Z",
+            "s": "2",
+            "event": "Forceout",
+            "b1": "518792",
+            "pitch": [{
+              "start_speed": "94.4",
+              "des": "Ball",
+              "sv_id": "150408_132712",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "95.3",
+              "des": "Ball",
+              "sv_id": "150408_132732",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "95.0",
+              "des": "Foul",
+              "sv_id": "150408_132757",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "94.6",
+              "des": "Called Strike",
+              "sv_id": "150408_132841",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "93.9",
+              "des": "Foul",
+              "sv_id": "150408_132926",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "91.4",
+              "des": "In play, out(s)",
+              "sv_id": "150408_133000",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "182420"
+          }, {
+            "home_team_runs": "0",
+            "des": "Matt Holliday grounds into a force out, pitcher Jake Arrieta to shortstop Starlin Castro.   Jason Heyward out at 2nd.    Matt Holliday to 1st.  ",
+            "b": "0",
+            "event_num": "27",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "2",
+            "batter": "407812",
+            "des_es": "Matt Holliday batea rodado batea para out forzado, lanzador Jake Arrieta a campo corto Starlin Castro.   Jason Heyward a cabo a 2da.    Matt Holliday a 1ra.  ",
+            "event_es": "Out Forzado",
+            "num": "3",
+            "start_tfs_zulu": "2015-04-08T18:28:18Z",
+            "s": "1",
+            "event": "Forceout",
+            "b1": "407812",
+            "play_guid": "c829c00b-f997-4d5f-9d40-9402d418da11",
+            "pitch": [{
+              "start_speed": "92.6",
+              "des": "Foul",
+              "sv_id": "150408_133106",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "93.5",
+              "des": "In play, out(s)",
+              "sv_id": "150408_133145",
+              "pitch_type": "SI",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "182818"
+          }, {
+            "home_team_runs": "0",
+            "des": "Matt Adams walks.   Matt Holliday to 2nd.  ",
+            "b": "4",
+            "event_num": "36",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "407812",
+            "o": "2",
+            "batter": "571431",
+            "des_es": "Matt Adams recibe base por bolas.   Matt Holliday a 2da.  ",
+            "event_es": "Base por Bolas",
+            "num": "4",
+            "start_tfs_zulu": "2015-04-08T18:29:52Z",
+            "s": "0",
+            "event": "Walk",
+            "b1": "571431",
+            "play_guid": "3bc58963-5a5d-47bb-bf13-7cc99f63fb7a",
+            "pitch": [{
+              "start_speed": "94.0",
+              "des": "Ball",
+              "sv_id": "150408_133232",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "93.9",
+              "des": "Ball",
+              "sv_id": "150408_133307",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "94.3",
+              "des": "Ball",
+              "sv_id": "150408_133332",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.9",
+              "des": "Ball",
+              "sv_id": "150408_133356",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "182952"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jhonny Peralta called out on strikes.  ",
+            "b": "2",
+            "event_num": "44",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "3",
+            "batter": "425509",
+            "des_es": "Jhonny Peralta se poncha sin tirarle.  ",
+            "event_es": "Ponche",
+            "num": "5",
+            "start_tfs_zulu": "2015-04-08T18:31:55Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "e3b93d5e-1813-422e-995d-0858e1b168bd",
+            "pitch": [{
+              "start_speed": "90.3",
+              "des": "Called Strike",
+              "sv_id": "150408_133447",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "91.9",
+              "des": "Ball",
+              "sv_id": "150408_133508",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "79.9",
+              "des": "Ball In Dirt",
+              "sv_id": "150408_133530",
+              "pitch_type": "CU",
+              "type": "B",
+              "des_es": "Bola por el suelo"
+            }, {
+              "start_speed": "90.5",
+              "des": "Foul",
+              "sv_id": "150408_133559",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "90.3",
+              "des": "Called Strike",
+              "sv_id": "150408_133629",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "183155"
+          }]
+        }
+      }, {
+        "num": "2",
+        "bottom": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Starlin Castro strikes out swinging.  ",
+            "b": "1",
+            "event_num": "96",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "1",
+            "batter": "516770",
+            "des_es": "Starlin Castro se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "12",
+            "start_tfs_zulu": "2015-04-08T18:48:00Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "0d3f0daa-573a-4bd7-aa8d-231bf76e20c1",
+            "pitch": [{
+              "start_speed": "91.4",
+              "des": "Called Strike",
+              "sv_id": "150408_135052",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "84.1",
+              "des": "Foul",
+              "sv_id": "150408_135107",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "86.4",
+              "des": "Ball",
+              "sv_id": "150408_135126",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.5",
+              "des": "Foul",
+              "sv_id": "150408_135143",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "86.3",
+              "des": "Swinging Strike",
+              "sv_id": "150408_135206",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "184800"
+          }, {
+            "home_team_runs": "0",
+            "des": "Chris Coghlan flies out to left fielder Matt Holliday.  ",
+            "b": "1",
+            "event_num": "102",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "2",
+            "batter": "458085",
+            "des_es": "Chris Coghlan batea elevado de out a jardinero izquierdo Matt Holliday.  ",
+            "event_es": "Elevado de Out",
+            "num": "13",
+            "start_tfs_zulu": "2015-04-08T18:49:47Z",
+            "s": "1",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "7f216382-bf9b-4def-aecd-684beff0a704",
+            "pitch": [{
+              "start_speed": "90.6",
+              "des": "Ball",
+              "sv_id": "150408_135240",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.2",
+              "des": "Called Strike",
+              "sv_id": "150408_135253",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.3",
+              "des": "In play, out(s)",
+              "sv_id": "150408_135307",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "184947"
+          }, {
+            "home_team_runs": "0",
+            "des": "Miguel Montero strikes out swinging.  ",
+            "b": "0",
+            "event_num": "109",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "3",
+            "batter": "471083",
+            "des_es": "Miguel Montero se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "14",
+            "start_tfs_zulu": "2015-04-08T18:51:03Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "906874de-b64b-4fce-a47b-12f3ee85ad99",
+            "pitch": [{
+              "start_speed": "89.5",
+              "des": "Swinging Strike",
+              "sv_id": "150408_135345",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "79.3",
+              "des": "Foul",
+              "sv_id": "150408_135424",
+              "pitch_type": "CU",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "93.5",
+              "des": "Foul",
+              "sv_id": "150408_135448",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "87.5",
+              "des": "Swinging Strike",
+              "sv_id": "150408_135510",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "185103"
+          }]
+        },
+        "top": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Jon Jay called out on strikes.  ",
+            "b": "0",
+            "event_num": "74",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "1",
+            "batter": "445055",
+            "des_es": "Jon Jay se poncha sin tirarle.  ",
+            "event_es": "Ponche",
+            "num": "9",
+            "start_tfs_zulu": "2015-04-08T18:42:04Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "b683972f-2d55-4134-b585-c5ca27d050dd",
+            "pitch": [{
+              "start_speed": "89.6",
+              "des": "Called Strike",
+              "sv_id": "150408_134455",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "88.6",
+              "des": "Called Strike",
+              "sv_id": "150408_134508",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "93.3",
+              "des": "Called Strike",
+              "sv_id": "150408_134523",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "184204"
+          }, {
+            "home_team_runs": "0",
+            "des": "Yadier Molina pops out to second baseman Arismendy Alcantara.  ",
+            "b": "1",
+            "event_num": "82",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "2",
+            "batter": "425877",
+            "des_es": "Yadier Molina batea elevadito de out a segunda base Arismendy Alcantara.  ",
+            "event_es": "Elevado de Out",
+            "num": "10",
+            "start_tfs_zulu": "2015-04-08T18:43:06Z",
+            "s": "2",
+            "event": "Pop Out",
+            "b1": "",
+            "play_guid": "fef27d74-ab66-40cc-aa71-95e4453026a5",
+            "pitch": [{
+              "start_speed": "93.0",
+              "des": "Called Strike",
+              "sv_id": "150408_134556",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "94.5",
+              "des": "Foul",
+              "sv_id": "150408_134613",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "93.3",
+              "des": "Foul",
+              "sv_id": "150408_134635",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "91.8",
+              "des": "Ball",
+              "sv_id": "150408_134659",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.4",
+              "des": "In play, out(s)",
+              "sv_id": "150408_134718",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "184306"
+          }, {
+            "home_team_runs": "0",
+            "des": "Kolten Wong lines out to second baseman Arismendy Alcantara.  ",
+            "b": "0",
+            "event_num": "87",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "3",
+            "batter": "543939",
+            "des_es": "Kolten Wong batea l&#237;nea de out a segunda base Arismendy Alcantara.  ",
+            "event_es": "L&#237;nea de Out",
+            "num": "11",
+            "start_tfs_zulu": "2015-04-08T18:45:11Z",
+            "s": "1",
+            "event": "Lineout",
+            "b1": "",
+            "play_guid": "87c5043e-55ba-44bc-8e2c-e22ee5ea64e5",
+            "pitch": [{
+              "start_speed": "94.2",
+              "des": "Foul",
+              "sv_id": "150408_134752",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "90.4",
+              "des": "In play, out(s)",
+              "sv_id": "150408_134813",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "184511"
+          }]
+        }
+      }, {
+        "num": "3",
+        "bottom": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Arismendy Alcantara pops out to second baseman Kolten Wong.  ",
+            "b": "1",
+            "event_num": "154",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "1",
+            "batter": "570489",
+            "des_es": "Arismendy Alcantara batea elevadito de out a segunda base Kolten Wong.  ",
+            "event_es": "Elevado de Out",
+            "num": "20",
+            "start_tfs_zulu": "2015-04-08T19:05:52Z",
+            "s": "0",
+            "event": "Pop Out",
+            "b1": "",
+            "play_guid": "b92a4a4a-9e1a-4212-a4f9-f4d1409ad79e",
+            "pitch": [{
+              "start_speed": "75.2",
+              "des": "Ball",
+              "sv_id": "150408_140836",
+              "pitch_type": "CU",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.0",
+              "des": "In play, out(s)",
+              "sv_id": "150408_140852",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "190552"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jake Arrieta called out on strikes.  ",
+            "b": "0",
+            "event_num": "160",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "2",
+            "batter": "453562",
+            "des_es": "Jake Arrieta se poncha sin tirarle.  ",
+            "event_es": "Ponche",
+            "num": "21",
+            "start_tfs_zulu": "2015-04-08T19:06:30Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "0aa701d9-73f0-4ccc-b55b-a527c0806a74",
+            "pitch": [{
+              "start_speed": "91.5",
+              "des": "Called Strike",
+              "sv_id": "150408_140925",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "91.7",
+              "des": "Called Strike",
+              "sv_id": "150408_140936",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.4",
+              "des": "Called Strike",
+              "sv_id": "150408_140949",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "190630"
+          }, {
+            "home_team_runs": "0",
+            "des": "Tommy La Stella grounds out, second baseman Kolten Wong to first baseman Matt Adams.  ",
+            "b": "1",
+            "event_num": "166",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "3",
+            "batter": "600303",
+            "des_es": "Tommy La Stella batea rodado de out, segunda base Kolten Wong a primera base Matt Adams.  ",
+            "event_es": "Roletazo de Out",
+            "num": "22",
+            "start_tfs_zulu": "2015-04-08T19:07:41Z",
+            "s": "1",
+            "event": "Groundout",
+            "b1": "",
+            "play_guid": "a0770f0e-8363-43e6-997d-1bdb3b4fd906",
+            "pitch": [{
+              "start_speed": "92.2",
+              "des": "Ball",
+              "sv_id": "150408_141021",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.3",
+              "des": "Called Strike",
+              "sv_id": "150408_141035",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "93.0",
+              "des": "In play, out(s)",
+              "sv_id": "150408_141050",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "190741"
+          }]
+        },
+        "top": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Lance Lynn singles on a fly ball to right fielder Jorge Soler.  ",
+            "b": "2",
+            "event_num": "118",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "0",
+            "batter": "458681",
+            "des_es": "Lance Lynn pega sencillo con elevado a jardinero derecho Jorge Soler.  ",
+            "event_es": "Sencillo",
+            "num": "15",
+            "start_tfs_zulu": "2015-04-08T18:54:49Z",
+            "s": "2",
+            "event": "Single",
+            "b1": "458681",
+            "play_guid": "6bea598e-75eb-4255-b68b-8e9636bcd1d4",
+            "pitch": [{
+              "start_speed": "92.3",
+              "des": "Called Strike",
+              "sv_id": "150408_135737",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.3",
+              "des": "Ball",
+              "sv_id": "150408_135749",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.8",
+              "des": "Ball",
+              "sv_id": "150408_135803",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.6",
+              "des": "Foul",
+              "sv_id": "150408_135817",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "89.1",
+              "des": "In play, no out",
+              "sv_id": "150408_135841",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, no out"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "185449"
+          }, {
+            "home_team_runs": "0",
+            "des": "Matt Carpenter called out on strikes.  ",
+            "b": "2",
+            "event_num": "126",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "1",
+            "batter": "572761",
+            "des_es": "Matt Carpenter se poncha sin tirarle.  ",
+            "event_es": "Ponche",
+            "num": "16",
+            "start_tfs_zulu": "2015-04-08T18:56:29Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "pitch": [{
+              "start_speed": "92.9",
+              "des": "Ball",
+              "sv_id": "150408_135929",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "88.8",
+              "des": "Ball",
+              "sv_id": "150408_135955",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "93.9",
+              "des": "Foul",
+              "sv_id": "150408_140022",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "93.5",
+              "des": "Foul",
+              "sv_id": "150408_140053",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "91.1",
+              "des": "Called Strike",
+              "sv_id": "150408_140127",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "185629"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jason Heyward grounds into a force out, first baseman Anthony Rizzo to shortstop Starlin Castro.   Lance Lynn out at 2nd.    Jason Heyward to 1st.  ",
+            "b": "1",
+            "event_num": "133",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "2",
+            "batter": "518792",
+            "des_es": "Jason Heyward batea rodado batea para out forzado, primera base Anthony Rizzo a campo corto Starlin Castro.   Lance Lynn a cabo a 2da.    Jason Heyward a 1ra.  ",
+            "event_es": "Out Forzado",
+            "num": "17",
+            "start_tfs_zulu": "2015-04-08T18:59:08Z",
+            "s": "1",
+            "event": "Forceout",
+            "b1": "518792",
+            "play_guid": "196d33af-7b7d-4fc0-8a40-9b345225dbd1",
+            "pitch": [{
+              "start_speed": "92.9",
+              "des": "Called Strike",
+              "sv_id": "150408_140202",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "93.1",
+              "des": "Ball",
+              "sv_id": "150408_140224",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.8",
+              "des": "In play, out(s)",
+              "sv_id": "150408_140247",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "185908"
+          }, {
+            "home_team_runs": "0",
+            "des": "Matt Holliday singles on a ground ball to right fielder Jorge Soler.   Jason Heyward to 3rd.  ",
+            "b": "0",
+            "event_num": "140",
+            "b3": "518792",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "2",
+            "batter": "407812",
+            "des_es": "Matt Holliday pega sencillo con rodado a jardinero derecho Jorge Soler.   Jason Heyward a 3ra.  ",
+            "event_es": "Sencillo",
+            "num": "18",
+            "start_tfs_zulu": "2015-04-08T19:00:50Z",
+            "s": "1",
+            "event": "Single",
+            "b1": "407812",
+            "play_guid": "b91090bb-b200-404d-8453-028cfe10f4bc",
+            "pitch": [{
+              "start_speed": "89.4",
+              "des": "Called Strike",
+              "sv_id": "150408_140337",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "89.9",
+              "des": "In play, no out",
+              "sv_id": "150408_140402",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, no out"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "190050"
+          }, {
+            "home_team_runs": "0",
+            "des": "Matt Adams strikes out swinging.  ",
+            "b": "1",
+            "event_num": "147",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "3",
+            "batter": "571431",
+            "des_es": "Matt Adams se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "19",
+            "start_tfs_zulu": "2015-04-08T19:02:05Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "785caa40-6a2e-496e-9788-8c736960274e",
+            "pitch": [{
+              "start_speed": "93.7",
+              "des": "Foul Tip",
+              "sv_id": "150408_140456",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul atr&#225;s"
+            }, {
+              "start_speed": "94.4",
+              "des": "Ball",
+              "sv_id": "150408_140522",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.5",
+              "des": "Called Strike",
+              "sv_id": "150408_140544",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "80.9",
+              "des": "Swinging Strike",
+              "sv_id": "150408_140609",
+              "pitch_type": "CU",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "190205"
+          }]
+        }
+      }, {
+        "num": "4",
+        "bottom": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Dexter Fowler called out on strikes.  ",
+            "b": "2",
+            "event_num": "202",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "1",
+            "batter": "451594",
+            "des_es": "Dexter Fowler se poncha sin tirarle.  ",
+            "event_es": "Ponche",
+            "num": "26",
+            "start_tfs_zulu": "2015-04-08T19:19:14Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "acb9ea29-35a3-4e8e-80c4-248280a03aca",
+            "pitch": [{
+              "start_speed": "88.6",
+              "des": "Ball",
+              "sv_id": "150408_142214",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "86.1",
+              "des": "Ball",
+              "sv_id": "150408_142230",
+              "pitch_type": "CH",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "87.7",
+              "des": "Foul",
+              "sv_id": "150408_142248",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "90.9",
+              "des": "Foul",
+              "sv_id": "150408_142307",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.1",
+              "des": "Called Strike",
+              "sv_id": "150408_142329",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "191914"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jorge Soler triples (1) on a line drive to center fielder Jon Jay.  ",
+            "b": "2",
+            "event_num": "209",
+            "b3": "624585",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "1",
+            "batter": "624585",
+            "des_es": "Jorge Soler pega triple (1) con l&#237;nea al jardinero central Jon Jay.  ",
+            "event_es": "Triple",
+            "num": "27",
+            "start_tfs_zulu": "2015-04-08T19:21:17Z",
+            "s": "1",
+            "event": "Triple",
+            "b1": "",
+            "play_guid": "f3ff94aa-a1fc-4e79-9e1c-79674f4c98c8",
+            "pitch": [{
+              "start_speed": "85.2",
+              "des": "Ball",
+              "sv_id": "150408_142400",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.2",
+              "des": "Ball",
+              "sv_id": "150408_142415",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "85.5",
+              "des": "Called Strike",
+              "sv_id": "150408_142432",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.6",
+              "des": "In play, no out",
+              "sv_id": "150408_142446",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, no out"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "192117"
+          }, {
+            "home_team_runs": "0",
+            "des": "Anthony Rizzo walks.  ",
+            "b": "4",
+            "event_num": "218",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "1",
+            "batter": "519203",
+            "des_es": "Anthony Rizzo recibe base por bolas.  ",
+            "event_es": "Base por Bolas",
+            "num": "28",
+            "start_tfs_zulu": "2015-04-08T19:22:53Z",
+            "s": "1",
+            "event": "Walk",
+            "b1": "519203",
+            "play_guid": "e27b772b-5d13-440f-9cb2-1bcf0012ac3f",
+            "pitch": [{
+              "start_speed": "92.2",
+              "des": "Ball In Dirt",
+              "sv_id": "150408_142547",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola por el suelo"
+            }, {
+              "start_speed": "92.9",
+              "des": "Ball",
+              "sv_id": "150408_142618",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.3",
+              "des": "Foul",
+              "sv_id": "150408_142641",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.8",
+              "des": "Ball",
+              "sv_id": "150408_142721",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "93.2",
+              "des": "Ball",
+              "sv_id": "150408_142743",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "192253"
+          }, {
+            "home_team_runs": "0",
+            "des": "Starlin Castro strikes out on a foul tip.  ",
+            "b": "2",
+            "event_num": "227",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "2",
+            "batter": "516770",
+            "des_es": "Starlin Castro se poncha con foul tip.  ",
+            "event_es": "Ponche",
+            "num": "29",
+            "start_tfs_zulu": "2015-04-08T19:25:37Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "37c90ff2-ee40-4810-824e-5343ce79a1e3",
+            "pitch": [{
+              "start_speed": "91.0",
+              "des": "Ball",
+              "sv_id": "150408_142831",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.9",
+              "des": "Swinging Strike",
+              "sv_id": "150408_142858",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "92.1",
+              "des": "Swinging Strike",
+              "sv_id": "150408_142942",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "88.1",
+              "des": "Ball",
+              "sv_id": "150408_143009",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "86.1",
+              "des": "Foul",
+              "sv_id": "150408_143031",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.7",
+              "des": "Foul Tip",
+              "sv_id": "150408_143105",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Foul atr&#225;s"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "192537"
+          }, {
+            "home_team_runs": "0",
+            "des": "Chris Coghlan lines out to center fielder Jon Jay.  ",
+            "b": "2",
+            "event_num": "235",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "3",
+            "batter": "458085",
+            "des_es": "Chris Coghlan batea l&#237;nea de out a jardinero central Jon Jay.  ",
+            "event_es": "L&#237;nea de Out",
+            "num": "30",
+            "start_tfs_zulu": "2015-04-08T19:28:52Z",
+            "s": "2",
+            "event": "Lineout",
+            "b1": "",
+            "play_guid": "eb32dccd-cd4f-4df9-b4d2-ea632f084815",
+            "pitch": [{
+              "start_speed": "93.3",
+              "des": "Ball",
+              "sv_id": "150408_143150",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "93.3",
+              "des": "Ball",
+              "sv_id": "150408_143213",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.5",
+              "des": "Swinging Strike",
+              "sv_id": "150408_143314",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "92.7",
+              "des": "Swinging Strike",
+              "sv_id": "150408_143340",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "94.1",
+              "des": "In play, out(s)",
+              "sv_id": "150408_143423",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "192852"
+          }]
+        },
+        "top": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Jhonny Peralta grounds out, pitcher Jake Arrieta to first baseman Anthony Rizzo.  ",
+            "b": "2",
+            "event_num": "175",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "1",
+            "batter": "425509",
+            "des_es": "Jhonny Peralta batea rodado de out, lanzador Jake Arrieta a primera base Anthony Rizzo.  ",
+            "event_es": "Roletazo de Out",
+            "num": "23",
+            "start_tfs_zulu": "2015-04-08T19:10:34Z",
+            "s": "2",
+            "event": "Groundout",
+            "b1": "",
+            "play_guid": "d8c84b33-72ff-4983-83ed-8d06a66dacc5",
+            "pitch": [{
+              "start_speed": "92.2",
+              "des": "Foul",
+              "sv_id": "150408_141320",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.3",
+              "des": "Ball",
+              "sv_id": "150408_141358",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "78.8",
+              "des": "Ball",
+              "sv_id": "150408_141412",
+              "pitch_type": "CU",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.1",
+              "des": "Foul",
+              "sv_id": "150408_141431",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "93.4",
+              "des": "In play, out(s)",
+              "sv_id": "150408_141456",
+              "pitch_type": "SI",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "191034"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jon Jay flies out to center fielder Dexter Fowler.  ",
+            "b": "3",
+            "event_num": "184",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "2",
+            "batter": "445055",
+            "des_es": "Jon Jay batea elevado de out a jardinero central Dexter Fowler.  ",
+            "event_es": "Elevado de Out",
+            "num": "24",
+            "start_tfs_zulu": "2015-04-08T19:12:45Z",
+            "s": "2",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "cb99c4dd-a90f-4726-9960-ea933fdf6de6",
+            "pitch": [{
+              "start_speed": "92.6",
+              "des": "Foul",
+              "sv_id": "150408_141531",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.2",
+              "des": "Called Strike",
+              "sv_id": "150408_141552",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.7",
+              "des": "Ball",
+              "sv_id": "150408_141626",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "79.1",
+              "des": "Ball",
+              "sv_id": "150408_141644",
+              "pitch_type": "CU",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "93.0",
+              "des": "Ball",
+              "sv_id": "150408_141705",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "87.4",
+              "des": "In play, out(s)",
+              "sv_id": "150408_141725",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "191245"
+          }, {
+            "home_team_runs": "0",
+            "des": "Yadier Molina strikes out on a foul tip.  ",
+            "b": "2",
+            "event_num": "193",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "3",
+            "batter": "425877",
+            "des_es": "Yadier Molina se poncha con foul tip.  ",
+            "event_es": "Ponche",
+            "num": "25",
+            "start_tfs_zulu": "2015-04-08T19:15:14Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "d83b05cb-612c-4f31-ab85-f4c8a2b9775f",
+            "pitch": [{
+              "start_speed": "91.7",
+              "des": "Called Strike",
+              "sv_id": "150408_141803",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "89.1",
+              "des": "Foul",
+              "sv_id": "150408_141821",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.1",
+              "des": "Ball",
+              "sv_id": "150408_141845",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "93.3",
+              "des": "Ball",
+              "sv_id": "150408_141903",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.4",
+              "des": "Foul",
+              "sv_id": "150408_141922",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "78.6",
+              "des": "Foul Tip",
+              "sv_id": "150408_141946",
+              "pitch_type": "CU",
+              "type": "S",
+              "des_es": "Foul atr&#225;s"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "191514"
+          }]
+        }
+      }, {
+        "num": "5",
+        "bottom": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Miguel Montero flies out to center fielder Jon Jay.  ",
+            "b": "3",
+            "event_num": "267",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "1",
+            "batter": "471083",
+            "des_es": "Miguel Montero batea elevado de out a jardinero central Jon Jay.  ",
+            "event_es": "Elevado de Out",
+            "num": "34",
+            "start_tfs_zulu": "2015-04-08T19:39:57Z",
+            "s": "1",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "cd16da41-7739-41cc-a1fa-3e8b006edb46",
+            "pitch": [{
+              "start_speed": "84.5",
+              "des": "Foul",
+              "sv_id": "150408_144303",
+              "pitch_type": "CH",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "90.0",
+              "des": "Ball",
+              "sv_id": "150408_144323",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.3",
+              "des": "Ball",
+              "sv_id": "150408_144339",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.6",
+              "des": "Ball",
+              "sv_id": "150408_144357",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.2",
+              "des": "In play, out(s)",
+              "sv_id": "150408_144416",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "193957"
+          }, {
+            "home_team_runs": "0",
+            "des": "Arismendy Alcantara pops out to shortstop Jhonny Peralta.  ",
+            "b": "3",
+            "event_num": "275",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "2",
+            "batter": "570489",
+            "des_es": "Arismendy Alcantara batea elevadito de out a campo corto Jhonny Peralta.  ",
+            "event_es": "Elevado de Out",
+            "num": "35",
+            "start_tfs_zulu": "2015-04-08T19:42:16Z",
+            "s": "1",
+            "event": "Pop Out",
+            "b1": "",
+            "play_guid": "e8ff6c0b-351b-4d42-8436-7a450ce083d1",
+            "pitch": [{
+              "start_speed": "90.7",
+              "des": "Ball",
+              "sv_id": "150408_144457",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "87.7",
+              "des": "Ball",
+              "sv_id": "150408_144510",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "87.9",
+              "des": "Called Strike",
+              "sv_id": "150408_144529",
+              "pitch_type": "FA",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "91.2",
+              "des": "Ball",
+              "sv_id": "150408_144545",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.3",
+              "des": "In play, out(s)",
+              "sv_id": "150408_144605",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "194216"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jake Arrieta strikes out swinging.  ",
+            "b": "1",
+            "event_num": "283",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "3",
+            "batter": "453562",
+            "des_es": "Jake Arrieta se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "36",
+            "start_tfs_zulu": "2015-04-08T19:43:43Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "5b2a8928-0d2d-4c6a-b8d9-fb47c509ab57",
+            "pitch": [{
+              "start_speed": "92.3",
+              "des": "Called Strike",
+              "sv_id": "150408_144639",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.7",
+              "des": "Ball",
+              "sv_id": "150408_144653",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.8",
+              "des": "Called Strike",
+              "sv_id": "150408_144708",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "87.4",
+              "des": "Foul",
+              "sv_id": "150408_144723",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.4",
+              "des": "Swinging Strike",
+              "sv_id": "150408_144747",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "194343"
+          }]
+        },
+        "top": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Kolten Wong flies out to center fielder Dexter Fowler.  ",
+            "b": "2",
+            "event_num": "245",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "1",
+            "batter": "543939",
+            "des_es": "Kolten Wong batea elevado de out a jardinero central Dexter Fowler.  ",
+            "event_es": "Elevado de Out",
+            "num": "31",
+            "start_tfs_zulu": "2015-04-08T19:34:06Z",
+            "s": "2",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "92463536-44e1-4b68-9eb2-33b41b408ca3",
+            "pitch": [{
+              "start_speed": "92.0",
+              "des": "Ball",
+              "sv_id": "150408_143653",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "88.1",
+              "des": "Ball",
+              "sv_id": "150408_143707",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.7",
+              "des": "Foul",
+              "sv_id": "150408_143723",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.6",
+              "des": "Foul",
+              "sv_id": "150408_143742",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "93.1",
+              "des": "In play, out(s)",
+              "sv_id": "150408_143802",
+              "pitch_type": "SI",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "193406"
+          }, {
+            "home_team_runs": "0",
+            "des": "Lance Lynn flies out to center fielder Dexter Fowler.  ",
+            "b": "2",
+            "event_num": "253",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "2",
+            "batter": "458681",
+            "des_es": "Lance Lynn batea elevado de out a jardinero central Dexter Fowler.  ",
+            "event_es": "Elevado de Out",
+            "num": "32",
+            "start_tfs_zulu": "2015-04-08T19:35:53Z",
+            "s": "2",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "eb5b6872-7726-4a7b-890c-3d6ac56b22c9",
+            "pitch": [{
+              "start_speed": "91.0",
+              "des": "Ball",
+              "sv_id": "150408_143836",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.4",
+              "des": "Ball",
+              "sv_id": "150408_143848",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.6",
+              "des": "Called Strike",
+              "sv_id": "150408_143903",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.9",
+              "des": "Foul",
+              "sv_id": "150408_143917",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.2",
+              "des": "In play, out(s)",
+              "sv_id": "150408_143940",
+              "pitch_type": "SI",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "193553"
+          }, {
+            "home_team_runs": "0",
+            "des": "Matt Carpenter flies out to left fielder Chris Coghlan.  ",
+            "b": "0",
+            "event_num": "258",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "3",
+            "batter": "572761",
+            "des_es": "Matt Carpenter batea elevado de out a jardinero izquierdo Chris Coghlan.  ",
+            "event_es": "Elevado de Out",
+            "num": "33",
+            "start_tfs_zulu": "2015-04-08T19:37:33Z",
+            "s": "1",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "5730fcc3-39b8-45ac-b2fb-b92ce88a5c40",
+            "pitch": [{
+              "start_speed": "92.4",
+              "des": "Called Strike",
+              "sv_id": "150408_144021",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "88.0",
+              "des": "In play, out(s)",
+              "sv_id": "150408_144038",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "193733"
+          }]
+        }
+      }, {
+        "num": "6",
+        "bottom": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Tommy La Stella strikes out swinging.  ",
+            "b": "0",
+            "event_num": "320",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "1",
+            "batter": "600303",
+            "des_es": "Tommy La Stella se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "42",
+            "start_tfs_zulu": "2015-04-08T19:55:31Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "pitch": [{
+              "start_speed": "85.0",
+              "des": "Called Strike",
+              "sv_id": "150408_145816",
+              "pitch_type": "CH",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "84.6",
+              "des": "Called Strike",
+              "sv_id": "150408_145829",
+              "pitch_type": "CU",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "84.4",
+              "des": "Swinging Strike",
+              "sv_id": "150408_145845",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "195531"
+          }, {
+            "home_team_runs": "0",
+            "des": "Dexter Fowler flies out to center fielder Jon Jay.  ",
+            "b": "2",
+            "event_num": "327",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "2",
+            "batter": "451594",
+            "des_es": "Dexter Fowler batea elevado de out a jardinero central Jon Jay.  ",
+            "event_es": "Elevado de Out",
+            "num": "43",
+            "start_tfs_zulu": "2015-04-08T19:56:31Z",
+            "s": "1",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "f0456fcb-2571-42e1-8413-217fafed9b20",
+            "pitch": [{
+              "start_speed": "90.8",
+              "des": "Swinging Strike",
+              "sv_id": "150408_145914",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "90.2",
+              "des": "Ball",
+              "sv_id": "150408_145933",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.1",
+              "des": "Ball",
+              "sv_id": "150408_145946",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.9",
+              "des": "In play, out(s)",
+              "sv_id": "150408_150001",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "195631"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jorge Soler called out on strikes.  ",
+            "b": "0",
+            "event_num": "333",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "3",
+            "batter": "624585",
+            "des_es": "Jorge Soler se poncha sin tirarle.  ",
+            "event_es": "Ponche",
+            "num": "44",
+            "start_tfs_zulu": "2015-04-08T19:57:52Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "e433c2ff-62cf-4c0a-8217-9733412866e8",
+            "pitch": [{
+              "start_speed": "91.9",
+              "des": "Foul",
+              "sv_id": "150408_150036",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.3",
+              "des": "Called Strike",
+              "sv_id": "150408_150059",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "93.5",
+              "des": "Called Strike",
+              "sv_id": "150408_150114",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "195752"
+          }]
+        },
+        "top": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Jason Heyward grounds out, second baseman Arismendy Alcantara to first baseman Anthony Rizzo.  ",
+            "b": "1",
+            "event_num": "289",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "1",
+            "batter": "518792",
+            "des_es": "Jason Heyward batea rodado de out, segunda base Arismendy Alcantara a primera base Anthony Rizzo.  ",
+            "event_es": "Roletazo de Out",
+            "num": "37",
+            "start_tfs_zulu": "2015-04-08T19:47:23Z",
+            "s": "0",
+            "event": "Groundout",
+            "b1": "",
+            "play_guid": "ef0894b4-2448-401e-a45a-3b9640907daa",
+            "pitch": [{
+              "start_speed": "91.5",
+              "des": "Ball",
+              "sv_id": "150408_145016",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "85.9",
+              "des": "In play, out(s)",
+              "sv_id": "150408_145030",
+              "pitch_type": "CH",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "194723"
+          }, {
+            "home_team_runs": "0",
+            "des": "Matt Holliday pops out to first baseman Anthony Rizzo in foul territory.  ",
+            "b": "0",
+            "event_num": "294",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "2",
+            "batter": "407812",
+            "des_es": "Matt Holliday batea elevadito de out a primera base Anthony Rizzo en territorio de foul.  ",
+            "event_es": "Elevado de Out",
+            "num": "38",
+            "start_tfs_zulu": "2015-04-08T19:48:26Z",
+            "s": "1",
+            "event": "Pop Out",
+            "b1": "",
+            "play_guid": "7ced28f9-2d43-4b0e-8431-df869e8c3dc6",
+            "pitch": [{
+              "start_speed": "91.7",
+              "des": "Foul",
+              "sv_id": "150408_145114",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "77.8",
+              "des": "In play, out(s)",
+              "sv_id": "150408_145137",
+              "pitch_type": "CU",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "194826"
+          }, {
+            "home_team_runs": "0",
+            "des": "Matt Adams walks.  ",
+            "b": "4",
+            "event_num": "303",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "2",
+            "batter": "571431",
+            "des_es": "Matt Adams recibe base por bolas.  ",
+            "event_es": "Base por Bolas",
+            "num": "39",
+            "start_tfs_zulu": "2015-04-08T19:49:32Z",
+            "s": "2",
+            "event": "Walk",
+            "b1": "571431",
+            "play_guid": "6eb36ba0-d292-4655-94f1-92582fadf54b",
+            "pitch": [{
+              "start_speed": "91.8",
+              "des": "Foul",
+              "sv_id": "150408_145212",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "87.3",
+              "des": "Ball",
+              "sv_id": "150408_145231",
+              "pitch_type": "CH",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "88.6",
+              "des": "Called Strike",
+              "sv_id": "150408_145249",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "93.2",
+              "des": "Ball",
+              "sv_id": "150408_145307",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "93.1",
+              "des": "Ball",
+              "sv_id": "150408_145324",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.3",
+              "des": "Ball",
+              "sv_id": "150408_145345",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "194932"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jhonny Peralta doubles (1) on a line drive to left fielder Chris Coghlan.   Matt Adams to 3rd.  ",
+            "b": "0",
+            "event_num": "308",
+            "b3": "571431",
+            "pitcher": "453562",
+            "b2": "425509",
+            "o": "2",
+            "batter": "425509",
+            "des_es": "Jhonny Peralta pega doble (1) con l&#237;nea a jardinero izquierdo Chris Coghlan.   Matt Adams a 3ra.  ",
+            "event_es": "Doble",
+            "num": "40",
+            "start_tfs_zulu": "2015-04-08T19:51:37Z",
+            "s": "0",
+            "event": "Double",
+            "b1": "",
+            "play_guid": "303d08c0-3589-4b3e-96e6-79a86048bd20",
+            "pitch": {
+              "start_speed": "87.5",
+              "des": "In play, no out",
+              "sv_id": "150408_145422",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, no out"
+            },
+            "away_team_runs": "0",
+            "start_tfs": "195137"
+          }, {
+            "home_team_runs": "0",
+            "des": "Jon Jay grounds out, pitcher Jake Arrieta to first baseman Anthony Rizzo.  ",
+            "b": "0",
+            "event_num": "312",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "3",
+            "batter": "445055",
+            "des_es": "Jon Jay batea rodado de out, lanzador Jake Arrieta a primera base Anthony Rizzo.  ",
+            "event_es": "Roletazo de Out",
+            "num": "41",
+            "start_tfs_zulu": "2015-04-08T19:52:56Z",
+            "s": "0",
+            "event": "Groundout",
+            "b1": "",
+            "play_guid": "e3f1b498-b9e8-4402-a737-1a2c6ea5836b",
+            "pitch": {
+              "start_speed": "89.1",
+              "des": "In play, out(s)",
+              "sv_id": "150408_145539",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            },
+            "away_team_runs": "0",
+            "start_tfs": "195256"
+          }]
+        }
+      }, {
+        "num": "7",
+        "bottom": {
+          "action": [{
+            "home_team_runs": "0",
+            "des": "With Starlin Castro batting, throwing error by Lance Lynn on the pickoff attempt, Anthony Rizzo to 2nd.  ",
+            "b": "1",
+            "player": "519203",
+            "event_num": "366",
+            "o": "0",
+            "des_es": "Con Starlin Castro bateando, error en tiro de Lance Lynn en el intent de viraje, Anthony Rizzo a 2da.  ",
+            "event_es": "Error en Viraje a 1B",
+            "s": "0",
+            "event": "Pickoff Error 1B",
+            "tfs": "200955",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:09:55Z",
+            "pitch": "1"
+          }, {
+            "home_team_runs": "1",
+            "des": "Coaching visit to mound.  ",
+            "b": "1",
+            "player": "458085",
+            "event_num": "374",
+            "o": "0",
+            "des_es": "Visita del Instructor a la Lomita",
+            "event_es": "Aviso en el Juego",
+            "s": "1",
+            "event": "Game Advisory",
+            "tfs": "201148",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:11:48Z",
+            "pitch": "3"
+          }, {
+            "home_team_runs": "1",
+            "des": "Pitching Change: Kevin Siegrist replaces Lance Lynn, batting 9th.  ",
+            "b": "0",
+            "player": "458681",
+            "event_num": "377",
+            "o": "0",
+            "des_es": "Cambio de Lanzador: Kevin Siegrist reemplaza a Lance Lynn, bateando noveno.  ",
+            "event_es": "Cambio de Lanzador",
+            "s": "0",
+            "event": "Pitching Substitution",
+            "tfs": "201334",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:13:34Z",
+            "pitch": "3"
+          }],
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Anthony Rizzo hit by pitch.  ",
+            "b": "1",
+            "event_num": "360",
+            "b3": "",
+            "pitcher": "458681",
+            "b2": "",
+            "o": "0",
+            "batter": "519203",
+            "des_es": "Anthony Rizzo golpeado por lanzamiento.  ",
+            "event_es": "Pelotazo",
+            "num": "48",
+            "start_tfs_zulu": "2015-04-08T20:07:47Z",
+            "s": "0",
+            "event": "Hit By Pitch",
+            "b1": "519203",
+            "play_guid": "399ff0eb-db17-44b2-a3b8-c554ab20f2fe",
+            "pitch": [{
+              "start_speed": "86.3",
+              "des": "Ball",
+              "sv_id": "150408_151033",
+              "pitch_type": "CH",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.9",
+              "des": "Hit By Pitch",
+              "sv_id": "150408_151049",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Pelotazo"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "200747"
+          }, {
+            "home_team_runs": "1",
+            "des": "Starlin Castro singles on a line drive to left fielder Matt Holliday.   Anthony Rizzo scores.    Starlin Castro to 2nd on the throw.  ",
+            "b": "1",
+            "event_num": "373",
+            "b3": "",
+            "score": "T",
+            "pitcher": "458681",
+            "b2": "519203 516770",
+            "o": "0",
+            "batter": "516770",
+            "des_es": "Starlin Castro pega sencillo con l&#237;nea a jardinero izquierdo Matt Holliday.   Anthony Rizzo anota  Starlin Castro a 2da con el tiro.  ",
+            "rbi": "1",
+            "event_es": "Sencillo",
+            "num": "49",
+            "start_tfs_zulu": "2015-04-08T20:08:52Z",
+            "s": "1",
+            "event": "Single",
+            "b1": "",
+            "pitch": [{
+              "start_speed": "90.6",
+              "des": "Ball",
+              "sv_id": "150408_151141",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "84.8",
+              "des": "Called Strike",
+              "sv_id": "150408_151305",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "82.8",
+              "des": "In play, run(s)",
+              "sv_id": "150408_151326",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, carrera(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "200852"
+          }, {
+            "home_team_runs": "1",
+            "des": "Chris Coghlan out on a sacrifice bunt, pitcher Kevin Siegrist to first baseman Matt Adams.   Starlin Castro to 3rd.  ",
+            "b": "0",
+            "event_num": "383",
+            "b3": "516770",
+            "pitcher": "543779",
+            "b2": "",
+            "o": "1",
+            "batter": "458085",
+            "des_es": "Chris Coghlan out en toque de sacrificio, lanzador Kevin Siegrist a primera base Matt Adams.   Starlin Castro a 3ra.  ",
+            "event_es": "Toque de Sacrificio",
+            "num": "50",
+            "start_tfs_zulu": "2015-04-08T20:13:59Z",
+            "s": "1",
+            "event": "Sac Bunt",
+            "b1": "",
+            "play_guid": "05da4e3b-7585-4d1c-ab62-a13bb3f2dc42",
+            "pitch": [{
+              "start_speed": "90.9",
+              "des": "Called Strike",
+              "sv_id": "150408_151637",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "91.7",
+              "des": "In play, out(s)",
+              "sv_id": "150408_151700",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "201359"
+          }, {
+            "home_team_runs": "2",
+            "des": "Miguel Montero out on a sacrifice fly to right fielder Jason Heyward.   Starlin Castro scores.  ",
+            "b": "2",
+            "event_num": "392",
+            "b3": "",
+            "score": "T",
+            "pitcher": "543779",
+            "b2": "",
+            "o": "2",
+            "batter": "471083",
+            "des_es": "Miguel Montero out con elevado de sacrificio a jardinero derecho Jason Heyward.   Starlin Castro anota.  ",
+            "rbi": "1",
+            "event_es": "Elevado de Sacrificio",
+            "num": "51",
+            "start_tfs_zulu": "2015-04-08T20:15:16Z",
+            "s": "1",
+            "event": "Sac Fly",
+            "b1": "",
+            "play_guid": "ff0aba4d-6b98-463a-9435-d38be53e0959",
+            "pitch": [{
+              "start_speed": "92.3",
+              "des": "Called Strike",
+              "sv_id": "150408_151802",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.6",
+              "des": "Ball",
+              "sv_id": "150408_151824",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.4",
+              "des": "Ball In Dirt",
+              "sv_id": "150408_151847",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola por el suelo"
+            }, {
+              "start_speed": "92.3",
+              "des": "In play, run(s)",
+              "sv_id": "150408_151914",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, carrera(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "201516"
+          }, {
+            "home_team_runs": "2",
+            "des": "Arismendy Alcantara strikes out swinging.  ",
+            "b": "1",
+            "event_num": "399",
+            "b3": "",
+            "pitcher": "543779",
+            "b2": "",
+            "o": "3",
+            "batter": "570489",
+            "des_es": "Arismendy Alcantara se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "52",
+            "start_tfs_zulu": "2015-04-08T20:17:20Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "efb989c9-aedb-4907-8914-bb9fdbe14523",
+            "pitch": [{
+              "start_speed": "92.1",
+              "des": "Foul",
+              "sv_id": "150408_152002",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "83.2",
+              "des": "Ball",
+              "sv_id": "150408_152022",
+              "pitch_type": "CH",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "83.0",
+              "des": "Foul",
+              "sv_id": "150408_152039",
+              "pitch_type": "CH",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.7",
+              "des": "Swinging Strike",
+              "sv_id": "150408_152059",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "201720"
+          }]
+        },
+        "top": {
+          "atbat": [{
+            "home_team_runs": "0",
+            "des": "Yadier Molina lines out to shortstop Starlin Castro.  ",
+            "b": "0",
+            "event_num": "339",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "1",
+            "batter": "425877",
+            "des_es": "Yadier Molina batea l&#237;nea de out a campo corto Starlin Castro.  ",
+            "event_es": "L&#237;nea de Out",
+            "num": "45",
+            "start_tfs_zulu": "2015-04-08T20:00:50Z",
+            "s": "1",
+            "event": "Lineout",
+            "b1": "",
+            "play_guid": "0438b3b3-6565-4d36-b3e4-fd0a401977df",
+            "pitch": [{
+              "start_speed": "87.7",
+              "des": "Foul",
+              "sv_id": "150408_150341",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "89.2",
+              "des": "In play, out(s)",
+              "sv_id": "150408_150402",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "200050"
+          }, {
+            "home_team_runs": "0",
+            "des": "Kolten Wong strikes out swinging.  ",
+            "b": "3",
+            "event_num": "348",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "2",
+            "batter": "543939",
+            "des_es": "Kolten Wong se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "46",
+            "start_tfs_zulu": "2015-04-08T20:01:50Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "7fc147f4-fca3-4a9d-8eb5-55dd2e1d547f",
+            "pitch": [{
+              "start_speed": "92.2",
+              "des": "Called Strike",
+              "sv_id": "150408_150436",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "87.3",
+              "des": "Swinging Strike",
+              "sv_id": "150408_150450",
+              "pitch_type": "CH",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "86.3",
+              "des": "Ball",
+              "sv_id": "150408_150520",
+              "pitch_type": "CH",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "86.8",
+              "des": "Ball",
+              "sv_id": "150408_150538",
+              "pitch_type": "CH",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.9",
+              "des": "Ball",
+              "sv_id": "150408_150557",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.5",
+              "des": "Swinging Strike",
+              "sv_id": "150408_150622",
+              "pitch_type": "SL",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "200150"
+          }, {
+            "home_team_runs": "0",
+            "des": "Lance Lynn called out on strikes.  ",
+            "b": "1",
+            "event_num": "355",
+            "b3": "",
+            "pitcher": "453562",
+            "b2": "",
+            "o": "3",
+            "batter": "458681",
+            "des_es": "Lance Lynn se poncha sin tirarle.  ",
+            "event_es": "Ponche",
+            "num": "47",
+            "start_tfs_zulu": "2015-04-08T20:04:07Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "6950b50a-8845-411c-ba3f-2b0f82131a89",
+            "pitch": [{
+              "start_speed": "91.2",
+              "des": "Ball",
+              "sv_id": "150408_150650",
+              "pitch_type": "SI",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.6",
+              "des": "Foul",
+              "sv_id": "150408_150703",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "92.1",
+              "des": "Swinging Strike",
+              "sv_id": "150408_150735",
+              "pitch_type": "SI",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "77.0",
+              "des": "Called Strike",
+              "sv_id": "150408_150752",
+              "pitch_type": "CU",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "200407"
+          }]
+        }
+      }, {
+        "num": "8",
+        "bottom": {
+          "action": {
+            "home_team_runs": "2",
+            "des": "Pitching Change: Matt Belisle replaces Kevin Siegrist, batting 9th.  ",
+            "b": "0",
+            "player": "279571",
+            "event_num": "444",
+            "o": "0",
+            "des_es": "Cambio de Lanzador: Matt Belisle reemplaza a Kevin Siegrist, bateando noveno.  ",
+            "event_es": "Cambio de Lanzador",
+            "s": "0",
+            "event": "Pitching Substitution",
+            "tfs": "203452",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:34:52Z",
+            "pitch": "2"
+          },
+          "atbat": [{
+            "home_team_runs": "2",
+            "des": "Cubs challenged (play at 1st), call on the field was upheld: Matt Szczur bunt grounds out, pitcher Matt Belisle to first baseman Matt Adams.  ",
+            "b": "0",
+            "event_num": "450",
+            "b3": "",
+            "pitcher": "279571",
+            "b2": "",
+            "o": "1",
+            "batter": "519333",
+            "des_es": "Cubs reto (jugada en la 1ra) negado, se mantiene la decisi&#243;n. Matt Szczur batea rodado con toque de out, lanzador Matt Belisle a primera base Matt Adams.  ",
+            "event_es": "Roletazo de Out en Toque de Bola",
+            "num": "57",
+            "start_tfs_zulu": "2015-04-08T20:35:48Z",
+            "s": "1",
+            "event": "Bunt Groundout",
+            "b1": "",
+            "play_guid": "c57b692d-dd11-489f-992b-d939ef867a97",
+            "pitch": [{
+              "start_speed": "89.1",
+              "des": "Called Strike",
+              "sv_id": "150408_153833",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "89.7",
+              "des": "In play, out(s)",
+              "sv_id": "150408_153844",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "203548"
+          }, {
+            "home_team_runs": "2",
+            "des": "Tommy La Stella flies out to right fielder Jason Heyward.  ",
+            "b": "3",
+            "event_num": "458",
+            "b3": "",
+            "pitcher": "279571",
+            "b2": "",
+            "o": "2",
+            "batter": "600303",
+            "des_es": "Tommy La Stella batea elevado de out a jardinero derecho Jason Heyward.  ",
+            "event_es": "Elevado de Out",
+            "num": "58",
+            "start_tfs_zulu": "2015-04-08T20:37:58Z",
+            "s": "2",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "128b8bf9-1cfe-420d-8cf8-423935afa188",
+            "pitch": [{
+              "start_speed": "89.1",
+              "des": "Ball",
+              "sv_id": "150408_154046",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.0",
+              "des": "Called Strike",
+              "sv_id": "150408_154058",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "90.5",
+              "des": "Ball",
+              "sv_id": "150408_154112",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "",
+              "des": "Ball",
+              "sv_id": "",
+              "pitch_type": "",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.5",
+              "des": "In play, out(s)",
+              "sv_id": "150408_154128",
+              "pitch_type": "FF",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "203758"
+          }, {
+            "home_team_runs": "2",
+            "des": "Dexter Fowler strikes out swinging.  ",
+            "b": "3",
+            "event_num": "468",
+            "b3": "",
+            "pitcher": "279571",
+            "b2": "",
+            "o": "3",
+            "batter": "451594",
+            "des_es": "Dexter Fowler se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "59",
+            "start_tfs_zulu": "2015-04-08T20:39:19Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "ebe87a1e-9eb7-4701-9259-a3c24f331b71",
+            "pitch": [{
+              "start_speed": "70.8",
+              "des": "Called Strike",
+              "sv_id": "150408_154200",
+              "pitch_type": "CU",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "87.4",
+              "des": "Ball",
+              "sv_id": "150408_154208",
+              "pitch_type": "CH",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "90.1",
+              "des": "Foul",
+              "sv_id": "150408_154221",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "74.9",
+              "des": "Ball",
+              "sv_id": "150408_154235",
+              "pitch_type": "CU",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.9",
+              "des": "Foul",
+              "sv_id": "150408_154255",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "89.7",
+              "des": "Ball",
+              "sv_id": "150408_154309",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "89.7",
+              "des": "Swinging Strike",
+              "sv_id": "150408_154325",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "203919"
+          }]
+        },
+        "top": {
+          "action": [{
+            "home_team_runs": "2",
+            "des": "Pitching Change: Phil Coke replaces Jake Arrieta, batting 5th, replacing left fielder Chris Coghlan.  ",
+            "b": "0",
+            "player": "457435",
+            "event_num": "402",
+            "o": "0",
+            "des_es": "Cambio de Lanzador: Phil Coke reemplaza a Jake Arrieta, como quinto bate, en lugar de jardinero izquierdo Chris Coghlan.  ",
+            "event_es": "Cambio de Lanzador",
+            "s": "0",
+            "event": "Pitching Substitution",
+            "tfs": "202109",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:21:09Z",
+            "pitch": "4"
+          }, {
+            "home_team_runs": "2",
+            "des": "Defensive Substitution: Matt Szczur replaces pitcher Jake Arrieta, batting 8th, playing left field.  ",
+            "b": "0",
+            "player": "519333",
+            "event_num": "404",
+            "o": "0",
+            "des_es": "Sustituci&#243;n a la Defensiva: Matt Szczur reemplaza a lanzador Jake Arrieta, como octavo bate y jugando en el  jardinero izquierdo.  ",
+            "event_es": "Sustituci&#243;n Defensiva",
+            "s": "0",
+            "event": "Defensive Sub",
+            "tfs": "202109",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:21:09Z",
+            "pitch": "4"
+          }, {
+            "home_team_runs": "2",
+            "des": "Coaching visit to mound.  ",
+            "b": "2",
+            "player": "407812",
+            "event_num": "421",
+            "o": "1",
+            "des_es": "Visita del Instructor a la Lomita",
+            "event_es": "Aviso en el Juego",
+            "s": "1",
+            "event": "Game Advisory",
+            "tfs": "202549",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:25:49Z",
+            "pitch": "4"
+          }, {
+            "home_team_runs": "2",
+            "des": "Pitching Change: Neil Ramirez replaces Phil Coke, batting 5th.  ",
+            "b": "0",
+            "player": "519166",
+            "event_num": "423",
+            "o": "1",
+            "des_es": "Cambio de Lanzador: Neil Ramirez reemplaza a Phil Coke, bateando quinto.  ",
+            "event_es": "Cambio de Lanzador",
+            "s": "0",
+            "event": "Pitching Substitution",
+            "tfs": "202624",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:26:24Z",
+            "pitch": "4"
+          }, {
+            "home_team_runs": "2",
+            "des": "Coaching visit to mound.  ",
+            "b": "2",
+            "player": "571431",
+            "event_num": "433",
+            "o": "2",
+            "des_es": "Visita del Instructor a la Lomita",
+            "event_es": "Aviso en el Juego",
+            "s": "2",
+            "event": "Game Advisory",
+            "tfs": "203103",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:31:03Z",
+            "pitch": "5"
+          }, {
+            "home_team_runs": "2",
+            "des": "Pitching Change: Pedro Strop replaces Neil Ramirez, batting 5th.  ",
+            "b": "0",
+            "player": "467008",
+            "event_num": "435",
+            "o": "2",
+            "des_es": "Cambio de Lanzador: Pedro Strop reemplaza a Neil Ramirez, bateando quinto.  ",
+            "event_es": "Cambio de Lanzador",
+            "s": "0",
+            "event": "Pitching Substitution",
+            "tfs": "203120",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:31:20Z",
+            "pitch": "5"
+          }],
+          "atbat": [{
+            "home_team_runs": "2",
+            "des": "Matt Carpenter strikes out swinging.  ",
+            "b": "2",
+            "event_num": "412",
+            "b3": "",
+            "pitcher": "457435",
+            "b2": "",
+            "o": "1",
+            "batter": "572761",
+            "des_es": "Matt Carpenter se poncha tir&#225;ndole.  ",
+            "event_es": "Ponche",
+            "num": "53",
+            "start_tfs_zulu": "2015-04-08T20:21:28Z",
+            "s": "3",
+            "event": "Strikeout",
+            "b1": "",
+            "play_guid": "34875aee-6d56-495a-9cfa-cbabdb6c27bc",
+            "pitch": [{
+              "start_speed": "91.3",
+              "des": "Called Strike",
+              "sv_id": "150408_152411",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "91.4",
+              "des": "Ball",
+              "sv_id": "150408_152432",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.3",
+              "des": "Ball",
+              "sv_id": "150408_152455",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.6",
+              "des": "Called Strike",
+              "sv_id": "150408_152522",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike cantado"
+            }, {
+              "start_speed": "92.2",
+              "des": "Swinging Strike",
+              "sv_id": "150408_152547",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "202128"
+          }, {
+            "home_team_runs": "2",
+            "des": "Jason Heyward reaches on a fielding error by shortstop Starlin Castro.  ",
+            "b": "2",
+            "event_num": "420",
+            "b3": "",
+            "pitcher": "457435",
+            "b2": "",
+            "o": "1",
+            "batter": "518792",
+            "des_es": "Jason Heyward se embasa por error en fildeo de campo corto Starlin Castro.  ",
+            "event_es": "Error de Fildeo",
+            "num": "54",
+            "start_tfs_zulu": "2015-04-08T20:23:50Z",
+            "s": "1",
+            "event": "Field Error",
+            "b1": "518792",
+            "play_guid": "d93d4259-876f-4074-b001-e98526a330d3",
+            "pitch": [{
+              "start_speed": "78.5",
+              "des": "Ball",
+              "sv_id": "150408_152634",
+              "pitch_type": "SL",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "91.6",
+              "des": "Ball",
+              "sv_id": "150408_152654",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "92.9",
+              "des": "Foul",
+              "sv_id": "150408_152721",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "91.5",
+              "des": "In play, no out",
+              "sv_id": "150408_152801",
+              "pitch_type": "FT",
+              "type": "X",
+              "des_es": "En juego, no out"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "202350"
+          }, {
+            "home_team_runs": "2",
+            "des": "Matt Holliday flies out to right fielder Jorge Soler.  ",
+            "b": "2",
+            "event_num": "432",
+            "b3": "",
+            "pitcher": "519166",
+            "b2": "",
+            "o": "2",
+            "batter": "407812",
+            "des_es": "Matt Holliday batea elevado de out a jardinero derecho Jorge Soler.  ",
+            "event_es": "Elevado de Out",
+            "num": "55",
+            "start_tfs_zulu": "2015-04-08T20:28:10Z",
+            "s": "2",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "138f22b1-7f80-456a-9e05-ae3390711d9b",
+            "pitch": [{
+              "start_speed": "93.2",
+              "des": "Foul",
+              "sv_id": "150408_153050",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "93.4",
+              "des": "Ball",
+              "sv_id": "150408_153115",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "93.7",
+              "des": "Foul (Runner Going)",
+              "sv_id": "150408_153141",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Foul (Corredor en movimiento)"
+            }, {
+              "start_speed": "93.3",
+              "des": "Ball",
+              "sv_id": "150408_153224",
+              "pitch_type": "FF",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "86.8",
+              "des": "In play, out(s)",
+              "sv_id": "150408_153309",
+              "pitch_type": "SL",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "202810"
+          }, {
+            "home_team_runs": "2",
+            "des": "Matt Adams lines out to shortstop Starlin Castro.  ",
+            "b": "0",
+            "event_num": "440",
+            "b3": "",
+            "pitcher": "467008",
+            "b2": "",
+            "o": "3",
+            "batter": "571431",
+            "des_es": "Matt Adams batea l&#237;nea de out a campo corto Starlin Castro.  ",
+            "event_es": "L&#237;nea de Out",
+            "num": "56",
+            "start_tfs_zulu": "2015-04-08T20:32:46Z",
+            "s": "1",
+            "event": "Lineout",
+            "b1": "",
+            "play_guid": "3f7ea635-ac7f-4ec8-8568-51658281df4b",
+            "pitch": [{
+              "start_speed": "93.9",
+              "des": "Swinging Strike",
+              "sv_id": "150408_153553",
+              "pitch_type": "FT",
+              "type": "S",
+              "des_es": "Strike tir&#225;ndole"
+            }, {
+              "start_speed": "94.6",
+              "des": "In play, out(s)",
+              "sv_id": "150408_153612",
+              "pitch_type": "FT",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "203246"
+          }]
+        }
+      }, {
+        "num": "9",
+        "bottom": {},
+        "top": {
+          "action": [{
+            "home_team_runs": "2",
+            "des": "Defensive Substitution: Mike Olt replaces pitcher Pedro Strop, batting 5th, playing third base.  ",
+            "b": "0",
+            "player": "592609",
+            "event_num": "471",
+            "o": "0",
+            "des_es": "Sustituci&#243;n a la Defensiva: Mike Olt reemplaza a lanzador Pedro Strop, como quinto bate y jugando en el tercera base.  ",
+            "event_es": "Sustituci&#243;n Defensiva",
+            "s": "0",
+            "event": "Defensive Sub",
+            "tfs": "204218",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:42:18Z",
+            "pitch": "7"
+          }, {
+            "home_team_runs": "2",
+            "des": "Pitching Change: Hector Rondon replaces Pedro Strop, batting 9th, replacing third baseman Tommy La Stella.  ",
+            "b": "0",
+            "player": "444468",
+            "event_num": "473",
+            "o": "0",
+            "des_es": "Cambio de lanzador: Hector Rondon reemplaza a Pedro Strop, como noveno bate, en lugar de tercera base Tommy La Stella.  ",
+            "event_es": "Cambio de Lanzador",
+            "s": "0",
+            "event": "Pitching Substitution",
+            "tfs": "204218",
+            "away_team_runs": "0",
+            "tfs_zulu": "2015-04-08T20:42:18Z",
+            "pitch": "7"
+          }],
+          "atbat": [{
+            "home_team_runs": "2",
+            "des": "Jhonny Peralta lines out to left fielder Matt Szczur.  ",
+            "b": "1",
+            "event_num": "480",
+            "b3": "",
+            "pitcher": "444468",
+            "b2": "",
+            "o": "1",
+            "batter": "425509",
+            "des_es": "Jhonny Peralta batea l&#237;nea de out a jardinero izquierdo Matt Szczur.  ",
+            "event_es": "L&#237;nea de Out",
+            "num": "60",
+            "start_tfs_zulu": "2015-04-08T20:43:08Z",
+            "s": "2",
+            "event": "Lineout",
+            "b1": "",
+            "play_guid": "b90674a5-273f-4da4-b50f-de6d7ca22cac",
+            "pitch": [{
+              "start_speed": "95.5",
+              "des": "Foul",
+              "sv_id": "150408_154553",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "95.9",
+              "des": "Foul",
+              "sv_id": "150408_154611",
+              "pitch_type": "FF",
+              "type": "S",
+              "des_es": "Foul"
+            }, {
+              "start_speed": "95.9",
+              "des": "Ball",
+              "sv_id": "150408_154629",
+              "pitch_type": "FT",
+              "type": "B",
+              "des_es": "Bola mala"
+            }, {
+              "start_speed": "95.5",
+              "des": "In play, out(s)",
+              "sv_id": "150408_154645",
+              "pitch_type": "FT",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            }],
+            "away_team_runs": "0",
+            "start_tfs": "204308"
+          }, {
+            "home_team_runs": "2",
+            "des": "Jon Jay grounds out, second baseman Arismendy Alcantara to first baseman Anthony Rizzo.  ",
+            "b": "0",
+            "event_num": "484",
+            "b3": "",
+            "pitcher": "444468",
+            "b2": "",
+            "o": "2",
+            "batter": "445055",
+            "des_es": "Jon Jay batea rodado de out, segunda base Arismendy Alcantara a primera base Anthony Rizzo.  ",
+            "event_es": "Roletazo de Out",
+            "num": "61",
+            "start_tfs_zulu": "2015-04-08T20:44:20Z",
+            "s": "0",
+            "event": "Groundout",
+            "b1": "",
+            "play_guid": "8ae31841-69a1-4e20-98b3-79dbb0571123",
+            "pitch": {
+              "start_speed": "95.1",
+              "des": "In play, out(s)",
+              "sv_id": "150408_154721",
+              "pitch_type": "FT",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            },
+            "away_team_runs": "0",
+            "start_tfs": "204420"
+          }, {
+            "home_team_runs": "2",
+            "des": "Yadier Molina flies out to center fielder Dexter Fowler.  ",
+            "b": "0",
+            "event_num": "488",
+            "b3": "",
+            "pitcher": "444468",
+            "b2": "",
+            "o": "3",
+            "batter": "425877",
+            "des_es": "Yadier Molina batea elevado de out a jardinero central Dexter Fowler.  ",
+            "event_es": "Elevado de Out",
+            "num": "62",
+            "start_tfs_zulu": "2015-04-08T20:44:58Z",
+            "s": "0",
+            "event": "Flyout",
+            "b1": "",
+            "play_guid": "9246527e-c31d-4dbf-8783-d71dae7538a6",
+            "pitch": {
+              "start_speed": "95.0",
+              "des": "In play, out(s)",
+              "sv_id": "150408_154800",
+              "pitch_type": "FT",
+              "type": "X",
+              "des_es": "En juego, out(s)"
+            },
+            "away_team_runs": "0",
+            "start_tfs": "204458"
+          }]
+        }
+      }],
+      "atBat": {
+        "pid": "425877"
+      },
+      "deck": {
+        "pid": "543939"
+      },
+      "hole": {
+        "pid": "279571"
+      }
+    }
+  }
+}
