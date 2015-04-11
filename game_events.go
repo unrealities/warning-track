@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"net/http"
 	"os"
 )
 
@@ -37,13 +39,25 @@ type atBat struct {
 func GameEvents() gameEvents {
 	gameEvents := gameEvents{}
 
-	gameEventsFile, err := os.Open("example_game_events.json")
+	out, err := os.Create("game_events.json")
 	if err != nil {
-		fmt.Println("Error opening gameEventsFile: " + err.Error())
+		fmt.Println("Error creating file: " + err.Error())
+	}
+	defer out.Close()
+
+	resp, err := http.Get(os.Args[1])
+	if err != nil {
+		fmt.Println("Error accessing file: " + err.Error())
+	}
+	defer resp.Body.Close()
+
+	gameEventsFile, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Println("Error reading gameEventsFile: " + err.Error())
 	}
 
-	jsonParser := json.NewDecoder(gameEventsFile)
-	if err = jsonParser.Decode(&gameEvents); err != nil {
+	err = json.Unmarshal(gameEventsFile, &gameEvents)
+	if err != nil {
 		fmt.Println("Error parsing file: " + err.Error())
 	}
 

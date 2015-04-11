@@ -4,53 +4,97 @@ package main
 MLB Leverage Index
 
 The values are from: http://www.insidethebook.com/li.shtml
+
 */
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	baseOuts := BaseOuts()
-	fmt.Println("Base-outs")
-	fmt.Println(baseOuts)
-
-	gameStates := GameStates()
-	fmt.Println("Game States")
-	fmt.Println(gameStates)
-
 	gameEvents := GameEvents()
-	fmt.Println(gameEvents.Subject)
+	run_diff := 0
+	inning := 1
+	top := true
+	bo := 0
+	gs := 0
+	li := LeverageIndex(bo, gs)
 
 	for _, val := range gameEvents.Data.Game.Inning {
-		fmt.Println("Top of " + val.Num)
 		for _, t := range val.Top.Atbat {
-			fmt.Printf("Score: ")
-			fmt.Printf(t.Away_Team_Runs + " - ")
-			fmt.Printf(t.Home_Team_Runs)
-			fmt.Println()
-			fmt.Printf("Outs: ")
-			fmt.Printf(t.O + " ")
-			fmt.Println()
-			fmt.Printf("B1: " + t.B1 + " ")
-			fmt.Printf("B2: " + t.B2 + " ")
-			fmt.Printf("B3: " + t.B3 + " ")
-			fmt.Println()
-		}
-		fmt.Println()
+			outs, _ := strconv.Atoi(t.O)
+			br1, br2, br3 := false, false, false
 
-		fmt.Println("Bottom of " + val.Num)
-		for _, b := range val.Bottom.Atbat {
-			fmt.Printf("Score: ")
-			fmt.Printf(b.Away_Team_Runs + " - ")
-			fmt.Printf(b.Home_Team_Runs)
-			fmt.Println()
-			fmt.Printf("Outs: ")
-			fmt.Printf(b.O + " ")
-			fmt.Println()
-			fmt.Printf("B1: " + b.B1 + " ")
-			fmt.Printf("B2: " + b.B2 + " ")
-			fmt.Printf("B3: " + b.B3 + " ")
-			fmt.Println()
+			if t.B1 > "" {
+				br1 = true
+			}
+			if t.B2 > "" {
+				br2 = true
+			}
+			if t.B3 > "" {
+				br3 = true
+			}
+
+			if outs < 3 {
+				bo = BaseOut(outs, br1, br2, br3)
+
+				home, _ := strconv.Atoi(t.Home_Team_Runs)
+				away, _ := strconv.Atoi(t.Away_Team_Runs)
+				run_diff = home - away
+				if run_diff > 4 {
+					run_diff = 4
+				}
+				if run_diff < -4 {
+					run_diff = -4
+				}
+				inning, _ = strconv.Atoi(val.Num)
+				top = true
+
+				gs = GameState(inning, top, run_diff)
+
+				li = LeverageIndex(bo, gs)
+			}
 		}
-		fmt.Println()
+
+		li = LeverageIndex(bo, gs)
+
+		for _, b := range val.Bottom.Atbat {
+			outs, _ := strconv.Atoi(b.O)
+
+			br1, br2, br3 := false, false, false
+
+			if b.B1 > "" {
+				br1 = true
+			}
+			if b.B2 > "" {
+				br2 = true
+			}
+			if b.B3 > "" {
+				br3 = true
+			}
+
+			if outs < 3 {
+				bo = BaseOut(outs, br1, br2, br3)
+
+				home, _ := strconv.Atoi(b.Home_Team_Runs)
+				away, _ := strconv.Atoi(b.Away_Team_Runs)
+				run_diff = home - away
+				if run_diff > 4 {
+					run_diff = 4
+				}
+				if run_diff < -4 {
+					run_diff = -4
+				}
+				top = false
+
+				gs = GameState(inning, top, run_diff)
+
+				li = LeverageIndex(bo, gs)
+			}
+		}
+		li = LeverageIndex(bo, gs)
 	}
+
+	fmt.Println(strconv.FormatFloat(li, 'f', -1, 64))
 }
