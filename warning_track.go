@@ -57,6 +57,9 @@ func main() {
 						run_diff = -4
 					}
 					inning, _ = strconv.Atoi(val.Num)
+					if inning > 9 {
+						inning = 9
+					}
 					top = true
 
 					gs = GameState(inning, top, run_diff)
