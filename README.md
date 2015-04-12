@@ -1,20 +1,31 @@
 # warning-track
 parse mlb data and retrieve alerts
 
+Currently returns:
+* List of current games
+* Game status
+* Current leverage index
+
 ## How To
-`warning-track {url_to_game_events_json_file}`
-
-i.e.
-
 ```go
-$GOPATH/bin/warning-track http://gdb.com/components/game/mlb/year_2015/month_04/day_10/gid_2015_04_10_detmlb_clemlb_1/game_events.json
-0.6
+$GOPATH/bin/warning-track
+
+2015/04/11/bosmlb-nyamlb-1
+Final
+0.2
+2015/04/11/slnmlb-cinmlb-1
+Final
+0.2
+2015/04/11/minmlb-chamlb-1
+Final
+1.5
 ```
 
 ## TODO
 
-* Determine all current active games
 * Rank games by current leverage index
+* Cache game results
+* Don't parse games that are final
 * Provide links to TV/gamecast/radio
 * Provide current pitcher v. hitter matchup
 * Get setup on Google App engine

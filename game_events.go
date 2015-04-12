@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
+	"time"
 )
 
 type gameEvents struct {
@@ -36,7 +38,7 @@ type atBat struct {
 	B3             string
 }
 
-func GameEvents() gameEvents {
+func GameEvents(time time.Time, gameId string) gameEvents {
 	gameEvents := gameEvents{}
 
 	out, err := os.Create("game_events.json")
@@ -45,7 +47,7 @@ func GameEvents() gameEvents {
 	}
 	defer out.Close()
 
-	resp, err := http.Get(os.Args[1])
+	resp, err := http.Get(GameEventsURL(time, gameId))
 	if err != nil {
 		fmt.Println("Error accessing file: " + err.Error())
 	}
@@ -62,4 +64,19 @@ func GameEvents() gameEvents {
 	}
 
 	return gameEvents
+}
+
+func GameEventsURL(time time.Time, gameId string) string {
+	gid := gameId
+	gid = "gid_" + gid
+	gid = strings.Replace(gid, "/", "_", -1)
+	gid = strings.Replace(gid, "-", "_", -1)
+
+	host := "http://gd2.mlb.com"
+	main := "components/game/mlb"
+	year := "year_" + time.Format("2006")
+	month := "month_" + time.Format("01")
+	day := "day_" + time.Format("02")
+	file := "game_events.json"
+	return host + "/" + main + "/" + year + "/" + month + "/" + day + "/" + gid + "/" + file
 }
