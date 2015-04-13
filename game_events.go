@@ -11,8 +11,7 @@ import (
 )
 
 type gameEvents struct {
-	Subject string
-	Data    struct {
+	Data struct {
 		Game struct {
 			Inning []inning
 		}

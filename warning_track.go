@@ -16,8 +16,13 @@ import (
 func main() {
 	// This needs to be smarter for timezones and past midnight
 	gameTime := time.Now()
+
 	grids := Grid(gameTime)
 	for _, game := range grids.Data.Games.Game {
+		if game.Status != "In Progress" {
+			continue
+		}
+
 		fmt.Println(game.Id)
 		fmt.Println(game.Status)
 

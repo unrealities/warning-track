@@ -57,6 +57,11 @@ Final
 0.6
 ```
 
+## KNOWN ERRORS
+
+* If it's the first inning they don't return an array of innings
+* If there's only been one batter, they don't return an array of at-bats
+
 ## TODO
 
 * Rank games by current leverage index
