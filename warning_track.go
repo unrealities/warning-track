@@ -34,8 +34,8 @@ func main() {
 		gs := 0
 		li := LeverageIndex(bo, gs)
 
-		for _, val := range gameEvents.Data.Game.Inning {
-			for _, t := range val.Top.Atbat {
+		for _, val := range gameEvents.Data.Game.Innings {
+			for _, t := range val.Top.AtBats {
 				outs, _ := strconv.Atoi(t.O)
 				br1, br2, br3 := false, false, false
 
@@ -75,7 +75,7 @@ func main() {
 
 			li = LeverageIndex(bo, gs)
 
-			for _, b := range val.Bottom.Atbat {
+			for _, b := range val.Bottom.AtBats {
 				outs, _ := strconv.Atoi(b.O)
 
 				br1, br2, br3 := false, false, false

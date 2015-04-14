@@ -13,28 +13,32 @@ import (
 type gameEvents struct {
 	Data struct {
 		Game struct {
-			Inning []inning
+			InningRaw json.RawMessage `json:"inning"`
+
+			Innings []inning
 		}
 	}
 }
 
 type inning struct {
-	Num    string
-	Bottom halfInning
-	Top    halfInning
+	Num    string     `json:"num"`
+	Bottom halfInning `json:"bottom"`
+	Top    halfInning `json:"top"`
 }
 
 type halfInning struct {
-	Atbat []atBat
+	AtBatRaw json.RawMessage `json:"atbat"`
+
+	AtBats []atBat
 }
 
 type atBat struct {
-	Home_Team_Runs string
-	Away_Team_Runs string
-	O              string
-	B1             string
-	B2             string
-	B3             string
+	Home_Team_Runs string `json:"home_team_runs"`
+	Away_Team_Runs string `json:"away_team_runs"`
+	O              string `json:"o"`
+	B1             string `json:"b1"`
+	B2             string `json:"b2"`
+	B3             string `json:"b3"`
 }
 
 func GameEvents(time time.Time, gameId string) gameEvents {
@@ -60,6 +64,53 @@ func GameEvents(time time.Time, gameId string) gameEvents {
 	err = json.Unmarshal(gameEventsFile, &gameEvents)
 	if err != nil {
 		fmt.Println("Error parsing file: " + err.Error())
+	}
+
+	innings := []inning{}
+	inn := inning{}
+	err = json.Unmarshal(gameEvents.Data.Game.InningRaw, &innings)
+	if err == nil {
+		gameEvents.Data.Game.Innings = innings
+	} else {
+		err = json.Unmarshal(gameEvents.Data.Game.InningRaw, &inn)
+		if err == nil {
+			innings = append(innings, inn)
+		}
+		gameEvents.Data.Game.Innings = innings
+	}
+
+	for k, i := range gameEvents.Data.Game.Innings {
+		atBats := []atBat{}
+		ab := atBat{}
+		err = json.Unmarshal(i.Bottom.AtBatRaw, &atBats)
+		if err == nil {
+			i.Bottom.AtBats = atBats
+		} else {
+			err = json.Unmarshal(i.Bottom.AtBatRaw, &ab)
+			if err == nil {
+				atBats = append(atBats, ab)
+				i.Bottom.AtBats = atBats
+			} else {
+				i.Bottom = halfInning{}
+			}
+		}
+
+		atBats = []atBat{}
+		ab = atBat{}
+		err = json.Unmarshal(i.Top.AtBatRaw, &atBats)
+		if err == nil {
+			i.Top.AtBats = atBats
+		} else {
+			err = json.Unmarshal(i.Top.AtBatRaw, &ab)
+			if err == nil {
+				atBats = append(atBats, ab)
+				i.Top.AtBats = atBats
+			} else {
+				i.Top = halfInning{}
+			}
+		}
+
+		gameEvents.Data.Game.Innings[k] = i
 	}
 
 	return gameEvents

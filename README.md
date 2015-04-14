@@ -57,13 +57,9 @@ Final
 0.6
 ```
 
-## KNOWN ERRORS
-
-* If it's the first inning they don't return an array of innings
-* If there's only been one batter, they don't return an array of at-bats
-
 ## TODO
 
+* Verify leverage index (especially at the beginning of an inning)
 * Rank games by current leverage index
 * Cache game results
 * Don't parse games that are final
