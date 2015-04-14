@@ -9,22 +9,40 @@ The values are from: http://www.insidethebook.com/li.shtml
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 	"time"
 )
 
+type gameInfo struct {
+	Id     string
+	Status string
+	Li     float64
+}
+
+func (g gameInfo) String() string {
+	return fmt.Sprintf("%s: %-1.1f", g.Id, g.Li)
+}
+
+// ByAge implements sort.Interface for []Person based on
+// the Age field.
+type ByLi []gameInfo
+
+func (a ByLi) Len() int           { return len(a) }
+func (a ByLi) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ByLi) Less(i, j int) bool { return a[i].Li > a[j].Li }
+
 func main() {
 	// This needs to be smarter for timezones and past midnight
 	gameTime := time.Now()
+
+	liveGames := []gameInfo{}
 
 	grids := Grid(gameTime)
 	for _, game := range grids.Data.Games.Game {
 		if game.Status != "In Progress" {
 			continue
 		}
-
-		fmt.Println(game.Id)
-		fmt.Println(game.Status)
 
 		gameEvents := GameEvents(gameTime, game.Id)
 		run_diff := 0
@@ -111,7 +129,12 @@ func main() {
 			}
 			li = LeverageIndex(bo, gs)
 		}
+		newGame := gameInfo{game.Id, game.Status, li}
+		liveGames = append(liveGames, newGame)
+	}
 
-		fmt.Println(strconv.FormatFloat(li, 'f', -1, 64))
+	sort.Sort(ByLi(liveGames))
+	for _, g := range liveGames {
+		fmt.Println(g)
 	}
 }

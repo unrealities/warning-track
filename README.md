@@ -1,66 +1,31 @@
 # warning-track
 parse mlb data and retrieve alerts
 
-Currently returns:
-* List of current games
-* Game status
-* Current leverage index
+Currently returns list of in progress games order by leverage index descending
 
 ## How To
 ```go
 $GOPATH/bin/warning-track
 
-2015/04/11/bosmlb-nyamlb-1
-Final
-0.2
-2015/04/11/slnmlb-cinmlb-1
-Final
-0.2
-2015/04/11/minmlb-chamlb-1
-Final
-1.5
-2015/04/11/seamlb-oakmlb-1
-Final
-1.9
-2015/04/11/detmlb-clemlb-1
-Final
-1.7
-2015/04/11/tbamlb-miamlb-1
-Final
-1.7
-2015/04/11/tormlb-balmlb-1
-Final
-0.1
-2015/04/11/wasmlb-phimlb-1
-Final
-0
-2015/04/11/nynmlb-atlmlb-1
-Final
-1.3
-2015/04/11/pitmlb-milmlb-1
-Final
-0.1
-2015/04/11/houmlb-texmlb-1
-Final
-0.4
-2015/04/11/chnmlb-colmlb-1
-Final
-0.1
-2015/04/11/lanmlb-arimlb-1
-Final
-0.1
-2015/04/11/sfnmlb-sdnmlb-1
-Final
-0.1
-2015/04/11/kcamlb-anamlb-1
-Final
-0.6
+2015/04/13/miamlb-atlmlb-1: 5.5
+2015/04/13/nyamlb-balmlb-1: 3.7
+2015/04/13/tbamlb-tormlb-1: 1.9
+2015/04/13/milmlb-slnmlb-1: 1.9
+2015/04/13/detmlb-pitmlb-1: 1.5
+2015/04/13/colmlb-sfnmlb-1: 0.6
+2015/04/13/phimlb-nynmlb-1: 0.5
+2015/04/13/anamlb-texmlb-1: 0.2
+2015/04/13/kcamlb-minmlb-1: 0.1
+2015/04/13/wasmlb-bosmlb-1: 0.1
+2015/04/13/oakmlb-houmlb-1: 0.1
+2015/04/13/arimlb-sdnmlb-1: 0.1
+2015/04/13/cinmlb-chnmlb-1: 0.0
+2015/04/13/seamlb-lanmlb-1: 0.0
 ```
 
 ## TODO
 
 * Verify leverage index (especially at the beginning of an inning)
-* Rank games by current leverage index
 * Cache game results
 * Don't parse games that are final
 * Provide links to TV/gamecast/radio
