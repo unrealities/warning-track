@@ -33,6 +33,8 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		}
 
 		gameEvents := GameEvents(gameTime, game.Id)
+		outs := 0
+		br1, br2, br3 := false, false, false
 		run_diff := 0
 		inning := 1
 		top := true
@@ -42,8 +44,8 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 		for _, val := range gameEvents.Data.Game.Innings {
 			for _, t := range val.Top.AtBats {
-				outs, _ := strconv.Atoi(t.O)
-				br1, br2, br3 := false, false, false
+				outs, _ = strconv.Atoi(t.O)
+				br1, br2, br3 = false, false, false
 
 				if t.B1 > "" {
 					br1 = true
@@ -65,11 +67,11 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 				li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
 			}
 
-			li = LeverageIndex(bo, gs)
+			li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
 
 			for _, b := range val.Bottom.AtBats {
-				outs, _ := strconv.Atoi(b.O)
-				br1, br2, br3 := false, false, false
+				outs, _ = strconv.Atoi(b.O)
+				br1, br2, br3 = false, false, false
 
 				if b.B1 > "" {
 					br1 = true
@@ -90,7 +92,7 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 				li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
 			}
-			li = LeverageIndex(bo, gs)
+			li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
 		}
 		newGame := gameInfo{game.Id, game.Status, li}
 		liveGames = append(liveGames, newGame)
