@@ -5,35 +5,23 @@ MLB Leverage Index
 
 The values are from: http://www.insidethebook.com/li.shtml
 
+http://thenewstack.io/make-a-restful-json-api-go/
+http://www.alexedwards.net/blog/golang-response-snippets#json
 */
 
 import (
 	"fmt"
+	"log"
+	"net/http"
 	"sort"
 	"strconv"
 	"time"
+
+	"github.com/julienschmidt/httprouter"
 )
 
-type gameInfo struct {
-	Id     string
-	Status string
-	Li     float64
-}
-
-func (g gameInfo) String() string {
-	return fmt.Sprintf("%s: %-1.1f", g.Id, g.Li)
-}
-
-// ByAge implements sort.Interface for []Person based on
-// the Age field.
-type ByLi []gameInfo
-
-func (a ByLi) Len() int           { return len(a) }
-func (a ByLi) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a ByLi) Less(i, j int) bool { return a[i].Li > a[j].Li }
-
-func main() {
-	// This needs to be smarter for timezones and past midnight
+func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	// TODO: This needs to be smarter for timezones and past midnight
 	gameTime := time.Now()
 
 	liveGames := []gameInfo{}
@@ -67,35 +55,20 @@ func main() {
 					br3 = true
 				}
 
-				if outs < 3 {
-					bo = BaseOut(outs, br1, br2, br3)
+				home, _ := strconv.Atoi(t.Home_Team_Runs)
+				away, _ := strconv.Atoi(t.Away_Team_Runs)
+				run_diff = home - away
 
-					home, _ := strconv.Atoi(t.Home_Team_Runs)
-					away, _ := strconv.Atoi(t.Away_Team_Runs)
-					run_diff = home - away
-					if run_diff > 4 {
-						run_diff = 4
-					}
-					if run_diff < -4 {
-						run_diff = -4
-					}
-					inning, _ = strconv.Atoi(val.Num)
-					if inning > 9 {
-						inning = 9
-					}
-					top = true
+				top = true
+				inning, _ = strconv.Atoi(val.Num)
 
-					gs = GameState(inning, top, run_diff)
-
-					li = LeverageIndex(bo, gs)
-				}
+				li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
 			}
 
 			li = LeverageIndex(bo, gs)
 
 			for _, b := range val.Bottom.AtBats {
 				outs, _ := strconv.Atoi(b.O)
-
 				br1, br2, br3 := false, false, false
 
 				if b.B1 > "" {
@@ -108,24 +81,14 @@ func main() {
 					br3 = true
 				}
 
-				if outs < 3 {
-					bo = BaseOut(outs, br1, br2, br3)
+				home, _ := strconv.Atoi(b.Home_Team_Runs)
+				away, _ := strconv.Atoi(b.Away_Team_Runs)
+				run_diff = home - away
 
-					home, _ := strconv.Atoi(b.Home_Team_Runs)
-					away, _ := strconv.Atoi(b.Away_Team_Runs)
-					run_diff = home - away
-					if run_diff > 4 {
-						run_diff = 4
-					}
-					if run_diff < -4 {
-						run_diff = -4
-					}
-					top = false
+				top = false
+				inning, _ = strconv.Atoi(val.Num)
 
-					gs = GameState(inning, top, run_diff)
-
-					li = LeverageIndex(bo, gs)
-				}
+				li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
 			}
 			li = LeverageIndex(bo, gs)
 		}
@@ -135,6 +98,13 @@ func main() {
 
 	sort.Sort(ByLi(liveGames))
 	for _, g := range liveGames {
-		fmt.Println(g)
+		fmt.Fprintln(w, g)
 	}
+}
+
+func main() {
+	router := httprouter.New()
+	router.GET("/", Index)
+
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
