@@ -5,8 +5,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"time"
+
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/urlfetch"
 )
 
 type grid struct {
@@ -22,27 +24,24 @@ type game struct {
 	Status string
 }
 
-func Grid(time time.Time) grid {
+func Grid(time time.Time, r *http.Request) grid {
 	grids := grid{}
 
-	out, err := os.Create("grid.json")
+	c := appengine.NewContext(r)
+	client := urlfetch.Client(c)
+	resp, err := client.Get(GridURL(time))
 	if err != nil {
-		fmt.Println("Error creating file: " + err.Error())
-	}
-	defer out.Close()
-
-	resp, err := http.Get(GridURL(time))
-	if err != nil {
-		fmt.Println("Error accessing file: " + err.Error())
+		fmt.Println("Error accessing GridURL: " + err.Error())
+		panic(err)
 	}
 	defer resp.Body.Close()
 
-	gridsFile, err := ioutil.ReadAll(resp.Body)
+	gridsData, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Println("Error reading gridsFile: " + err.Error())
+		fmt.Println("Error reading gridsData: " + err.Error())
 	}
 
-	err = json.Unmarshal(gridsFile, &grids)
+	err = json.Unmarshal(gridsData, &grids)
 	if err != nil {
 		fmt.Println("Error parsing file: " + err.Error())
 	}

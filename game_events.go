@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"strings"
 	"time"
+
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/urlfetch"
 )
 
 type gameEvents struct {
@@ -41,16 +43,12 @@ type atBat struct {
 	B3             string `json:"b3"`
 }
 
-func GameEvents(time time.Time, gameId string) gameEvents {
+func GameEvents(time time.Time, gameId string, r *http.Request) gameEvents {
 	gameEvents := gameEvents{}
 
-	out, err := os.Create("game_events.json")
-	if err != nil {
-		fmt.Println("Error creating file: " + err.Error())
-	}
-	defer out.Close()
-
-	resp, err := http.Get(GameEventsURL(time, gameId))
+	c := appengine.NewContext(r)
+	client := urlfetch.Client(c)
+	resp, err := client.Get(GameEventsURL(time, gameId))
 	if err != nil {
 		fmt.Println("Error accessing file: " + err.Error())
 	}
