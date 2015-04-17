@@ -11,50 +11,45 @@ import (
 	"google.golang.org/appengine/urlfetch"
 )
 
-type grid struct {
+type scoreboard struct {
 	Data struct {
 		Games struct {
-			Game []game
+			Game []game `json:"game"`
 		}
 	}
 }
 
-type game struct {
-	Id     string
-	Status string
-}
-
-func Grid(time time.Time, r *http.Request) grid {
-	grids := grid{}
+func MasterScoreboard(time time.Time, r *http.Request) scoreboard {
+	scoreboards := scoreboard{}
 
 	c := appengine.NewContext(r)
 	client := urlfetch.Client(c)
-	resp, err := client.Get(GridURL(time))
+	resp, err := client.Get(MasterScoreBoardURL(time))
 	if err != nil {
-		fmt.Println("Error accessing GridURL: " + err.Error())
+		fmt.Println("Error accessing MasterScoreBoardURL: " + err.Error())
 		panic(err)
 	}
 	defer resp.Body.Close()
 
-	gridsData, err := ioutil.ReadAll(resp.Body)
+	msbData, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Println("Error reading gridsData: " + err.Error())
+		fmt.Println("Error reading msbData: " + err.Error())
 	}
 
-	err = json.Unmarshal(gridsData, &grids)
+	err = json.Unmarshal(msbData, &scoreboards)
 	if err != nil {
 		fmt.Println("Error parsing file: " + err.Error())
 	}
 
-	return grids
+	return scoreboards
 }
 
-func GridURL(time time.Time) string {
+func MasterScoreBoardURL(time time.Time) string {
 	host := "http://gd2.mlb.com"
 	main := "components/game/mlb"
 	year := "year_" + time.Format("2006")
 	month := "month_" + time.Format("01")
 	day := "day_" + time.Format("02")
-	file := "grid.json"
+	file := "master_scoreboard.json"
 	return host + "/" + main + "/" + year + "/" + month + "/" + day + "/" + file
 }

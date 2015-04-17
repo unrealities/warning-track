@@ -35,28 +35,3 @@ func LeverageIndex(bo int, gs int) float64 {
 
 	return leverage_indices[bo][gs]
 }
-
-func CalcLeverageIndex(outs int, br1 bool, br2 bool, br3 bool, inning int, top bool, run_diff int) float64 {
-	li := 0.4
-
-	if outs < 3 {
-		bo := BaseOut(outs, br1, br2, br3)
-
-		if run_diff > 4 {
-			run_diff = 4
-		}
-		if run_diff < -4 {
-			run_diff = -4
-		}
-
-		if inning > 9 {
-			inning = 9
-		}
-
-		gs := GameState(inning, top, run_diff)
-
-		li = LeverageIndex(bo, gs)
-	}
-
-	return li
-}

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"sort"
@@ -11,87 +12,73 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	// TODO: This needs to be smarter for timezones and past midnight
+	// If before 12pm UTC (8am EST). Display the results from the day before
 	// DEBUG: time.Date(2015, time.April, 15, 23, 0, 0, 0, time.UTC)
 	gameTime := time.Now()
+	if gameTime.Hour() < 12 {
+		gameTime = time.Now().Add(-12 * time.Hour)
+	}
 
-	liveGames := []gameInfo{}
+	liveGames := []game{}
 
-	grids := Grid(gameTime, r)
-	for _, game := range grids.Data.Games.Game {
-		if game.Status != "In Progress" {
+	msb := MasterScoreboard(gameTime, r)
+	for _, g := range msb.Data.Games.Game {
+		if g.GameStatus.Status != "In Progress" {
 			continue
 		}
 
-		gameEvents := GameEvents(gameTime, game.Id, r)
-		outs := 0
-		br1, br2, br3 := false, false, false
-		run_diff := 0
-		inning := 1
-		top := true
-		bo := 0
-		gs := 0
-		li := LeverageIndex(bo, gs)
+		outs, _ := strconv.Atoi(g.GameStatus.Outs)
+		fmt.Println("outs: " + g.GameStatus.Outs)
+		base_runners, _ := strconv.Atoi(g.RunnersOnBase.Status)
 
-		for _, val := range gameEvents.Data.Game.Innings {
-			for _, t := range val.Top.AtBats {
-				outs, _ = strconv.Atoi(t.O)
-				br1, br2, br3 = false, false, false
+		home_team_runs, _ := strconv.Atoi(g.LineScore.Runs.Home)
+		away_team_runs, _ := strconv.Atoi(g.LineScore.Runs.Away)
+		run_diff := home_team_runs - away_team_runs
 
-				if t.B1 > "" {
-					br1 = true
-				}
-				if t.B2 > "" {
-					br2 = true
-				}
-				if t.B3 > "" {
-					br3 = true
-				}
-
-				home, _ := strconv.Atoi(t.Home_Team_Runs)
-				away, _ := strconv.Atoi(t.Away_Team_Runs)
-				run_diff = home - away
-
-				top = true
-				inning, _ = strconv.Atoi(val.Num)
-
-				li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
-			}
-
-			li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
-
-			for _, b := range val.Bottom.AtBats {
-				outs, _ = strconv.Atoi(b.O)
-				br1, br2, br3 = false, false, false
-
-				if b.B1 > "" {
-					br1 = true
-				}
-				if b.B2 > "" {
-					br2 = true
-				}
-				if b.B3 > "" {
-					br3 = true
-				}
-
-				home, _ := strconv.Atoi(b.Home_Team_Runs)
-				away, _ := strconv.Atoi(b.Away_Team_Runs)
-				run_diff = home - away
-
-				top = false
-				inning, _ = strconv.Atoi(val.Num)
-
-				li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
-			}
-			li = CalcLeverageIndex(outs, br1, br2, br3, inning, top, run_diff)
+		inning, _ := strconv.Atoi(g.GameStatus.Inning)
+		top := false
+		if g.GameStatus.TopInning == "Y" {
+			top = true
 		}
-		newGame := gameInfo{game.Id, game.Status, li}
-		liveGames = append(liveGames, newGame)
+
+		if run_diff > 4 {
+			run_diff = 4
+		}
+		if run_diff < -4 {
+			run_diff = -4
+		}
+
+		if outs > 2 && top == true {
+			outs = 0
+			top = false
+		}
+		if outs > 2 && top == false {
+			outs = 0
+			top = true
+			inning++
+		}
+		if inning > 9 {
+			inning = 9
+		}
+
+		bo := (outs + 1) * base_runners
+		gs := GameState(inning, top, run_diff)
+		li := LeverageIndex(bo, gs)
+		g.Li = li
+
+		liveGames = append(liveGames, g)
 	}
+
+	w.Header().Set("Content-Type", "application/json")
 
 	sort.Sort(ByLi(liveGames))
 	for _, g := range liveGames {
-		fmt.Fprintln(w, g)
+		js, err := json.Marshal(g)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		w.Write(js)
 	}
 }
 
@@ -99,7 +86,7 @@ func Routes() http.Handler {
 	router := httprouter.New()
 
 	router.GET("/", Index)
-	router.ServeFiles("/static/*filepath", http.Dir("static"))
+	// router.ServeFiles("/static/*filepath", http.Dir("static"))
 
 	return router
 }

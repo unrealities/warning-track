@@ -32,19 +32,3 @@ func BaseOuts() []baseOut {
 
 	return baseOuts
 }
-
-func BaseOut(outs int, br1 bool, br2 bool, br3 bool) int {
-	baseOuts := BaseOuts()
-	bo := 0
-
-	for key, value := range baseOuts {
-		if value.Outs == outs &&
-			value.Base_Runners.First == br1 &&
-			value.Base_Runners.Second == br2 &&
-			value.Base_Runners.Third == br3 {
-			bo = key
-		}
-	}
-
-	return bo
-}
