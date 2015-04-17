@@ -14,9 +14,9 @@ import (
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	// If before 12pm UTC (8am EST). Display the results from the day before
 	// DEBUG: time.Date(2015, time.April, 15, 23, 0, 0, 0, time.UTC)
-	gameTime := time.Now()
+	gameTime := time.Now().UTC()
 	if gameTime.Hour() < 12 {
-		gameTime = time.Now().Add(-12 * time.Hour)
+		gameTime = time.Now().UTC().Add(-12 * time.Hour)
 	}
 
 	liveGames := []game{}
@@ -72,21 +72,19 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Set("Content-Type", "application/json")
 
 	sort.Sort(ByLi(liveGames))
-	for _, g := range liveGames {
-		js, err := json.Marshal(g)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		w.Write(js)
+	js, err := json.Marshal(liveGames)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
+	w.Write(js)
 }
 
 func Routes() http.Handler {
 	router := httprouter.New()
 
 	router.GET("/", Index)
-	// router.ServeFiles("/static/*filepath", http.Dir("static"))
+	router.ServeFiles("/static/*filepath", http.Dir("static"))
 
 	return router
 }
