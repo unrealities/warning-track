@@ -6,12 +6,6 @@ func (g game) String() string {
 	return fmt.Sprintf("%s: %-1.1f", g.GameDataDirectory, g.Li)
 }
 
-type ByLi []game
-
-func (g ByLi) Len() int           { return len(g) }
-func (g ByLi) Swap(i, j int)      { g[i], g[j] = g[j], g[i] }
-func (g ByLi) Less(i, j int) bool { return g[i].Li > g[j].Li }
-
 type game struct {
 	HomeTeamCity      string     `json:"home_team_city"`
 	HomeTeamName      string     `json:"home_team_name"`

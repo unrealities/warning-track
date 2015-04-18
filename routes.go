@@ -4,14 +4,13 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"sort"
 	"strconv"
 	"time"
 
 	"github.com/julienschmidt/httprouter"
 )
 
-func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	// If before 12pm UTC (8am EST). Display the results from the day before
 	// DEBUG: time.Date(2015, time.April, 15, 23, 0, 0, 0, time.UTC)
 	gameTime := time.Now().UTC()
@@ -23,10 +22,6 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	msb := MasterScoreboard(gameTime, r)
 	for _, g := range msb.Data.Games.Game {
-		if g.GameStatus.Status != "In Progress" {
-			continue
-		}
-
 		outs, _ := strconv.Atoi(g.GameStatus.Outs)
 		fmt.Println("outs: " + g.GameStatus.Outs)
 		base_runners, _ := strconv.Atoi(g.RunnersOnBase.Status)
@@ -71,7 +66,6 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	w.Header().Set("Content-Type", "application/json")
 
-	sort.Sort(ByLi(liveGames))
 	js, err := json.Marshal(liveGames)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -83,8 +77,8 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func Routes() http.Handler {
 	router := httprouter.New()
 
-	router.GET("/", Index)
-	router.ServeFiles("/static/*filepath", http.Dir("static"))
+	router.GET("/games.json", GameJSON)
+	router.NotFound = http.FileServer(http.Dir("static/")).ServeHTTP
 
 	return router
 }

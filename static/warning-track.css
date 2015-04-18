@@ -1,0 +1,87 @@
+a {
+  color: #003279;
+}
+a, a:link, a:hover, a:active, a:visited {
+  text-decoration: none;
+}
+body {
+  background-color: #FFF;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400;
+}
+div.odd {
+  background-color: #E6F0FF;
+}
+textarea {
+  font-size: 14px;
+}
+.btn-primary {
+  background-color: #FFF;
+  border-color: #CC0033;
+  color: #CC0033;
+}
+.btn-primary:hover {
+  background-color: #003279;
+  border-color: #003279;
+}
+.content-title, .content, .player-size {
+  font-weight: 400;
+  display: inline;
+}
+.details, .notes {
+  border-left: 2px solid #003279;
+  color: #003279;
+  font-size: 18px;
+}
+.details, .player-container {
+  margin-bottom: 2px;
+}
+.glyphicon {
+  color: #CC0033;
+}
+.header {
+  background-color: #FFF;
+  border-left: 2px solid #CC0033;
+  border-right: 2px solid #CC0033;
+  color: #003279;
+  cursor: pointer;
+  line-height: 200%;
+  font-size: 20px;
+  font-weight: 700;
+}
+.header .content {
+  background-color: #003279;
+  border-radius: 6px;
+  color: #FFF;
+  font-weight: 400;
+}
+.logo {
+  background-image: url("cubs_logo.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline;
+}
+.notes {
+  border-right: 2px solid #003279;
+}
+.player-position {
+  text-align: center;
+  line-height: 150%;
+  margin-top: 1%;
+}
+.save-notes {
+  margin-top: 4px;
+}
+.show-details {
+  margin-top: 4px;
+}
+.title {
+  color: #CC0033;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 10px 0px;
+}
+.yr {
+  color: #003279;
+  text-align: right;
+}
