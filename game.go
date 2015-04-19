@@ -7,10 +7,10 @@ func (g game) String() string {
 }
 
 type game struct {
-	HomeTeamCity      string     `json:"home_team_city"`
-	HomeTeamName      string     `json:"home_team_name"`
-	AwayTeamCity      string     `json:"away_team_city"`
-	AwayTeamName      string     `json:"away_team_name"`
+	HomeTeamId        string     `json:"home_team_id"`
+	HomeTeamAbbr      string     `json:"home_name_abbrev"`
+	AwayTeamId        string     `json:"away_team_id"`
+	AwayTeamAbbr      string     `json:"away_name_abbrev"`
 	Venue             string     `json:"venue"`
 	GameDataDirectory string     `json:"game_data_directory"`
 	GameStatus        gameStatus `json:"status"`
@@ -21,6 +21,7 @@ type game struct {
 	LineScore lineScore `json:"linescore"`
 	Pitcher   pitcher   `json:"pitcher"`
 	Batter    batter    `json:"batter"`
+	Pbp       pbp       `json:"pbp"`
 	Li        float64   `json:"leverage_index"`
 }
 
@@ -32,6 +33,7 @@ type gameStatus struct {
 	Outs        string `json:"o"`
 	Inning      string `json:"inning"`
 	InningState string `json:"inning_state"`
+	Note        string `json:"note"`
 }
 
 type lineScore struct {
@@ -57,4 +59,8 @@ type pitcher struct {
 type batter struct {
 	FirstName string `json:"first"`
 	LastName  string `json:"last"`
+}
+
+type pbp struct {
+	Last string `json:"last"`
 }

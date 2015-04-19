@@ -1,0 +1,40 @@
+<svg width="90" height="25" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+    <style><![CDATA[
+        .balls { display: none; }
+        .balls:target { display: inline; }
+    ]]></style>
+ </defs>
+ <g class="balls" id="b0">
+   <ellipse ry="10" rx="10" cy="12" cx="12" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+   <ellipse ry="10" rx="10" cy="12" cx="34" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+   <ellipse ry="10" rx="10" cy="12" cx="56" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+   <ellipse ry="10" rx="10" cy="12" cx="78" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="balls" id="b1">
+   <ellipse ry="10" rx="10" cy="12" cx="12" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="34" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+   <ellipse ry="10" rx="10" cy="12" cx="56" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+   <ellipse ry="10" rx="10" cy="12" cx="78" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="balls" id="b2">
+   <ellipse ry="10" rx="10" cy="12" cx="12" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="34" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="56" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+   <ellipse ry="10" rx="10" cy="12" cx="78" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="balls" id="b3">
+   <ellipse ry="10" rx="10" cy="12" cx="12" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="34" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="56" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="78" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="balls" id="b4">
+   <ellipse ry="10" rx="10" cy="12" cx="12" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="34" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="56" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="78" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+ </g>
+
+</svg>

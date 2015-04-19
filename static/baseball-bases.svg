@@ -1,0 +1,49 @@
+<svg width="34" height="26" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+    <style><![CDATA[
+        .bases { display: none; }
+        .bases:target { display: inline; }
+    ]]></style>
+ </defs>
+ <g class="bases" id="br0">
+   <rect transform="rotate(45 25.07106781005859,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="20.07107" stroke="#000000" fill="#ffffff"/>
+   <rect transform="rotate(45 17.071067810058594,9.071067810058592) " ry="1" rx="1" height="10" width="10" y="4.07107" x="12.07107" stroke="#000000" fill="#ffffff"/>
+   <rect transform="rotate(45 9.071067810058596,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="4.07107" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="bases" id="br1">
+   <rect transform="rotate(45 25.07106781005859,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="20.07107" stroke="#000000" fill="#000000"/>
+   <rect transform="rotate(45 17.071067810058594,9.071067810058592) " ry="1" rx="1" height="10" width="10" y="4.07107" x="12.07107" stroke="#000000" fill="#ffffff"/>
+   <rect transform="rotate(45 9.071067810058596,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="4.07107" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="bases" id="br2">
+   <rect transform="rotate(45 25.07106781005859,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="20.07107" stroke="#000000" fill="#ffffff"/>
+   <rect transform="rotate(45 17.071067810058594,9.071067810058592) " ry="1" rx="1" height="10" width="10" y="4.07107" x="12.07107" stroke="#000000" fill="#000000"/>
+   <rect transform="rotate(45 9.071067810058596,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="4.07107" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="bases" id="br3">
+   <rect transform="rotate(45 25.07106781005859,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="20.07107" stroke="#000000" fill="#ffffff"/>
+   <rect transform="rotate(45 17.071067810058594,9.071067810058592) " ry="1" rx="1" height="10" width="10" y="4.07107" x="12.07107" stroke="#000000" fill="#ffffff"/>
+   <rect transform="rotate(45 9.071067810058596,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="4.07107" stroke="#000000" fill="#000000"/>
+ </g>
+ <g class="bases" id="br4">
+   <rect transform="rotate(45 25.07106781005859,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="20.07107" stroke="#000000" fill="#000000"/>
+   <rect transform="rotate(45 17.071067810058594,9.071067810058592) " ry="1" rx="1" height="10" width="10" y="4.07107" x="12.07107" stroke="#000000" fill="#000000"/>
+   <rect transform="rotate(45 9.071067810058596,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="4.07107" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="bases" id="br5">
+   <rect transform="rotate(45 25.07106781005859,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="20.07107" stroke="#000000" fill="#000000"/>
+   <rect transform="rotate(45 17.071067810058594,9.071067810058592) " ry="1" rx="1" height="10" width="10" y="4.07107" x="12.07107" stroke="#000000" fill="#ffffff"/>
+   <rect transform="rotate(45 9.071067810058596,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="4.07107" stroke="#000000" fill="#000000"/>
+ </g>
+ <g class="bases" id="br6">
+   <rect transform="rotate(45 25.07106781005859,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="20.07107" stroke="#000000" fill="#ffffff"/>
+   <rect transform="rotate(45 17.071067810058594,9.071067810058592) " ry="1" rx="1" height="10" width="10" y="4.07107" x="12.07107" stroke="#000000" fill="#000000"/>
+   <rect transform="rotate(45 9.071067810058596,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="4.07107" stroke="#000000" fill="#000000"/>
+ </g>
+ <g class="bases" id="br7">
+   <rect transform="rotate(45 25.07106781005859,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="20.07107" stroke="#000000" fill="#000000"/>
+   <rect transform="rotate(45 17.071067810058594,9.071067810058592) " ry="1" rx="1" height="10" width="10" y="4.07107" x="12.07107" stroke="#000000" fill="#000000"/>
+   <rect transform="rotate(45 9.071067810058596,17.071067810058594) " ry="1" rx="1" height="10" width="10" y="12.07107" x="4.07107" stroke="#000000" fill="#000000"/>
+ </g>
+</svg>

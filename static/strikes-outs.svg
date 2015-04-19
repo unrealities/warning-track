@@ -1,0 +1,30 @@
+<svg width="68" height="25" xmlns="http://www.w3.org/2000/svg" style="display:none;">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <defs>
+    <style><![CDATA[
+        .so { display: none; }
+        .so:target { display: inline; }
+    ]]></style>
+ </defs>
+ <g class="so" id="so0">
+   <ellipse ry="10" rx="10" cy="12" cx="12" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+   <ellipse ry="10" rx="10" cy="12" cx="34" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+   <ellipse ry="10" rx="10" cy="12" cx="56" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="so" id="so1">
+   <ellipse ry="10" rx="10" cy="12" cx="12" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="34" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+   <ellipse ry="10" rx="10" cy="12" cx="56" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="so" id="so2">
+   <ellipse ry="10" rx="10" cy="12" cx="12" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="34" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="56" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g class="so" id="so3">
+   <ellipse ry="10" rx="10" cy="12" cx="12" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="34" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+   <ellipse ry="10" rx="10" cy="12" cx="56" stroke-linecap="null" stroke-linejoin="null" stroke="#000000" fill="#000000"/>
+ </g>
+
+</svg>

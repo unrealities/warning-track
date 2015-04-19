@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"strconv"
 	"time"
@@ -23,7 +22,6 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	msb := MasterScoreboard(gameTime, r)
 	for _, g := range msb.Data.Games.Game {
 		outs, _ := strconv.Atoi(g.GameStatus.Outs)
-		fmt.Println("outs: " + g.GameStatus.Outs)
 		base_runners, _ := strconv.Atoi(g.RunnersOnBase.Status)
 
 		home_team_runs, _ := strconv.Atoi(g.LineScore.Runs.Home)
@@ -77,7 +75,7 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 func Routes() http.Handler {
 	router := httprouter.New()
 
-	router.GET("/games.json", GameJSON)
+	router.GET("/games", GameJSON)
 	router.NotFound = http.FileServer(http.Dir("static/")).ServeHTTP
 
 	return router

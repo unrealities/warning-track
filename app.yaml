@@ -1,5 +1,5 @@
 application: warning-track
-version: 0-0-4
+version: 0-0-5
 runtime: go
 vm: true
 manual_scaling:
