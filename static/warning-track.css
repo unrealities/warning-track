@@ -12,7 +12,7 @@ body {
 .game-box {
   background: bisque;
   border-radius: 20px;
-  border: 1px solid #000;
+  border: 1px solid brown;
   display: inline;
   float: left;
   font-size: 64px;
@@ -30,20 +30,18 @@ body {
   width: 16px;
 }
 
-.game-box.inning {
-  background: aliceblue;
+.game-box.inning, .game-box.score {
+  background: cornsilk;
 }
 
 .game-box.leverage-index {
   background: darkseagreen;
-}
-
-.game-box.score {
-  background: ghostwhite;
+  border: 2px solid darkgreen;
 }
 
 .game-note {
-  border-bottom: 2px solid #000;
+  background: linear-gradient(white, floralwhite);
+  border-bottom: 2px solid brown;
   display: block;
   float: left;
   font-size: 16px;
@@ -66,6 +64,15 @@ body {
   margin: 0px 4px;
 }
 
+.team-logo {
+  background-image: url('team-logos.png');
+  height: 64px;
+  width: 64px;
+}
+
 .title {
+  background: linear-gradient(floralwhite, white);
+  color: firebrick;
   font-size: 72px;
+  font-weight: 700;
 }

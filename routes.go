@@ -18,6 +18,7 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	}
 
 	liveGames := []game{}
+	teams := Teams()
 
 	msb := MasterScoreboard(gameTime, r)
 	for _, g := range msb.Data.Games.Game {
@@ -58,6 +59,14 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		gs := GameState(inning, top, run_diff)
 		li := LeverageIndex(bo, gs)
 		g.Li = li
+
+		for _, t := range teams {
+			if t.Abbr == g.HomeTeamAbbr {
+				g.HomeTeam = t
+			} else if t.Abbr == g.AwayTeamAbbr {
+				g.AwayTeam = t
+			}
+		}
 
 		liveGames = append(liveGames, g)
 	}

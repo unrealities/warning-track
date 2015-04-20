@@ -54,6 +54,13 @@ warningTrackApp
     };
   });
 
+warningTrackApp
+  .filter('logoPosition', function($filter) {
+    return function(id) {
+      var yPos = -64*id - 2;
+      return "{'background-position':'-64px " + yPos.toString() + "px'}";
+    };
+  });
 
 warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter',
   function ($scope, $http, $filter) {

@@ -7,9 +7,7 @@ func (g game) String() string {
 }
 
 type game struct {
-	HomeTeamId        string     `json:"home_team_id"`
 	HomeTeamAbbr      string     `json:"home_name_abbrev"`
-	AwayTeamId        string     `json:"away_team_id"`
 	AwayTeamAbbr      string     `json:"away_name_abbrev"`
 	Venue             string     `json:"venue"`
 	GameDataDirectory string     `json:"game_data_directory"`
@@ -23,6 +21,8 @@ type game struct {
 	Batter    batter    `json:"batter"`
 	Pbp       pbp       `json:"pbp"`
 	Li        float64   `json:"leverage_index"`
+	HomeTeam  team      `json:"home_team"`
+	AwayTeam  team      `json:"away_team"`
 }
 
 type gameStatus struct {

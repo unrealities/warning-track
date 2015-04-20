@@ -7,9 +7,9 @@ import (
 )
 
 type team struct {
-	id     int64
-	mlb_id int64
-	abbr   string
+	Id    int64  `json:"id"`
+	MlbId int64  `json:"mlb_id"`
+	Abbr  string `json:"abbr"`
 }
 
 func Teams() []team {
