@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="62" height="52">
+  <defs>
+     <style><![CDATA[
+         .warning { display: none; }
+         .warning:target { display: inline; }
+     ]]></style>
+  </defs>
+  <g class="warning" id="w0">
+    <line opacity="0.2" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="26" y1="45" x2="36" y2="45" id="wt_1"/>
+  </g>
+  <g class="warning" id="w1">
+    <line opacity="0.2" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="26" y1="45" x2="36" y2="45" id="wt_1"/>
+    <line opacity="0.4" fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="21" y1="38" x2="41" y2="38" id="wt_2"/>
+  </g>
+  <g class="warning" id="w2">
+    <line opacity="0.2" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="26" y1="45" x2="36" y2="45" id="wt_1"/>
+    <line opacity="0.4" fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="21" y1="38" x2="41" y2="38" id="wt_2"/>
+    <line opacity="0.6" fill="none" stroke="#000000" stroke-width="4" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="16" y1="29" x2="46" y2="29" id="wt_3"/>
+  </g>
+  <g class="warning" id="w3">
+    <line opacity="0.2" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="26" y1="45" x2="36" y2="45" id="wt_1"/>
+    <line opacity="0.4" fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="21" y1="38" x2="41" y2="38" id="wt_2"/>
+    <line opacity="0.6" fill="none" stroke="#000000" stroke-width="4" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="16" y1="29" x2="46" y2="29" id="wt_3"/>
+    <line opacity="0.8" fill="none" stroke="#000000" stroke-width="5" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="11" y1="19" x2="51" y2="19" id="wt_4"/>
+  </g>
+  <g class="warning" id="w4">
+    <line opacity="0.2" fill="none" stroke="#000000" stroke-width="2" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="26" y1="45" x2="36" y2="45" id="wt_1"/>
+    <line opacity="0.4" fill="none" stroke="#000000" stroke-width="3" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="21" y1="38" x2="41" y2="38" id="wt_2"/>
+    <line opacity="0.6" fill="none" stroke="#000000" stroke-width="4" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="16" y1="29" x2="46" y2="29" id="wt_3"/>
+    <line opacity="0.8" fill="none" stroke="#000000" stroke-width="5" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="11" y1="19" x2="51" y2="19" id="wt_4"/>
+    <line opactiy="1.0" fill="none" stroke="#000000" stroke-width="6" stroke-dasharray="null" stroke-linejoin="null" stroke-linecap="null" x1="6" y1="9" x2="56" y2="9" id="wt_5"/>
+  </g>
+</svg>

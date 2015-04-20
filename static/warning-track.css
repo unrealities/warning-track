@@ -3,6 +3,12 @@ body {
   font-size: 16px;
 }
 
+.base-runners, .bso-container {
+  display: inline;
+  float: left;
+  margin: 0px 2px;
+}
+
 .game-box {
   background: bisque;
   border-radius: 20px;
@@ -24,13 +30,26 @@ body {
   width: 16px;
 }
 
+.game-box.inning {
+  background: aliceblue;
+}
+
+.game-box.leverage-index {
+  background: darkseagreen;
+}
+
+.game-box.score {
+  background: ghostwhite;
+}
+
 .game-note {
   border-bottom: 2px solid #000;
   display: block;
   float: left;
-  font-size: 24px;
-  height: 40px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  height: 28px;
+  margin: 10px 0px;
+  overflow: hidden;
   padding-left: 10px;
   width: 100%;
 }
@@ -40,6 +59,11 @@ body {
   float: left;
   font-size: 12px;
   line-height: 20px;
+}
+
+.team-logo, .team-score {
+  float: left;
+  margin: 0px 4px;
 }
 
 .title {
