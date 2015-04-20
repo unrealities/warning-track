@@ -15,12 +15,7 @@ Currently returns list of in progress games order by leverage index descending
 
 ## WEBAPP TODO
 
-* Display message if there are no live games
-* Teams
- * Logo
 * Media
  * Radio
  * Gameday
  * MLB.TV
-* Visual
- * Color Coding Interesting games

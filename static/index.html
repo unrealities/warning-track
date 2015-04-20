@@ -13,8 +13,8 @@
       <div class="row title">
         <span class="col-md-12">Warning Track</span>
       </div>
-      <!--       <div ng-repeat="game in games | filter : {status: {status: 'In Progress'}} | orderBy : orderProp"  class="row col-md-12 player-container"> -->
-      <div ng-repeat="game in games | orderBy : orderProp"  class="row col-md-12 player-container">
+      <div ng-repeat="game in games | filter : {status: {status: 'In Progress'}} | orderBy : orderProp"  class="row col-md-12 player-container">
+      <!-- <div ng-repeat="game in games | orderBy : orderProp"  class="row col-md-12 player-container"> -->
         <div class="leverage-index game-box" ng-if="game.status.status != 'Final'">
           <svg viewBox="0 0 62 52" width="62">
             <use xlink:href="{{game.leverage_index| leverageToSvg}}" xlink:href=""/>
@@ -26,7 +26,7 @@
           <div class="team-logo" ng-style="{{game.home_team.id | logoPosition}}">&nbsp;</div>
           <div class="team-score">{{game.linescore.r.home}}</div>
         </div>
-        <div class="game-box">
+        <div class="game-box" ng-if="game.status.status != 'Final'">
           <div class="base-runners">
             <svg viewBox="0 0 34 26" width="68">
               <use xlink:href="{{game.runners_on_base.status | svgIconBaseHref}}" xlink:href=""/>
