@@ -3,20 +3,31 @@ body {
   font-size: 16px;
 }
 
-.base-runners, .bso-container {
+.balls-strikes-outs {
   display: inline;
   float: left;
-  margin: 0px 2px;
+  margin: 4px 6px;
+}
+
+.base-runners {
+  clear: both;
+  float: left;
+}
+
+.bso-container {
+  clear: both;
+  margin: 2px auto;
+  width: 80%;
 }
 
 .game-box {
-  background: bisque;
-  border-radius: 20px;
+  background: antiquewhite;
   border: 1px solid brown;
+  border-radius: 20px;
   display: inline;
   float: left;
   font-size: 64px;
-  height: 80px;
+  height: 100px;
   line-height: 54px;
   margin: 4px 2px;
   padding: 10px;
@@ -30,26 +41,40 @@ body {
   width: 16px;
 }
 
-.game-box.inning, .game-box.score {
-  background: cornsilk;
-}
-
-.game-box.leverage-index {
-  background: darkseagreen;
-  border: 2px solid darkgreen;
+.game-box.br {
+  background: #99DBAF;
+  border: 2px solid seagreen;
+  border-radius: 20px
 }
 
 .game-note {
-  background: linear-gradient(white, floralwhite);
-  border-bottom: 2px solid brown;
+  border-top: 1px solid brown;
+  border-bottom: 1px solid brown;
+  clear: both;
   display: block;
   float: left;
   font-size: 16px;
   height: 28px;
+  line-height: 26px;
   margin: 10px 0px;
   overflow: hidden;
   padding-left: 10px;
   width: 100%;
+}
+
+.game-status {
+  clear: both;
+  display: block;
+  float: left;
+  font-size: 16px;
+  margin-top: -16px;
+  text-align: center;
+  width: 100%;
+}
+
+.score-container {
+  display: block;
+  float: left;
 }
 
 .svg-balls-strikes-outs {
@@ -62,6 +87,7 @@ body {
 .team-logo, .team-score {
   float: left;
   margin: 0px 4px;
+  padding: 2px 10px 0px 10px;
 }
 
 .team-logo {

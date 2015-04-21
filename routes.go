@@ -57,7 +57,10 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 		bo := (outs + 1) * base_runners
 		gs := GameState(inning, top, run_diff)
-		li := LeverageIndex(bo, gs)
+		li := 0.0
+		if g.GameStatus.Status == "In Progress" {
+			li = LeverageIndex(bo, gs)
+		}
 		g.Li = li
 
 		for _, t := range teams {

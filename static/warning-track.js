@@ -3,11 +3,22 @@ var warningTrackApp = angular.module('warningTrackApp', []);
 warningTrackApp
   .filter('svgIconBaseHref', function ($sce) {
     return function(basesId) {
-      var brId = 0;
-      if (isNaN(Number(basesId))) {
-        brId = basesId;
+      return $sce.trustAsResourceUrl('baseball-bases.svg#br' + basesId);
+    };
+  });
+
+warningTrackApp
+  .filter('displayGameStatus', function() {
+    return function(game) {
+      var displayString = game.status.status;
+      if (game.status.status == "In Progress") {
+        var halfInning = "B";
+        if (game.status.top_inning == "Y") {
+          halfInning = "T";
+        }
+        displayString = halfInning + game.status.inning;
       }
-      return $sce.trustAsResourceUrl('baseball-bases.svg#br' + brId);
+      return displayString;
     };
   });
 
@@ -39,18 +50,9 @@ warningTrackApp
       if (leverageIndex < 1.5) { warningId = "1"} else
       if (leverageIndex < 2.0) { warningId = "2"} else
       if (leverageIndex < 2.5) { warningId = "3"} else
-      { warningId = "4"}
+      if (leverageIndex < 3.0) { warningId = "4"} else
+      { warningId = "5"}
       return $sce.trustAsResourceUrl('warning.svg#w' + warningId);
-    };
-  });
-
-warningTrackApp
-  .filter('inningSuffix', function($filter) {
-    var suffixes = ["th", "st", "nd", "rd"];
-    return function(inning) {
-      var relevantDigits = Number(inning) % 10;
-      var suffix = (relevantDigits <= 3) ? suffixes[relevantDigits] : suffixes[0];
-      return inning+suffix;
     };
   });
 
@@ -67,5 +69,5 @@ warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter',
     $http.get('/games').success(function(data) {
       $scope.games = data;
     });
-    $scope.orderProp = ['status.status','-leverage_index'];
+    $scope.orderProp = ['-leverage_index','status.status'];
   }]);
