@@ -23,6 +23,7 @@ type game struct {
 	Li        float64   `json:"leverage_index"`
 	HomeTeam  team      `json:"home_team"`
 	AwayTeam  team      `json:"away_team"`
+	Links     links     `json:"links"`
 }
 
 type gameStatus struct {
@@ -63,4 +64,13 @@ type batter struct {
 
 type pbp struct {
 	Last string `json:"last"`
+}
+
+type links struct {
+	AwayAudio string `json:"away_audio"`
+	HomeAudio string `json:"home_audio"`
+	WrapUp    string `json:"wrapup"`
+	Preview   string `json:"preview"`
+	TVStation string `json:"tv_station"`
+	MlbTv     string `json:"mlbtv"`
 }

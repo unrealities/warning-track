@@ -12,9 +12,9 @@ warningTrackApp
     return function(game) {
       var displayString = game.status.status;
       if (game.status.status == "In Progress") {
-        var halfInning = "B";
+        var halfInning = "B ";
         if (game.status.top_inning == "Y") {
-          halfInning = "T";
+          halfInning = "T ";
         }
         displayString = halfInning + game.status.inning;
       }

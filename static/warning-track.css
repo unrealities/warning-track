@@ -72,6 +72,11 @@ body {
   width: 100%;
 }
 
+.leverage-index {
+  float: left;
+  padding-right: 4px;
+}
+
 .score-container {
   display: block;
   float: left;
