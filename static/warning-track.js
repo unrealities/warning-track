@@ -64,10 +64,15 @@ warningTrackApp
     };
   });
 
-warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter',
-  function ($scope, $http, $filter) {
+warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$interval',
+  function ($scope, $http, $filter, $interval) {
     $http.get('/games').success(function(data) {
       $scope.games = data;
     });
+    $interval(function() {
+      $http.get('/games').success(function(data) {
+        $scope.games = data;
+      });
+    }, 30000);
     $scope.orderProp = ['-leverage_index','status.status'];
   }]);
