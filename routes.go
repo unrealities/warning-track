@@ -11,7 +11,6 @@ import (
 
 func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	// If before 12pm UTC (8am EST). Display the results from the day before
-	// DEBUG: time.Date(2015, time.April, 15, 23, 0, 0, 0, time.UTC)
 	gameTime := time.Now().UTC()
 	if gameTime.Hour() < 12 {
 		gameTime = time.Now().UTC().Add(-12 * time.Hour)

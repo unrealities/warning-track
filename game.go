@@ -1,11 +1,5 @@
 package main
 
-import "fmt"
-
-func (g game) String() string {
-	return fmt.Sprintf("%s: %-1.1f", g.GameDataDirectory, g.Li)
-}
-
 type game struct {
 	HomeTeamAbbr      string     `json:"home_name_abbrev"`
 	AwayTeamAbbr      string     `json:"away_name_abbrev"`
