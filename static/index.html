@@ -6,14 +6,18 @@
     <script src="warning-track.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='warning-track.css' rel='stylesheet' type='text/css'>
   </head>
   <body ng-controller="WarningTrackCtrl">
-    <div class="container">
-      <div class="row title">
-        <span class="col-md-12">Warning Track</span>
+    <div class="row title">
+      <div class="col-md-1 logo">
+        <img src="wt.png" width="64"/>
       </div>
-      <div ng-repeat="game in games | orderBy : orderProp"  class="row col-md-12 player-container">
+      <div class="col-md-5 company-name">Warning Track</div>
+    </div>
+    <div class="container">
+      <div ng-repeat="game in games | orderBy : orderProp"  class="row col-md-6 player-container">
         <div class="row col-md-10">
           <div class="leverage-index" ng-if="game.status.status == 'In Progress'">
             <div>
