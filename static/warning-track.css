@@ -1,8 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: #ffffff;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MCIgaGVpZ2h0PSI3MCI+CjxyZWN0IHdpZHRoPSI3MCIgaGVpZ2h0PSI3MCIgZmlsbD0iIzQ0YWEwMCI+PC9yZWN0Pgo8ZyB0cmFuc2Zvcm09InJvdGF0ZSg0NSkiPgo8cmVjdCB3aWR0aD0iOTkiIGhlaWdodD0iMjUiIGZpbGw9IiM1NWQ0MDAiPjwvcmVjdD4KPHJlY3QgeT0iLTUwIiB3aWR0aD0iOTkiIGhlaWdodD0iMjUiIGZpbGw9IiM1NWQ0MDAiPjwvcmVjdD4KPC9nPgo8L3N2Zz4=");
-  font-family: 'Lato', Arial, serif;
+  font-family: 'Roboto', Arial, serif;
   font-size: 16px;
+}
+
+div {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .balls-strikes-outs {
@@ -32,9 +43,6 @@ body {
 }
 
 .game-box {
-  background: antiquewhite;
-  border: 1px solid brown;
-  border-radius: 20px;
   display: inline;
   float: left;
   font-size: 64px;
@@ -42,25 +50,38 @@ body {
   line-height: 54px;
   margin: 4px 2px;
   padding: 10px;
+  width: 330px;
 }
 
 .game-box .icon-status {
+  color: #5D4200;
   display: inline;
   float: left;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 16px;
+  line-height: 18px;
   width: 16px;
 }
 
 .game-box.br {
-  background: #99DBAF;
-  border: 2px solid seagreen;
-  border-radius: 20px
+  background: #55D400;
+  border: 1px solid #225500;
+  border-radius: 20px;
+  margin-right: 10px;
+  width: 92px;
+}
+
+.game-container {
+  background: #ECE2C2;
+  border: 1px solid #5D4200;
+  border-radius: 20px;
+  box-shadow: 4px 4px 8px #225500;
+  clear: both;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
 }
 
 .game-note {
-  border-top: 1px solid brown;
-  border-bottom: 1px solid brown;
   clear: both;
   display: block;
   float: left;
@@ -74,6 +95,7 @@ body {
 }
 
 .game-status {
+  color: #225500;
   clear: both;
   display: block;
   float: left;
@@ -83,8 +105,15 @@ body {
   width: 100%;
 }
 
+.games-container {
+  margin-left: 10px;
+  text-align: center;
+  width: 100%;
+}
+
 .leverage-index {
   float: left;
+  padding-left: 10px;
   padding-right: 4px;
 }
 
@@ -93,37 +122,50 @@ body {
 }
 
 .logo {
-  padding-top: 20px;
+  float: left;
+  padding-top: 12px;
 }
 
 .score-container {
   display: block;
   float: left;
+  margin-top: -4px;
+  margin-bottom: 4px;
 }
 
 .svg-balls-strikes-outs {
   display: inline;
   float: left;
-  font-size: 12px;
-  line-height: 20px;
-}
-
-.team-logo, .team-score {
-  float: left;
-  margin: 0px 4px;
-  padding: 2px 10px 0px 10px;
+  font-size: 20px;
+  line-height: 18px;
 }
 
 .team-logo {
+  float: left;
   background-image: url('team-logos.png');
   height: 64px;
+  margin: 0px 4px;
+  padding: 2px 10px 0px 10px;
   width: 64px;
+}
+
+.team-score {
+  color: #5D4200;
+  float: left;
+  font-size: 48px;
+  text-align: center;
+  width: 154px;
 }
 
 .title {
   background-color: #FFF;
   border-bottom: 2px solid #225500;
   border-top: 2px solid #225500;
+  line-height: 1.4;
   margin-bottom: 10px;
-  padding-bottom: 10px;
+  text-align: center;
+}
+
+.title-container {
+  display: inline-block;
 }
