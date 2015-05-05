@@ -2,11 +2,14 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"strconv"
 	"time"
 
 	"github.com/julienschmidt/httprouter"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/datastore"
 )
 
 func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -14,6 +17,65 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	gameTime := time.Now().UTC()
 	if gameTime.Hour() < 12 {
 		gameTime = time.Now().UTC().Add(-12 * time.Hour)
+	}
+
+	liveGames := []game{}
+
+	// TODO: Get Games(g) from datastore and store in liveGames
+	// liveGames = append(liveGames, g)
+	c := appengine.NewContext(r)
+
+	q := datastore.NewQuery("Game")
+	t := q.Run(c)
+	for {
+		var g game
+		_, err := t.Next(&g)
+		if err == datastore.Done {
+			break
+		}
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		liveGames = append(liveGames, g)
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	js, err := json.Marshal(liveGames)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Write(js)
+}
+
+func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	// If before 12pm UTC (8am EST). Display the results from the day before
+	gameTime := time.Now().UTC()
+	if gameTime.Hour() < 12 {
+		gameTime = time.Now().UTC().Add(-12 * time.Hour)
+	}
+
+	c := appengine.NewContext(r)
+
+	// Delete existing games
+	// TODO: Use KeysOnly
+	q := datastore.NewQuery("Game")
+	t := q.Run(c)
+	for {
+		var g game
+		key, err := t.Next(&g)
+		if err == datastore.Done {
+			break
+		}
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		datastore.Delete(c, key)
+		fmt.Fprintf(w, "Deleted Key: %q", key)
 	}
 
 	liveGames := []game{}
@@ -70,7 +132,14 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			}
 		}
 
-		liveGames = append(liveGames, g)
+		key, err := datastore.Put(c, datastore.NewIncompleteKey(c, "Game", nil), &g)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		fmt.Fprintf(w, "Stored Key: %q", key)
+		fmt.Fprintf(w, "Stored Game: %q", g.GameDataDirectory)
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -87,6 +156,7 @@ func Routes() http.Handler {
 	router := httprouter.New()
 
 	router.GET("/games", GameJSON)
+	router.GET("/games2", SetGames)
 	router.NotFound = http.FileServer(http.Dir("static/")).ServeHTTP
 
 	return router

@@ -78,6 +78,7 @@ div {
   clear: both;
   display: inline-block;
   margin-bottom: 4px;
+  padding: 5px;
 }
 
 .game-note {

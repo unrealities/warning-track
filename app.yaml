@@ -1,8 +1,21 @@
 application: warning-track
-version: 0-3-2
+version: 0-4-0
 runtime: go
 api_version: go1
 
 handlers:
-- url: /.*
+- url: /
   script: _go_app
+
+- url: /games
+  script: _go_app
+  
+- url: /games2
+  script: _go_app
+  login: admin
+
+- url: /*
+  application_readable: true
+  static_dir: static
+  http_headers:
+    Access-Control-Allow-Origin: http://warningtrack.co

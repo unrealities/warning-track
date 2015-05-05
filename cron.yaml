@@ -1,0 +1,4 @@
+cron:
+- description: set games
+  url: /games2
+  schedule: every 1 minutes
