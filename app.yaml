@@ -1,5 +1,5 @@
 application: warning-track
-version: 0-4-1
+version: 0-4-2
 runtime: go
 api_version: go1
 
@@ -17,5 +17,3 @@ handlers:
 - url: /*
   application_readable: true
   static_dir: static
-  http_headers:
-    Access-Control-Allow-Origin: http://warningtrack.co
