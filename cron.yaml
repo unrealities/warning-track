@@ -1,4 +1,4 @@
 cron:
 - description: set games
-  url: /games2
+  url: /fetchGames
   schedule: every 1 minutes

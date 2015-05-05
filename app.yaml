@@ -1,5 +1,5 @@
 application: warning-track
-version: 0-4-0
+version: 0-4-1
 runtime: go
 api_version: go1
 
@@ -9,8 +9,8 @@ handlers:
 
 - url: /games
   script: _go_app
-  
-- url: /games2
+
+- url: /fetchGames
   script: _go_app
   login: admin
 

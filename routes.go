@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"strconv"
 	"time"
@@ -13,16 +12,8 @@ import (
 )
 
 func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	// If before 12pm UTC (8am EST). Display the results from the day before
-	gameTime := time.Now().UTC()
-	if gameTime.Hour() < 12 {
-		gameTime = time.Now().UTC().Add(-12 * time.Hour)
-	}
-
 	liveGames := []game{}
 
-	// TODO: Get Games(g) from datastore and store in liveGames
-	// liveGames = append(liveGames, g)
 	c := appengine.NewContext(r)
 
 	q := datastore.NewQuery("Game")
@@ -61,22 +52,20 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	c := appengine.NewContext(r)
 
 	// Delete existing games
-	// TODO: Use KeysOnly
-	q := datastore.NewQuery("Game")
-	t := q.Run(c)
-	for {
-		var g game
-		key, err := t.Next(&g)
-		if err == datastore.Done {
-			break
-		}
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-		datastore.Delete(c, key)
-		fmt.Fprintf(w, "Deleted Key: %q", key)
+	deleteQuery := datastore.NewQuery("Game").KeysOnly()
+	deleteKeys, deleteQueryErr := deleteQuery.GetAll(c, nil)
+	if deleteQueryErr != nil {
+		http.Error(w, deleteQueryErr.Error(), http.StatusInternalServerError)
+		return
 	}
+	deleteErr := datastore.DeleteMulti(c, deleteKeys)
+	if deleteErr != nil {
+		http.Error(w, deleteErr.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	// Prevent going over quota
+	time.Sleep(2000 * time.Millisecond)
 
 	liveGames := []game{}
 	teams := Teams()
@@ -132,14 +121,18 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			}
 		}
 
-		key, err := datastore.Put(c, datastore.NewIncompleteKey(c, "Game", nil), &g)
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
+		liveGames = append(liveGames, g)
+	}
 
-		fmt.Fprintf(w, "Stored Key: %q", key)
-		fmt.Fprintf(w, "Stored Game: %q", g.GameDataDirectory)
+	keys := make([]*datastore.Key, len(liveGames))
+	for key := range keys {
+		keys[key] = datastore.NewKey(c, "Game", "", 0, nil)
+	}
+
+	_, err := datastore.PutMulti(c, keys, liveGames)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -156,7 +149,7 @@ func Routes() http.Handler {
 	router := httprouter.New()
 
 	router.GET("/games", GameJSON)
-	router.GET("/games2", SetGames)
+	router.GET("/fetchGames", SetGames)
 	router.NotFound = http.FileServer(http.Dir("static/")).ServeHTTP
 
 	return router
