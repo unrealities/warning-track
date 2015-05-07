@@ -14,7 +14,7 @@ import (
 type scoreboard struct {
 	Data struct {
 		Games struct {
-			Game []game `json:"game"`
+			Game []mlbApiGame `json:"game"`
 		}
 	}
 }

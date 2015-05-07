@@ -1,36 +1,38 @@
 package main
 
 type game struct {
-	HomeTeamAbbr  string     `json:"home_name_abbrev"`
-	AwayTeamAbbr  string     `json:"away_name_abbrev"`
-	GameStatus    gameStatus `json:"status"`
-	RunnersOnBase struct {
-		// 0:none; 1:1b; 2:2b; 3:3b; 4:1b,2b; 5:1b,3b; 6:2b,3b; 7:1b,2b,3b
-		Status string `json:"status"`
-	} `json:"runners_on_base"`
-	LineScore lineScore `json:"linescore"`
-	Li        float64   `json:"leverage_index"`
-	HomeTeam  team      `json:"home_team"`
-	AwayTeam  team      `json:"away_team"`
-	Links     links     `json:"links"`
+	Id    int   `json:"id"`
+	Teams teams `json:"teams"`
+	Links links `json:"links"`
 }
 
-type gameStatus struct {
-	TopInning string `json:"top_inning"`
-	Strikes   string `json:"s"`
-	Balls     string `json:"b"`
-	Status    string `json:"status"`
-	Outs      string `json:"o"`
-	Inning    string `json:"inning"`
+type status struct {
+	GameId          int     `json:"game_id"`
+	State           string  `json:"state"`
+	Score           score   `json:"score"`
+	BaseRunnerState int     `json:"base_runner_state"` // 0:none; 1:1b; 2:2b; 3:3b; 4:1b,2b; 5:1b,3b; 6:2b,3b; 7:1b,2b,3b
+	Inning          int     `json:"inning"`
+	HalfInning      string  `json:"half_inning"` // "top" or "bottom"
+	Count           count   `json:"count"`
+	Outs            int     `json:"outs"`
+	Li              float64 `json:"leverage_index"`
 }
 
-type lineScore struct {
-	Runs struct {
-		Home string `json:"home"`
-		Away string `json:"away"`
-	} `json:"r"`
+type teams struct {
+	Home int `json:"home"`
+	Away int `json:"away"`
 }
 
 type links struct {
-	MlbTv string `json:"mlbtv"`
+	MlbTv string `json:"mlb_tv"`
+}
+
+type score struct {
+	Home int `json:"home"`
+	Away int `json:"away"`
+}
+
+type count struct {
+	Balls   int `json:"balls"`
+	Strikes int `json:"strikes"`
 }

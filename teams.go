@@ -7,7 +7,7 @@ import (
 )
 
 type team struct {
-	Id    int64  `json:"id"`
+	Id    int    `json:"id"`
 	MlbId int64  `json:"mlb_id"`
 	Abbr  string `json:"abbr"`
 }

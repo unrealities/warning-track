@@ -10,10 +10,10 @@ warningTrackApp
 warningTrackApp
   .filter('displayGameStatus', function() {
     return function(game) {
-      var displayString = game.status.status;
-      if (game.status.status == "In Progress") {
+      var displayString = game.status.state;
+      if (game.status.state == "In Progress") {
         var halfInning = "B ";
-        if (game.status.top_inning == "Y") {
+        if (game.status.half_inning == "Top") {
           halfInning = "T ";
         }
         displayString = halfInning + game.status.inning;

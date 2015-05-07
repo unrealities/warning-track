@@ -42,6 +42,10 @@ div {
   padding-left: 10px;
 }
 
+.footer {
+  height:40px;
+}
+
 .game-box {
   display: inline;
   float: left;

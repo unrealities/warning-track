@@ -19,25 +19,25 @@
     </div>
     <div ng-repeat="game in games | orderBy : orderProp" class="games-container">
       <div class="game-container">
-        <div class="leverage-index" ng-if="game.status.status == 'In Progress'">
+        <div class="leverage-index" ng-if="game.status.state == 'In Progress'">
           <div>
             <svg viewBox="0 0 24 102" width="24">
-              <use xlink:href="{{game.leverage_index| leverageToSvg}}" xlink:href=""/>
+              <use xlink:href="{{game.status.leverage_index| leverageToSvg}}" xlink:href=""/>
             </svg>
           </div>
         </div>
         <div class="score game-box">
           <div class="score-container">
-            <div class="team-logo" ng-style="{{game.away_team.id | logoPosition}}">&nbsp;</div>
-            <div class="team-score">{{game.linescore.r.away}} - {{game.linescore.r.home}}</div>
-            <div class="team-logo" ng-style="{{game.home_team.id | logoPosition}}">&nbsp;</div>
+            <div class="team-logo" ng-style="{{game.teams.away | logoPosition}}">&nbsp;</div>
+            <div class="team-score">{{game.status.score.away}} - {{game.status.score.home}}</div>
+            <div class="team-logo" ng-style="{{game.teams.home | logoPosition}}">&nbsp;</div>
           </div>
-          <div class="bso-container" ng-if="game.status.status == 'In Progress'">
+          <div class="bso-container" ng-if="game.status.state == 'In Progress'">
             <div class="balls-strikes-outs">
               <div class="icon-status">B:</div>
               <div class="svg-balls-strikes-outs">
                 <svg class="balls" viewBox="0 0 90 25" width="60">
-                  <use xlink:href="{{game.status.b | svgIconBallsHref}}" xlink:href=""/>
+                  <use xlink:href="{{game.status.count.balls | svgIconBallsHref}}" xlink:href=""/>
                 </svg>
               </div>
             </div>
@@ -45,7 +45,7 @@
               <div class="icon-status">S:</div>
               <div class="svg-balls-strikes-outs">
                 <svg class="strikes-outs" viewBox="0 0 68 25" width="50">
-                  <use xlink:href="{{game.status.s | svgIconStrikesOutsHref}}" xlink:href=""/>
+                  <use xlink:href="{{game.status.count.strikes | svgIconStrikesOutsHref}}" xlink:href=""/>
                 </svg>
               </div>
             </div>
@@ -53,22 +53,23 @@
               <div class="icon-status">O:</div>
               <div class="svg-balls-strikes-outs">
                 <svg class="strikes-outs" viewBox="0 0 68 25" width="50">
-                  <use xlink:href="{{game.status.o | svgIconStrikesOutsHref}}" xlink:href=""/>
+                  <use xlink:href="{{game.status.outs | svgIconStrikesOutsHref}}" xlink:href=""/>
                 </svg>
               </div>
             </div>
           </div>
-          <div class="game-status" ng-if="game.status.status != 'In Progress'">{{game | displayGameStatus}}</div>
+          <div class="game-status" ng-if="game.status.state != 'In Progress'">{{game | displayGameStatus}}</div>
         </div>
-        <div class="game-box br" ng-if="game.status.status == 'In Progress'">
+        <div class="game-box br" ng-if="game.status.state == 'In Progress'">
           <div class="base-runners">
             <svg viewBox="0 0 34 26" width="68">
-              <use xlink:href="{{game.runners_on_base.status | svgIconBaseHref}}" xlink:href=""/>
+              <use xlink:href="{{game.status.base_runner_state | svgIconBaseHref}}" xlink:href=""/>
             </svg>
           </div>
           <div class="game-status">{{game | displayGameStatus}}</div>
         </div>
       </div>
     </div>
-	</body>
+    <div class="footer">&nbsp;</div>
+  </body>
 </html>
