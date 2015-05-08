@@ -75,6 +75,28 @@ warningTrackApp
     };
   });
 
+warningTrackApp
+  .filter('gameDate', function(){
+    return function(games) {
+      var result = [];
+      var today = new Date();
+      var today_utc = new Date(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate(), today.getUTCHours());
+      var view_date = new Date(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate());
+      if (today_utc.getHours() < 12) {
+        view_date = new Date(view_date.getTime() - 1000*60*60*24);
+      }
+      angular.forEach(games, function(game) {
+        var game_date = new Date(game.date_time);
+        if(game_date.getDate() == view_date.getDate() &&
+           game_date.getMonth() == view_date.getMonth() &&
+           game_date.getYear() == view_date.getYear()) {
+          result.push(game);
+        }
+      });
+      return result;
+    };
+});
+
 warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$interval',
   function($scope, $http, $filter, $interval) {
     $http.get('/games').success(function(data) {
@@ -86,6 +108,6 @@ warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$
       });
     }, 30000);
 
-    $scope.orderProp = ['-leverage_index', 'status.status'];
+    $scope.orderProp = ['-status.leverage_index', 'status.state'];
   }
 ]);

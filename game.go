@@ -1,9 +1,10 @@
 package main
 
 type game struct {
-	Id    int   `json:"id"`
-	Teams teams `json:"teams"`
-	Links links `json:"links"`
+	Id       int    `json:"id"`
+	Teams    teams  `json:"teams"`
+	DateTime string `json:"date_time"`
+	Links    links  `json:"links"`
 }
 
 type status struct {

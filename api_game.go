@@ -4,6 +4,8 @@ type mlbApiGame struct {
 	GamePk        string           `json:"game_pk"`
 	HomeTeamAbbr  string           `json:"home_name_abbrev"`
 	AwayTeamAbbr  string           `json:"away_name_abbrev"`
+	TimeDate      string           `json:"time_date"`
+	AmPm          string           `json:"ampm"`
 	GameStatus    mlbApiGameStatus `json:"status"`
 	RunnersOnBase struct {
 		// 0:none; 1:1b; 2:2b; 3:3b; 4:1b,2b; 5:1b,3b; 6:2b,3b; 7:1b,2b,3b

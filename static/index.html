@@ -17,7 +17,7 @@
         <div class="company-name">Warning Track</div>
       </div>
     </div>
-    <div ng-repeat="game in games | orderBy : orderProp" class="games-container">
+    <div ng-repeat="game in games | gameDate | orderBy : orderProp" class="games-container">
       <div class="game-container">
         <div class="leverage-index" ng-if="game.status.state == 'In Progress'">
           <div>
