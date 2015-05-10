@@ -6,14 +6,16 @@ type mlbApiGame struct {
 	AwayTeamAbbr  string           `json:"away_name_abbrev"`
 	TimeDate      string           `json:"time_date"`
 	AmPm          string           `json:"ampm"`
-	GameStatus    mlbApiGameStatus `json:"status"`
+	GameStatus    mlbApiGameStatus `json:"status"` //"Pre-Game", "Postponed", "Final", "Preview", "Delayed", "Game Over", "In Progress"
 	RunnersOnBase struct {
-		// 0:none; 1:1b; 2:2b; 3:3b; 4:1b,2b; 5:1b,3b; 6:2b,3b; 7:1b,2b,3b
-		Status string `json:"status"`
+		Status string `json:"status"` // 0:none; 1:1b; 2:2b; 3:3b; 4:1b,2b; 5:1b,3b; 6:2b,3b; 7:1b,2b,3b
 	} `json:"runners_on_base"`
 	LineScore mlbApiLineScore `json:"linescore"`
 	Li        float64         `json:"leverage_index"`
 	Links     mlbApiLinks     `json:"links"`
+	Batter    struct {
+		Last string `json:"last"`
+	} `json:"batter"`
 }
 
 type mlbApiGameStatus struct {

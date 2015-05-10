@@ -1,5 +1,5 @@
 application: warning-track
-version: 0-5-2
+version: 1-0-0
 runtime: go
 api_version: go1
 
@@ -19,6 +19,10 @@ handlers:
   login: admin
 
 - url: /fetchAllStatuses
+  script: _go_app
+  login: admin
+
+- url: /setTwitterCredentials
   script: _go_app
   login: admin
 

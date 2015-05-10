@@ -223,6 +223,31 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		s.Outs, _ = strconv.Atoi(g.GameStatus.Outs)
 		s.Li = li
 
+		if s.Li >= 3 {
+			a := alert{}
+			teams := Teams()
+
+			for _, t := range teams {
+				if t.Abbr == g.HomeTeamAbbr {
+					a.Teams.Home = t.Id
+				} else if t.Abbr == g.AwayTeamAbbr {
+					a.Teams.Away = t.Id
+				}
+			}
+			a.Score.Home = s.Score.Home
+			a.Score.Away = s.Score.Away
+			a.Inning = s.Inning
+			a.HalfInning = s.HalfInning
+			a.Outs = s.Outs
+			a.BaseRunnerState = s.BaseRunnerState
+			a.Li = s.Li
+			a.Link = g.Links.MlbTv
+			a.Batter = g.Batter.Last
+
+			alertMessage := AlertMessage(a)
+			Tweet(alertMessage, w, r)
+		}
+
 		statuses = append(statuses, s)
 	}
 
@@ -357,6 +382,7 @@ func Routes() http.Handler {
 	router.GET("/fetchGames", SetGames)
 	router.GET("/fetchStatuses", SetStatuses)
 	router.GET("/fetchAllStatuses", SetAllStatuses)
+	router.GET("/setTwitterCredentials", SetTwitterCredentials)
 	router.NotFound = http.FileServer(http.Dir("static/")).ServeHTTP
 
 	return router
