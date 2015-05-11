@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"net/http"
 	"strconv"
@@ -67,7 +68,7 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	w.Header().Set("Content-Type", "application/json")
 
-	js, err := json.Marshal(warningTrackGames)
+	js, err := JSONMarshal(warningTrackGames, true)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -97,7 +98,7 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			}
 		}
 		g.DateTime = m.TimeDate + m.AmPm + " EST"
-		g.Links.MlbTv = m.Links.MlbTv
+		g.Links.MlbTv = mlbApiMlbTvLinkToUrl(m.Links.MlbTv)
 
 		games = append(games, g)
 	}
@@ -241,7 +242,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			a.Outs = s.Outs
 			a.BaseRunnerState = s.BaseRunnerState
 			a.Li = s.Li
-			a.Link = g.Links.MlbTv
+			a.Link = mlbApiMlbTvLinkToUrl(g.Links.MlbTv)
 			a.Batter = g.Batter.Last
 
 			alertMessage := AlertMessage(a)
@@ -373,6 +374,15 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		return
 	}
 	w.Write(js)
+}
+
+func JSONMarshal(v interface{}, safeEncoding bool) ([]byte, error) {
+	b, err := json.Marshal(v)
+
+	if safeEncoding {
+		b = bytes.Replace(b, []byte("\\u0026"), []byte("&"), -1)
+	}
+	return b, err
 }
 
 func Routes() http.Handler {

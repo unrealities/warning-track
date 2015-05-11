@@ -1,5 +1,7 @@
 package main
 
+import "regexp"
+
 type mlbApiGame struct {
 	GamePk        string           `json:"game_pk"`
 	HomeTeamAbbr  string           `json:"home_name_abbrev"`
@@ -36,4 +38,10 @@ type mlbApiLineScore struct {
 
 type mlbApiLinks struct {
 	MlbTv string `json:"mlbtv"`
+}
+
+func mlbApiMlbTvLinkToUrl(l string) string {
+	calEventId := regexp.MustCompile(`[0-9-]+`)
+	c := calEventId.FindString(l)
+	return "http://mlb.mlb.com/shared/flash/mediaplayer/v4.5/R7/MP4.jsp?calendar_event_id=" + c + "&content_id=&media_id=&view_key=&media_type=video&source=MLB&sponsor=MLB&clickOrigin=Media+Grid&affiliateId=Media+Grid&team=mlb"
 }

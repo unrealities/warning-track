@@ -1,21 +1,11 @@
 # warning-track
-parse mlb data and retrieve alerts
-
-Currently returns list of in progress games order by leverage index descending
+parse mlb data and retrieve alerts based on [leverage index](http://www.fangraphs.com/library/misc/li/)
 
 ## How To
-[http://warning-track.appspot.com/](http://warning-track.appspot.com/)
+[http://warningtrack.co/](http://warningtrack.co/)
 
 ## TODO
 
 * Verify leverage index (especially at the beginning of an inning)
-* Get crons setup to scan mlb live data
-* Cache game results
-* Send email when leverage index crosses 3 in a game
-
-## WEBAPP TODO
-
-* Media
- * Radio
- * Gameday
- * MLB.TV
+* Put games endpoint in memcache
+* Put MLBTV link in tweet in link and Website
