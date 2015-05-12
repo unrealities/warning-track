@@ -10,14 +10,16 @@ warningTrackApp
 warningTrackApp
   .filter('displayGameStatus', function() {
     return function(game) {
+      var preGameStatuses = ["Preview", "Pre-Game", "Warmup"];
       var displayString = game.status.state;
+      
       if (game.status.state == "In Progress") {
         var halfInning = "B ";
         if (game.status.half_inning == "Top") {
           halfInning = "T ";
         }
         displayString = halfInning + game.status.inning;
-      } else if (game.status.state == "Preview") {
+      } else if(preGameStatuses.indexOf(game.status.state) != -1) {
         var d = new Date(game.date_time);
         var ld = new Date(d.getTime()+d.getTimezoneOffset()*60*1000);
         var offset = d.getTimezoneOffset() / 60;
