@@ -102,11 +102,11 @@ warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$
     $http.get('/games').success(function(data) {
       $scope.games = data;
     });
-    $interval(function() {
-      $http.get('/games').success(function(data) {
-        $scope.games = data;
-      });
-    }, 30000);
+    // $interval(function() {
+    //   $http.get('/games').success(function(data) {
+    //     $scope.games = data;
+    //   });
+    // }, 30000);
 
     $scope.orderProp = ['-status.leverage_index', 'status.state'];
   }

@@ -173,3 +173,18 @@ div {
 .title-container {
   display: inline-block;
 }
+
+.watch {
+  float: left;
+}
+
+.watch-container {
+  display: inline;
+  float: left;
+  padding-top: 22px;
+  padding-right: 8px;
+}
+
+.watch-image {
+  width: 80px;
+}

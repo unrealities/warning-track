@@ -68,6 +68,13 @@
           </div>
           <div class="game-status">{{game | displayGameStatus}}</div>
         </div>
+        <div class="watch-container" ng-if="game.status.state == 'In Progress'">
+          <div class="watch">
+            <a href="{{game.links.mlb_tv}}" target="_blank">
+              <img class="watch-image" src="mlbtv-logo-square.png"/>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer">&nbsp;</div>
