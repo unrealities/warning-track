@@ -10,6 +10,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/datastore"
+	"google.golang.org/appengine/memcache"
 )
 
 func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -18,37 +19,56 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	liveGames := []game{}
 	liveStatuses := []status{}
 
-	gq := datastore.NewQuery("Game")
-	t := gq.Run(c)
-	for {
-		var g game
-		_, err := t.Next(&g)
-		if err == datastore.Done {
-			break
-		}
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+	_, get_cache_err := memcache.JSON.Get(c, "Game", &liveGames)
+	if get_cache_err != nil && get_cache_err != memcache.ErrCacheMiss {
+		http.Error(w, get_cache_err.Error(), http.StatusInternalServerError)
+	}
+	if get_cache_err == nil {
+		//success
+	} else {
+		q := datastore.NewQuery("Game")
+
+		_, Err := q.GetAll(c, &liveGames)
+		if Err != nil {
+			http.Error(w, Err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		liveGames = append(liveGames, g)
+		item := &memcache.Item{
+			Key:    "Game",
+			Object: liveGames,
+		}
+		setErr := memcache.JSON.Set(c, item)
+		if setErr != nil {
+			http.Error(w, setErr.Error(), http.StatusInternalServerError)
+		}
 	}
+
 	warningTrackGames := make([]wtGame, len(liveGames))
 
-	sq := datastore.NewQuery("Status")
-	t = sq.Run(c)
-	for {
-		var s status
-		_, err := t.Next(&s)
-		if err == datastore.Done {
-			break
-		}
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
+	_, get_cache_err = memcache.JSON.Get(c, "Status", &liveStatuses)
+	if get_cache_err != nil && get_cache_err != memcache.ErrCacheMiss {
+		http.Error(w, get_cache_err.Error(), http.StatusInternalServerError)
+	}
+	if get_cache_err == nil {
+		//success
+	} else {
+		q := datastore.NewQuery("Status")
+
+		_, Err := q.GetAll(c, &liveStatuses)
+		if Err != nil {
+			http.Error(w, Err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		liveStatuses = append(liveStatuses, s)
+		item := &memcache.Item{
+			Key:    "Status",
+			Object: liveStatuses,
+		}
+		setErr := memcache.JSON.Set(c, item)
+		if setErr != nil {
+			http.Error(w, setErr.Error(), http.StatusInternalServerError)
+		}
 	}
 
 	for k, lg := range liveGames {
@@ -104,6 +124,15 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	}
 
 	// store games
+	item := &memcache.Item{
+		Key:    "Game",
+		Object: games,
+	}
+	setErr := memcache.JSON.Set(c, item)
+	if setErr != nil {
+		http.Error(w, setErr.Error(), http.StatusInternalServerError)
+	}
+
 	keys := make([]*datastore.Key, len(games))
 	for k := range keys {
 		keys[k] = datastore.NewKey(c, "Game", "", int64(games[k].Id), nil)
@@ -114,6 +143,8 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	memcache.Delete(c, "Game")
 
 	w.Header().Set("Content-Type", "application/json")
 
@@ -137,9 +168,12 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	//
 	// To do this in one query for "Delayed" games,
 	// change status to an int and do >=
-	q := datastore.NewQuery("Status").
-		Filter("State =", "In Progress")
 	ls := []status{}
+
+	q := datastore.NewQuery("Status").
+		Filter("State =", "In Progress").
+		Project("GameId")
+
 	_, Err := q.GetAll(c, &ls)
 	if Err != nil {
 		http.Error(w, Err.Error(), http.StatusInternalServerError)
@@ -215,7 +249,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		s.Score.Away = away_team_runs
 		s.BaseRunnerState = base_runners
 		s.Inning, _ = strconv.Atoi(g.GameStatus.Inning)
-		s.HalfInning = "Bottom"
+		s.HalfInning = "Bot"
 		if g.GameStatus.TopInning == "Y" {
 			s.HalfInning = "Top"
 		}
@@ -264,6 +298,8 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		return
 	}
 
+	memcache.Delete(c, "Status")
+
 	w.Header().Set("Content-Type", "application/json")
 
 	js, err := json.Marshal(statuses)
@@ -280,15 +316,6 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 	gameTime := time.Now().UTC()
 	if gameTime.Hour() < 12 {
 		gameTime = time.Now().UTC().Add(-12 * time.Hour)
-	}
-
-	// Get all statuses
-	q := datastore.NewQuery("Status")
-	ls := []status{}
-	_, Err := q.GetAll(c, &ls)
-	if Err != nil {
-		http.Error(w, Err.Error(), http.StatusInternalServerError)
-		return
 	}
 
 	statuses := []status{}
@@ -342,7 +369,7 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		s.Score.Away = away_team_runs
 		s.BaseRunnerState = base_runners
 		s.Inning, _ = strconv.Atoi(g.GameStatus.Inning)
-		s.HalfInning = "Bottom"
+		s.HalfInning = "Bot"
 		if g.GameStatus.TopInning == "Y" {
 			s.HalfInning = "Top"
 		}
@@ -355,6 +382,15 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 	}
 
 	// store statuses
+	item := &memcache.Item{
+		Key:    "Status",
+		Object: statuses,
+	}
+	setErr := memcache.JSON.Set(c, item)
+	if setErr != nil {
+		http.Error(w, setErr.Error(), http.StatusInternalServerError)
+	}
+
 	keys := make([]*datastore.Key, len(statuses))
 	for k := range keys {
 		keys[k] = datastore.NewKey(c, "Status", "", int64(statuses[k].GameId), nil)
@@ -365,6 +401,8 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	memcache.Delete(c, "Status")
 
 	w.Header().Set("Content-Type", "application/json")
 

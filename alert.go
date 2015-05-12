@@ -34,12 +34,11 @@ func AlertMessage(a alert) string {
 
 	return awayTeam + " " + strconv.Itoa(a.Score.Away) + " - " +
 		homeTeam + " " + strconv.Itoa(a.Score.Home) + ". " +
-		a.HalfInning + " of " + strconv.Itoa(a.Inning) + ". " +
+		a.HalfInning + " " + strconv.Itoa(a.Inning) + ". " +
 		OutsMessage(a.Outs) + ". " +
 		BaseRunnerStateMessage(a.BaseRunnerState) + ". " +
-		a.Batter + " batting. " +
-		"#" + awayTeamHashtag + " #" + homeTeamHashtag + " " +
-		"#warningtrackco"
+		BattingMessage(a.HalfInning, a.Batter, awayTeamHashtag, homeTeamHashtag) +
+		". mlb-tv: " + a.Link
 }
 
 // 0:none; 1:1b; 2:2b; 3:3b; 4:1b,2b; 5:1b,3b; 6:2b,3b; 7:1b,2b,3b
@@ -77,4 +76,13 @@ func OutsMessage(o int) string {
 		return "End of inning"
 	}
 	return "Unknown outs"
+}
+
+func BattingMessage(halfInning, batter, awayHashtag, homeHashtag string) string {
+	if halfInning == "Top" {
+		return "#" + awayHashtag + " " + batter + " at-bat vs #" + homeHashtag
+	} else {
+		return "#" + homeHashtag + " " + batter + " at-bat vs #" + awayHashtag
+	}
+
 }
