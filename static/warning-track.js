@@ -17,6 +17,23 @@ warningTrackApp
           halfInning = "T ";
         }
         displayString = halfInning + game.status.inning;
+      } else if (game.status.state == "Preview") {
+        var d = new Date(game.date_time);
+        var ld = new Date(d.getTime()+d.getTimezoneOffset()*60*1000);
+        var offset = d.getTimezoneOffset() / 60;
+        var hours = d.getHours();
+        ld.setHours(hours - offset);
+
+        var ampm = hr < 12 ? "am" : "pm";
+        var hr = ld.getHours();
+        if (hr > 12) {
+          hr = hr-12;
+        }
+        var min = ld.getMinutes();
+        if (min < 10) {
+            min = "0" + min;
+        }
+        displayString = hr + ":" + min + " " + ampm;
       }
       return displayString;
     };
@@ -102,12 +119,12 @@ warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$
     $http.get('/games').success(function(data) {
       $scope.games = data;
     });
-    // $interval(function() {
-    //   $http.get('/games').success(function(data) {
-    //     $scope.games = data;
-    //   });
-    // }, 30000);
+    $interval(function() {
+      $http.get('/games').success(function(data) {
+        $scope.games = data;
+      });
+    }, 30000);
 
-    $scope.orderProp = ['-status.leverage_index', 'status.state'];
+    $scope.orderProp = ['-status.leverage_index', 'status.state', 'date_time'];
   }
 ]);
