@@ -2,9 +2,18 @@ cron:
 - description: set games
   url: /fetchGames
   schedule: every 4 hours
-- description: set statuses
+- description: set statuses morning
   url: /fetchStatuses
-  schedule: every 2 minutes
-- description: set all statuses
+  schedule: every 2 minutes from 00:00 to 7:59
+- description: set all statuses morning
   url: /fetchAllStatuses
-  schedule: every 1 hours
+  schedule: every 1 hours from 00:00 to 7:59
+- description: set statuses afternoon
+  url: /fetchStatuses
+  schedule: every 2 minutes from 14:00 to 23:59
+- description: set all statuses afternoon
+  url: /fetchAllStatuses
+  schedule: every 1 hours from 14:00 to 23:59
+- description: delete old games
+  url: /deleteGamesStatuses
+  schedule: every day 08:01

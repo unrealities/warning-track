@@ -1,5 +1,5 @@
 application: warning-track
-version: 1-1-0
+version: 1-1-1
 runtime: go
 api_version: go1
 
@@ -23,6 +23,10 @@ handlers:
   login: admin
 
 - url: /setTwitterCredentials
+  script: _go_app
+  login: admin
+
+- url: /deleteGamesStatuses
   script: _go_app
   login: admin
 

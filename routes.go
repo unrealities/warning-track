@@ -144,8 +144,6 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		return
 	}
 
-	memcache.Delete(c, "Game")
-
 	w.Header().Set("Content-Type", "application/json")
 
 	js, err := json.Marshal(games)
@@ -177,6 +175,11 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	_, Err := q.GetAll(c, &ls)
 	if Err != nil {
 		http.Error(w, Err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	if len(ls) == 0 {
+		w.Write([]byte("[]"))
 		return
 	}
 
@@ -402,8 +405,6 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		return
 	}
 
-	memcache.Delete(c, "Status")
-
 	w.Header().Set("Content-Type", "application/json")
 
 	js, err := json.Marshal(statuses)
@@ -412,6 +413,40 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		return
 	}
 	w.Write(js)
+}
+
+func DeleteGamesStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	c := appengine.NewContext(r)
+
+	//delete games
+	g := []game{}
+	gq := datastore.NewQuery("Game").KeysOnly()
+
+	gk, Err := gq.GetAll(c, &g)
+	if Err != nil {
+		http.Error(w, Err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	datastore.DeleteMulti(c, gk)
+	memcache.Delete(c, "Game")
+
+	//delete statuses
+	s := []status{}
+	sq := datastore.NewQuery("Status").KeysOnly()
+
+	sk, Err := sq.GetAll(c, &s)
+	if Err != nil {
+		http.Error(w, Err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	datastore.DeleteMulti(c, sk)
+	memcache.Delete(c, "Status")
+
+	//reload current games and statuses
+	SetGames(w, r, nil)
+	SetAllStatuses(w, r, nil)
 }
 
 func JSONMarshal(v interface{}, safeEncoding bool) ([]byte, error) {
@@ -431,6 +466,7 @@ func Routes() http.Handler {
 	router.GET("/fetchStatuses", SetStatuses)
 	router.GET("/fetchAllStatuses", SetAllStatuses)
 	router.GET("/setTwitterCredentials", SetTwitterCredentials)
+	router.GET("/deleteGamesStatuses", DeleteGamesStatuses)
 	router.NotFound = http.FileServer(http.Dir("static/")).ServeHTTP
 
 	return router
