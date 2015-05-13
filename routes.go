@@ -166,7 +166,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	// Fetch "In Progress" games
 	q := datastore.NewQuery("Status").
-		Filter("State >", "20").
+		Filter("State >", 20).
 		Project("GameId")
 
 	_, Err := q.GetAll(c, &ls)
