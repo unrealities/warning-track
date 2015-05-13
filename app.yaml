@@ -1,5 +1,5 @@
 application: warning-track
-version: 1-3-0
+version: 1-3-1
 runtime: go
 api_version: go1
 automatic_scaling:

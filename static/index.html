@@ -58,7 +58,7 @@
               </div>
             </div>
           </div>
-          <div class="game-status" ng-if="game.status.state != 'In Progress'">{{game | displayGameStatus}}</div>
+          <div class="game-status" ng-if="game.status.state < 22">{{game | displayGameStatus}}</div>
         </div>
         <div class="game-box br" ng-if="game.status.state > 21">
           <div class="base-runners">
