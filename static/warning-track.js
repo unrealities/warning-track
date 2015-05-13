@@ -10,16 +10,13 @@ warningTrackApp
 warningTrackApp
   .filter('displayGameStatus', function() {
     return function(game) {
-      var preGameStatuses = ["Preview", "Pre-Game", "Warmup"];
-      var displayString = game.status.state;
-      
-      if (game.status.state == "In Progress") {
-        var halfInning = "B ";
-        if (game.status.half_inning == "Top") {
-          halfInning = "T ";
-        }
-        displayString = halfInning + game.status.inning;
-      } else if(preGameStatuses.indexOf(game.status.state) != -1) {
+      var displayString = "";
+
+      if (game.status.state < 3) {
+        displayString = "Final";
+      } else if (game.status.state == 3) {
+        displayString = "Postponed";
+      } else if (game.status.state > 10 && game.status.state < 20) {
         var d = new Date(game.date_time);
         var ld = new Date(d.getTime()+d.getTimezoneOffset()*60*1000);
         var offset = d.getTimezoneOffset() / 60;
@@ -36,6 +33,14 @@ warningTrackApp
             min = "0" + min;
         }
         displayString = hr + ":" + min + " " + ampm;
+      } else if (game.status.state == 21) {
+        displayString = "Delayed";
+      } else {
+        var halfInning = "B ";
+        if (game.status.half_inning == "Top") {
+          halfInning = "T ";
+        }
+        displayString = halfInning + game.status.inning;
       }
       return displayString;
     };
@@ -89,7 +94,7 @@ warningTrackApp
 warningTrackApp
   .filter('logoPosition', function($filter) {
     return function(id) {
-      var yPos = -64 * id - 2;
+      var yPos = (-64 * (id-1)) - 1.128*(id-1);
       return "{'background-position':'-64px " + yPos.toString() + "px'}";
     };
   });
@@ -127,6 +132,6 @@ warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$
       });
     }, 30000);
 
-    $scope.orderProp = ['-status.leverage_index', 'status.state', 'date_time'];
+    $scope.orderProp = ['-status.leverage_index', '-status.state', 'date_time'];
   }
 ]);

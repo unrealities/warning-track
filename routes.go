@@ -162,14 +162,11 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		gameTime = time.Now().UTC().Add(-12 * time.Hour)
 	}
 
-	// Get existing statuses for "In Progress" games
-	//
-	// To do this in one query for "Delayed" games,
-	// change status to an int and do >=
 	ls := []status{}
 
+	// Fetch "In Progress" games
 	q := datastore.NewQuery("Status").
-		Filter("State =", "In Progress").
+		Filter("State >", "20").
 		Project("GameId")
 
 	_, Err := q.GetAll(c, &ls)
@@ -240,14 +237,14 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		bo := (outs + 1) * base_runners
 		gs := GameState(inning, top, run_diff)
 		li := 0.0
-		if g.GameStatus.Status == "In Progress" {
+		if g.GameStatus.Status == "In Progress" || g.GameStatus.Status == "Manager Challenge" {
 			li = LeverageIndex(bo, gs)
 		}
 
 		//convert from mlbApiGame to status
 		s := status{}
 		s.GameId, _ = strconv.Atoi(g.GamePk)
-		s.State = g.GameStatus.Status
+		s.State = gameStateToInt(g.GameStatus.Status)
 		s.Score.Home = home_team_runs
 		s.Score.Away = away_team_runs
 		s.BaseRunnerState = base_runners
@@ -360,14 +357,14 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		bo := (outs + 1) * base_runners
 		gs := GameState(inning, top, run_diff)
 		li := 0.0
-		if g.GameStatus.Status == "In Progress" {
+		if g.GameStatus.Status == "In Progress" || g.GameStatus.Status == "Manager Challenge" {
 			li = LeverageIndex(bo, gs)
 		}
 
 		//convert from mlbApiGame to status
 		s := status{}
 		s.GameId, _ = strconv.Atoi(g.GamePk)
-		s.State = g.GameStatus.Status
+		s.State = gameStateToInt(g.GameStatus.Status)
 		s.Score.Home = home_team_runs
 		s.Score.Away = away_team_runs
 		s.BaseRunnerState = base_runners

@@ -19,7 +19,7 @@
     </div>
     <div ng-repeat="game in games | gameDate | orderBy : orderProp" class="games-container">
       <div class="game-container">
-        <div class="leverage-index" ng-if="game.status.state == 'In Progress'">
+        <div class="leverage-index" ng-if="game.status.state > 21">
           <div>
             <svg viewBox="0 0 24 102" width="24">
               <use xlink:href="{{game.status.leverage_index| leverageToSvg}}" xlink:href=""/>
@@ -32,7 +32,7 @@
             <div class="team-score">{{game.status.score.away}} - {{game.status.score.home}}</div>
             <div class="team-logo" ng-style="{{game.teams.home | logoPosition}}">&nbsp;</div>
           </div>
-          <div class="bso-container" ng-if="game.status.state == 'In Progress'">
+          <div class="bso-container" ng-if="game.status.state > 21">
             <div class="balls-strikes-outs">
               <div class="icon-status">B:</div>
               <div class="svg-balls-strikes-outs">
@@ -60,7 +60,7 @@
           </div>
           <div class="game-status" ng-if="game.status.state != 'In Progress'">{{game | displayGameStatus}}</div>
         </div>
-        <div class="game-box br" ng-if="game.status.state == 'In Progress'">
+        <div class="game-box br" ng-if="game.status.state > 21">
           <div class="base-runners">
             <svg viewBox="0 0 34 26" width="68">
               <use xlink:href="{{game.status.base_runner_state | svgIconBaseHref}}" xlink:href=""/>
@@ -68,7 +68,7 @@
           </div>
           <div class="game-status">{{game | displayGameStatus}}</div>
         </div>
-        <div class="watch-container" ng-if="game.status.state == 'In Progress'">
+        <div class="watch-container" ng-if="game.status.state > 21">
           <div class="watch">
             <a href="{{game.links.mlb_tv}}" target="_blank">
               <img class="watch-image" src="mlbtv-logo-square.png"/>
@@ -77,6 +77,11 @@
         </div>
       </div>
     </div>
-    <div class="footer">&nbsp;</div>
+    <div class="footer title">
+      <div class="footer-twitter">
+        <a href="https://twitter.com/warningtrackco">@warningtrackco</a>
+      </div>
+      <div class="footer-email">warningtrackco@gmail.com</div>
+    </div>
   </body>
 </html>

@@ -42,8 +42,24 @@ div {
   padding-left: 10px;
 }
 
-.footer {
-  height:40px;
+div.footer {
+  float: left;
+  margin-top: 80px;
+  margin-bottom: 0px;
+  padding: 10px;
+  width: 100%;
+}
+
+.footer-email, .footer-twitter {
+  color: #225500;
+  display: inline;
+  font-family: 'Lobster', cursive;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+
+.footer-twitter a {
+  color: #225500;
 }
 
 .game-box {
