@@ -46,9 +46,9 @@ func gameStateToInt(gs string) int {
 		return 2
 	case "Postponed":
 		return 3
-	case "Pre-Game":
-		return 11
 	case "Preview":
+		return 11
+	case "Pre-Game":
 		return 12
 	case "Warmup":
 		return 13
