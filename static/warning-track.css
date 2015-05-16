@@ -153,6 +153,10 @@ div.footer {
   padding-top: 12px;
 }
 
+div.not-in-progress {
+  background-color: #DFCA85;
+}
+
 .score-container {
   display: block;
   float: left;

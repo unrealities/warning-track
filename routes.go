@@ -240,6 +240,9 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		if g.GameStatus.Status == "In Progress" || g.GameStatus.Status == "Manager Challenge" {
 			li = LeverageIndex(bo, gs)
 		}
+		if run_diff > 4 || run_diff < -4 {
+			li = 0.0
+		}
 
 		//convert from mlbApiGame to status
 		s := status{}

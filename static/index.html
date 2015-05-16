@@ -18,8 +18,8 @@
       </div>
     </div>
     <div ng-repeat="game in games | gameDate | orderBy : orderProp" class="games-container">
-      <div class="game-container" ng-class="(game.status.leverage_index > 3) ? 'animated tada' : ''">
-        <div class="leverage-index" ng-if="game.status.state > 21">
+      <div class="game-container" ng-class="{'animated tada' : game.status.leverage_index > 3, 'not-in-progress': game.status.state < 22}">
+        <div class="leverage-index" ng-if="game.status.state > 21" title="leverage index: {{game.status.leverage_index}}">
           <div>
             <svg viewBox="0 0 24 102" width="24">
               <use xlink:href="{{game.status.leverage_index| leverageToSvg}}" xlink:href=""/>
