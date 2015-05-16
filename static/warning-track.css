@@ -16,6 +16,13 @@ div {
   box-sizing: border-box;
 }
 
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
 .balls-strikes-outs {
   display: inline;
   float: left;
@@ -158,6 +165,26 @@ div.footer {
   float: left;
   font-size: 20px;
   line-height: 18px;
+}
+
+.tada {
+    -webkit-animation-name: tada;
+    animation-name: tada;
+}
+
+@-webkit-keyframes tada {
+    0% {-webkit-transform: scale(1); background-color: #FFF;}
+    10%, 20% {-webkit-transform: scale(0.6) rotate(-3deg); background-color: #FFF;}
+    30%, 50%, 70%, 90% {-webkit-transform: scale(1.2) rotate(3deg); background-color: #FFF;}
+    40%, 60%, 80% {-webkit-transform: scale(1.2) rotate(-3deg); background-color: #FFF;}
+    100% {-webkit-transform: scale(1) rotate(0); background-color: #FFF;}
+}
+@keyframes tada {
+    0% {transform: scale(1); background-color: #FFF;}
+    10%, 20% {transform: scale(0.6) rotate(-3deg); background-color: #FFF;}
+    30%, 50%, 70%, 90% {transform: scale(1.2) rotate(3deg); background-color: #FFF;}
+    40%, 60%, 80% {transform: scale(1.2) rotate(-3deg); background-color: #FFF;}
+    100% {transform: scale(1) rotate(0); background-color: #FFF;}
 }
 
 .team-logo {
