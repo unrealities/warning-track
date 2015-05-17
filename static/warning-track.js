@@ -94,7 +94,7 @@ warningTrackApp
 warningTrackApp
   .filter('logoPosition', function($filter) {
     return function(id) {
-      var yPos = (-64 * (id-1)) - 1.128*(id-1);
+      var yPos = (-64 * (id-1)) - 1.3*(id-1);
       return "{'background-position':'-64px " + yPos.toString() + "px'}";
     };
   });

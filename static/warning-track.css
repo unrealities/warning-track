@@ -233,5 +233,17 @@ div.not-in-progress {
 }
 
 .watch-image {
+  border: none;
   width: 80px;
+}
+
+/* IE svg fix */
+.ie9 img[src*=".svg"] {
+  width: 100%;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  img[src*=".svg"] {
+    width: 100%;
+  }
 }
