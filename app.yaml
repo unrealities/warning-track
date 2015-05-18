@@ -1,5 +1,5 @@
 application: warning-track
-version: 2-0-0
+version: 2-0-1
 runtime: go
 api_version: go1
 automatic_scaling:
@@ -9,6 +9,10 @@ automatic_scaling:
 handlers:
 - url: /
   script: _go_app
+
+- url: /deleteGamesStatuses
+  script: _go_app
+  login: admin
 
 - url: /games
   script: _go_app
@@ -29,9 +33,8 @@ handlers:
   script: _go_app
   login: admin
 
-- url: /deleteGamesStatuses
+- url: /tv
   script: _go_app
-  login: admin
 
 - url: /*
   application_readable: true

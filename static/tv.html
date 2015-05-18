@@ -22,8 +22,9 @@
         </div>
       </a>
       <div class="mini-games-container">
-        <div ng-repeat="game in games | gameDate | orderBy: orderProp | limitTo: 7">
-          <a href="{{game.links.mlb_tv}}" target="mlbtv_iframe">
+        <div class="no-wrap">
+          <div ng-repeat="game in games | gameDate | orderBy: orderProp" class="mini-game">
+            <a href="{{game.links.mlb_tv}}" target="mlbtv_iframe">
             <div class="mini-game-container" ng-class="{'animated tada' : game.status.leverage_index > 3, 'not-in-progress': game.status.state < 22}">
               <div class="mini-leverage-index" ng-if="game.status.state > 21" title="leverage index: {{game.status.leverage_index}}">
                 <div>
@@ -47,6 +48,7 @@
               </div>
             </div>
           </a>
+          </div>
         </div>
       </div>
       <div class="title-button">

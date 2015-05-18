@@ -458,6 +458,12 @@ func JSONMarshal(v interface{}, safeEncoding bool) ([]byte, error) {
 	return b, err
 }
 
+func redirectHandler(path string) func(http.ResponseWriter, *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, path, http.StatusMovedPermanently)
+	}
+}
+
 func Routes() http.Handler {
 	router := httprouter.New()
 
@@ -468,6 +474,7 @@ func Routes() http.Handler {
 	router.GET("/setTwitterCredentials", SetTwitterCredentials)
 	router.GET("/deleteGamesStatuses", DeleteGamesStatuses)
 	router.NotFound = http.FileServer(http.Dir("static/")).ServeHTTP
+	router.ServeFiles("/static/*filepath", http.Dir("/tv"))
 
 	return router
 }

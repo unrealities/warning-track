@@ -162,6 +162,10 @@ div.footer {
   padding-top: 12px;
 }
 
+.mini-game {
+  display: inline-block;
+}
+
 .mini-game-container {
   background: #ECE2C2;
   border: 1px solid #5D4200;
@@ -177,8 +181,10 @@ div.footer {
 .mini-games-container {
   display: inline;
   float: left;
-  margin-left: 14px;
+  margin-left: 20px;
   margin-top: 14px;
+  overflow-x: scroll;
+  overflow-y: hidden;
   padding-left: 10px;
   width: 740px;
 }
@@ -215,6 +221,11 @@ div.footer {
   height: 24px;
   padding-left: 4px;
   width: 24px;
+}
+
+.no-wrap {
+  white-space: nowrap;
+  width: auto;
 }
 
 div.not-in-progress {
