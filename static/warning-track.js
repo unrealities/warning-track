@@ -15,7 +15,7 @@ warningTrackApp
       if (game.status.state < 3) {
         displayString = "Final";
       } else if (game.status.state == 3) {
-        displayString = "Postponed";
+        displayString = "PP";
       } else if (game.status.state > 10 && game.status.state < 20) {
         var d = new Date(game.date_time);
         var ld = new Date(d.getTime()+d.getTimezoneOffset()*60*1000);
@@ -34,7 +34,7 @@ warningTrackApp
         }
         displayString = hr + ":" + min + " " + ampm;
       } else if (game.status.state == 21) {
-        displayString = "Delayed";
+        displayString = "Delay";
       } else {
         var halfInning = "B ";
         if (game.status.half_inning == "Top") {
@@ -100,6 +100,14 @@ warningTrackApp
   });
 
 warningTrackApp
+  .filter('minilogoPosition', function($filter) {
+    return function(id) {
+      var yPos = (-24 * (id-1)) - 0.5*(id-1);
+      return "{'background-position':'-24px " + yPos.toString() + "px'}";
+    };
+  });
+
+warningTrackApp
   .filter('gameDate', function(){
     return function(games) {
       var result = [];
@@ -119,7 +127,22 @@ warningTrackApp
       });
       return result;
     };
-});
+  });
+
+warningTrackApp
+  .filter('maxLiGameLink', function($sce){
+    return function(games) {
+      var maxLi = 0;
+      var maxLiGameLink = "http://mlb.tv";
+      angular.forEach(games, function(game) {
+        if (game.status.leverage_index >= maxLi) {
+          maxLiGameLink = game.links.mlb_tv;
+          maxLi = game.status.leverage_index;
+        }
+      });
+      return $sce.trustAsResourceUrl(maxLiGameLink);
+    };
+  });
 
 warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$interval',
   function($scope, $http, $filter, $interval) {
@@ -130,7 +153,7 @@ warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$
       $http.get('/games').success(function(data) {
         $scope.games = data;
       });
-    }, 80000);
+    }, 30000);
 
     $scope.orderProp = ['-status.leverage_index', '-status.state', 'date_time'];
   }

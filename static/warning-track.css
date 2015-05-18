@@ -17,10 +17,10 @@ div {
 }
 
 .animated {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
 .balls-strikes-outs {
@@ -47,6 +47,15 @@ div {
   font-family: 'Lobster', cursive;
   font-size: 64px;
   padding-left: 10px;
+}
+
+div.dark {
+  background-color: #000;
+  color: #55D400;
+}
+
+div.dark a {
+  color: #55D400;
 }
 
 div.footer {
@@ -153,6 +162,61 @@ div.footer {
   padding-top: 12px;
 }
 
+.mini-game-container {
+  background: #ECE2C2;
+  border: 1px solid #5D4200;
+  border-radius: 8px;
+  display: inline;
+  float: left;
+  height: 60px;
+  margin: 0px 2px;
+  padding: 0px 4px;
+  width: 100px;
+}
+
+.mini-games-container {
+  display: inline;
+  float: left;
+  margin-left: 14px;
+  margin-top: 14px;
+  padding-left: 10px;
+  width: 740px;
+}
+
+.mini-leverage-index {
+  float: left;
+  padding-right: 2px;
+  padding-top: 2px;
+}
+
+.mini-logo-score-container {
+  float: left;
+  padding-left: 2px;
+  padding-top: 3px;
+}
+
+.mini-status {
+  color: #5D4200;
+  padding-top: 18px;
+}
+
+.mini-team-logo {
+  float: left;
+  background-image: url('team_logos.png');
+  background-size: cover;
+  height: 24px;
+  width: 24px;
+}
+
+.mini-team-score {
+  color: #5D4200;
+  float: left;
+  font-size: 18px;
+  height: 24px;
+  padding-left: 4px;
+  width: 24px;
+}
+
 div.not-in-progress {
   background-color: #DFCA85;
 }
@@ -172,28 +236,29 @@ div.not-in-progress {
 }
 
 .tada {
-    -webkit-animation-name: tada;
-    animation-name: tada;
+  -webkit-animation-name: tada;
+  animation-name: tada;
 }
 
 @-webkit-keyframes tada {
-    0% {-webkit-transform: scale(1); background-color: #FFF;}
-    10%, 20% {-webkit-transform: scale(0.6) rotate(-3deg); background-color: #FFF;}
-    30%, 50%, 70%, 90% {-webkit-transform: scale(1.2) rotate(3deg); background-color: #FFF;}
-    40%, 60%, 80% {-webkit-transform: scale(1.2) rotate(-3deg); background-color: #FFF;}
-    100% {-webkit-transform: scale(1) rotate(0); background-color: #FFF;}
+  0% {-webkit-transform: scale(1); background-color: #FFF;}
+  10%, 20% {-webkit-transform: scale(0.6) rotate(-3deg); background-color: #FFF;}
+  30%, 50%, 70%, 90% {-webkit-transform: scale(1.2) rotate(3deg); background-color: #FFF;}
+  40%, 60%, 80% {-webkit-transform: scale(1.2) rotate(-3deg); background-color: #FFF;}
+  100% {-webkit-transform: scale(1) rotate(0); background-color: #FFF;}
 }
 @keyframes tada {
-    0% {transform: scale(1); background-color: #FFF;}
-    10%, 20% {transform: scale(0.6) rotate(-3deg); background-color: #FFF;}
-    30%, 50%, 70%, 90% {transform: scale(1.2) rotate(3deg); background-color: #FFF;}
-    40%, 60%, 80% {transform: scale(1.2) rotate(-3deg); background-color: #FFF;}
-    100% {transform: scale(1) rotate(0); background-color: #FFF;}
+  0% {transform: scale(1); background-color: #FFF;}
+  10%, 20% {transform: scale(0.6) rotate(-3deg); background-color: #FFF;}
+  30%, 50%, 70%, 90% {transform: scale(1.2) rotate(3deg); background-color: #FFF;}
+  40%, 60%, 80% {transform: scale(1.2) rotate(-3deg); background-color: #FFF;}
+  100% {transform: scale(1) rotate(0); background-color: #FFF;}
 }
 
 .team-logo {
   float: left;
-  background-image: url('team-logos.png');
+  background-image: url('team_logos.png');
+  background-size: cover;
   height: 64px;
   margin: 0px 4px;
   padding: 2px 10px 0px 10px;
@@ -217,6 +282,36 @@ div.not-in-progress {
   text-align: center;
 }
 
+.title-button {
+  border: 2px solid #225500;
+  border-radius: 10px;
+  display: inline;
+  float: left;
+  height: 60px;
+  margin: 15px 0px 0px 30px;
+  width: 140px;
+}
+
+.title-button a {
+  color: #225500;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.title-button a:hover {
+  color: #FFF;
+}
+
+.title-button:hover {
+  background-color: #225500;
+  color: #FFF;
+}
+
+.title-button .tv-mode {
+  height: 100%;
+  padding-top: 14px;
+}
+
 .title-container {
   display: inline-block;
 }
@@ -235,6 +330,24 @@ div.not-in-progress {
 .watch-image {
   border: none;
   width: 80px;
+}
+
+.watch-tv {
+  float: left;
+  margin-bottom: -60px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.watch-tv-iframe {
+  border: 20px solid #000;
+  border-radius: 20px;
+  box-shadow: 4px 4px 8px #225500;
+  display: inline-block;
+  height: 700px;
+  margin-top: 10px;
+  width: 1000px;
+  overflow: hidden;
 }
 
 /* IE svg fix */

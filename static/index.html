@@ -1,31 +1,39 @@
 <!doctype html>
 <html ng-app="warningTrackApp">
-  <head>
-    <title>Warning Track</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script src="warning-track.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-    <link href='warning-track.css' rel='stylesheet' type='text/css'>
-    <!--IE external svg-->
-    <script src="svg4everybody.min.js"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  </head>
-  <body ng-controller="WarningTrackCtrl">
-    <div class="title">
-      <div class="title-container">
-        <div class="logo">
-          <img src="wt.png" width="64"/>
-        </div>
-        <div class="company-name">Warning Track</div>
+
+<head>
+  <title>Warning Track</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="warning-track.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='warning-track.css' rel='stylesheet' type='text/css'>
+  <!--IE external svg-->
+  <script src="svg4everybody.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+
+<body ng-controller="WarningTrackCtrl">
+  <div class="title">
+    <div class="title-container">
+      <div class="logo">
+        <img src="wt.png" width="64" />
+      </div>
+      <div class="company-name">Warning Track</div>
+      <div class="title-button">
+        <a href="/tv.html">
+          <div class="tv-mode">TV MODE</div>
+        </a>
       </div>
     </div>
+  </div>
+  <div class="all-games-container">
     <div ng-repeat="game in games | gameDate | orderBy : orderProp" class="games-container">
       <div class="game-container" ng-class="{'animated tada' : game.status.leverage_index > 3, 'not-in-progress': game.status.state < 22}">
         <div class="leverage-index" ng-if="game.status.state > 21" title="leverage index: {{game.status.leverage_index}}">
           <div>
             <svg viewBox="0 0 24 102" width="24" height="102">
-              <use xlink:href="{{game.status.leverage_index| leverageToSvg}}" xlink:href=""/>
+              <use xlink:href="{{game.status.leverage_index| leverageToSvg}}" xlink:href="" />
             </svg>
           </div>
         </div>
@@ -40,7 +48,7 @@
               <div class="icon-status">B:</div>
               <div class="svg-balls-strikes-outs">
                 <svg class="balls" viewBox="0 0 90 25" width="60" height="16.67">
-                  <use xlink:href="{{game.status.count.balls | svgIconBallsHref}}" xlink:href=""/>
+                  <use xlink:href="{{game.status.count.balls | svgIconBallsHref}}" xlink:href="" />
                 </svg>
               </div>
             </div>
@@ -48,7 +56,7 @@
               <div class="icon-status">S:</div>
               <div class="svg-balls-strikes-outs">
                 <svg class="strikes-outs" viewBox="0 0 68 25" width="50" height="18.38">
-                  <use xlink:href="{{game.status.count.strikes | svgIconStrikesOutsHref}}" xlink:href=""/>
+                  <use xlink:href="{{game.status.count.strikes | svgIconStrikesOutsHref}}" xlink:href="" />
                 </svg>
               </div>
             </div>
@@ -56,7 +64,7 @@
               <div class="icon-status">O:</div>
               <div class="svg-balls-strikes-outs">
                 <svg class="strikes-outs" viewBox="0 0 68 25" width="50" height="18.38">
-                  <use xlink:href="{{game.status.outs | svgIconStrikesOutsHref}}" xlink:href=""/>
+                  <use xlink:href="{{game.status.outs | svgIconStrikesOutsHref}}" xlink:href="" />
                 </svg>
               </div>
             </div>
@@ -66,7 +74,7 @@
         <div class="game-box br" ng-if="game.status.state > 21">
           <div class="base-runners">
             <svg viewBox="0 0 34 26" width="68" height="52">
-              <use xlink:href="{{game.status.base_runner_state | svgIconBaseHref}}" xlink:href=""/>
+              <use xlink:href="{{game.status.base_runner_state | svgIconBaseHref}}" xlink:href="" />
             </svg>
           </div>
           <div class="game-status">{{game | displayGameStatus}}</div>
@@ -74,17 +82,19 @@
         <div class="watch-container" ng-if="game.status.state > 21">
           <div class="watch">
             <a href="{{game.links.mlb_tv}}" target="_blank">
-              <img class="watch-image" src="mlbtv-logo-square.png"/>
+              <img class="watch-image" src="mlbtv-logo-square.png" />
             </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer title">
-      <div class="footer-twitter">
-        <a href="https://twitter.com/warningtrackco">@warningtrackco</a>
-      </div>
-      <div class="footer-email">warningtrackco@gmail.com</div>
+  </div>
+  <div class="footer title">
+    <div class="footer-twitter">
+      <a href="https://twitter.com/warningtrackco">@warningtrackco</a>
     </div>
-  </body>
+    <div class="footer-email">warningtrackco@gmail.com</div>
+  </div>
+</body>
+
 </html>
