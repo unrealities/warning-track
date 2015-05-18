@@ -7,16 +7,28 @@ cron:
   schedule: every 30 minutes from 14:00 to 23:59
 - description: set statuses morning
   url: /fetchStatuses
-  schedule: every 2 minutes from 00:00 to 7:59
-- description: set all statuses morning
-  url: /fetchAllStatuses
-  schedule: every 1 hours from 00:00 to 7:59
+  schedule: every 1 minutes from 00:00 to 4:59
+- description: set statuses morning
+  url: /fetchStatuses
+  schedule: every 2 minutes from 05:00 to 7:59
 - description: set statuses afternoon
   url: /fetchStatuses
-  schedule: every 2 minutes from 14:00 to 23:59
+  schedule: every 2 minutes from 14:00 to 21:59
+- description: set statuses evening
+  url: /fetchStatuses
+  schedule: every 1 minutes from 22:00 to 23:59
+- description: set all statuses common game time 1
+  url: /fetchAllStatuses
+  schedule: every 20 minutes from 00:00 to 02:29
+- description: set all statuses morning
+  url: /fetchAllStatuses
+  schedule: every 1 hours from 02:30 to 7:59
 - description: set all statuses afternoon
   url: /fetchAllStatuses
-  schedule: every 1 hours from 14:00 to 23:59
+  schedule: every 1 hours from 14:00 to 22:57
+- description: set all statuses common game time 2
+  url: /fetchAllStatuses
+  schedule: every 5 minutes from 22:58 to 23:59
 - description: delete old games
   url: /deleteGamesStatuses
   schedule: every day 08:01

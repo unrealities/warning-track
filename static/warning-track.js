@@ -15,7 +15,7 @@ warningTrackApp
       if (game.status.state < 3) {
         displayString = "Final";
       } else if (game.status.state == 3) {
-        displayString = "PP";
+        displayString = "Postponed";
       } else if (game.status.state > 10 && game.status.state < 20) {
         var d = new Date(game.date_time);
         var ld = new Date(d.getTime()+d.getTimezoneOffset()*60*1000);
@@ -32,9 +32,9 @@ warningTrackApp
         if (min < 10) {
             min = "0" + min;
         }
-        displayString = hr + ":" + min + " " + ampm;
+        displayString = hr + ":" + min + " " + ampm + " EST";
       } else if (game.status.state == 21) {
-        displayString = "Delay";
+        displayString = "Delayed";
       } else {
         var halfInning = "B ";
         if (game.status.half_inning == "Top") {
@@ -45,6 +45,45 @@ warningTrackApp
       return displayString;
     };
   });
+
+  warningTrackApp
+    .filter('miniGameStatus', function() {
+      return function(game) {
+        var displayString = "";
+
+        if (game.status.state < 3) {
+          displayString = "F";
+        } else if (game.status.state == 3) {
+          displayString = "PP";
+        } else if (game.status.state > 10 && game.status.state < 20) {
+          var d = new Date(game.date_time);
+          var ld = new Date(d.getTime()+d.getTimezoneOffset()*60*1000);
+          var offset = d.getTimezoneOffset() / 60;
+          var hours = d.getHours();
+          ld.setHours(hours - offset);
+
+          var ampm = hr < 12 ? "am" : "pm";
+          var hr = ld.getHours();
+          if (hr > 12) {
+            hr = hr-12;
+          }
+          var min = ld.getMinutes();
+          if (min < 10) {
+              min = "0" + min;
+          }
+          displayString = hr + ":" + min;
+        } else if (game.status.state == 21) {
+          displayString = "D";
+        } else {
+          var halfInning = "B";
+          if (game.status.half_inning == "Top") {
+            halfInning = "T";
+          }
+          displayString = halfInning + game.status.inning;
+        }
+        return displayString;
+      };
+    });
 
 warningTrackApp
   .filter('svgIconStrikesOutsHref', function($sce) {
