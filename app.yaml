@@ -1,9 +1,8 @@
 application: warning-track
-version: 2-1-1
+version: 2-1-2
 runtime: go
 api_version: go1
 automatic_scaling:
-  max_idle_instances: 3
   min_pending_latency: 100ms
 
 handlers:
