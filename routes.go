@@ -201,12 +201,14 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			continue
 		}
 
-		outs, _ := strconv.Atoi(g.GameStatus.Outs)
+		init_outs, _ := strconv.Atoi(g.GameStatus.Outs)
+		outs := init_outs
 		base_runners, _ := strconv.Atoi(g.RunnersOnBase.Status)
 
 		home_team_runs, _ := strconv.Atoi(g.LineScore.Runs.Home)
 		away_team_runs, _ := strconv.Atoi(g.LineScore.Runs.Away)
-		run_diff := home_team_runs - away_team_runs
+		init_run_diff := home_team_runs - away_team_runs
+		run_diff := init_run_diff
 
 		inning, _ := strconv.Atoi(g.GameStatus.Inning)
 		top := false
@@ -240,7 +242,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		if g.GameStatus.Status == "In Progress" || g.GameStatus.Status == "Manager Challenge" {
 			li = LeverageIndex(bo, gs)
 		}
-		if run_diff > 4 || run_diff < -4 {
+		if init_run_diff > 4 || init_run_diff < -4 || init_outs > 2 {
 			li = 0.0
 		}
 
@@ -324,12 +326,14 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 	statuses := []status{}
 	msb := MasterScoreboard(gameTime, r)
 	for _, g := range msb.Data.Games.Game {
-		outs, _ := strconv.Atoi(g.GameStatus.Outs)
+		init_outs, _ := strconv.Atoi(g.GameStatus.Outs)
+		outs := init_outs
 		base_runners, _ := strconv.Atoi(g.RunnersOnBase.Status)
 
 		home_team_runs, _ := strconv.Atoi(g.LineScore.Runs.Home)
 		away_team_runs, _ := strconv.Atoi(g.LineScore.Runs.Away)
-		run_diff := home_team_runs - away_team_runs
+		init_run_diff := home_team_runs - away_team_runs
+		run_diff := init_run_diff
 
 		inning, _ := strconv.Atoi(g.GameStatus.Inning)
 		top := false
@@ -362,6 +366,9 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		li := 0.0
 		if g.GameStatus.Status == "In Progress" || g.GameStatus.Status == "Manager Challenge" {
 			li = LeverageIndex(bo, gs)
+		}
+		if init_run_diff > 4 || init_run_diff < -4 || init_outs > 2 {
+			li = 0.0
 		}
 
 		//convert from mlbApiGame to status
