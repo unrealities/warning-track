@@ -1,4 +1,4 @@
-var warningTrackApp = angular.module('warningTrackApp', []);
+var warningTrackApp = angular.module('warningTrackApp', ['ngCookies']);
 
 warningTrackApp
   .filter('svgIconBaseHref', function($sce) {
@@ -52,7 +52,7 @@ warningTrackApp
         var displayString = "";
 
         if (game.status.state < 3) {
-          displayString = "F";
+          displayString = "Final";
         } else if (game.status.state == 3) {
           displayString = "PP";
         } else if (game.status.state > 10 && game.status.state < 20) {
@@ -73,7 +73,7 @@ warningTrackApp
           }
           displayString = hr + ":" + min;
         } else if (game.status.state == 21) {
-          displayString = "D";
+          displayString = "Delay";
         } else {
           var halfInning = "B";
           if (game.status.half_inning == "Top") {
@@ -169,31 +169,81 @@ warningTrackApp
   });
 
 warningTrackApp
-  .filter('maxLiGameLink', function($sce){
-    return function(games) {
-      var maxLi = 0;
-      var maxLiGameLink = "http://mlb.tv";
-      angular.forEach(games, function(game) {
-        if (game.status.leverage_index >= maxLi) {
-          maxLiGameLink = game.links.mlb_tv;
-          maxLi = game.status.leverage_index;
-        }
-      });
-      return $sce.trustAsResourceUrl(maxLiGameLink);
+  .filter('sanitizeLink', function($sce){
+    return function(link) {
+      return $sce.trustAsResourceUrl(link);
     };
   });
 
-warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$interval',
-  function($scope, $http, $filter, $interval) {
+warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$interval', '$cookieStore',
+  function($scope, $http, $filter, $interval, $cookieStore) {
+    $scope.orderProp = ['-status.leverage_index', '-status.state', 'date_time'];
+
+    $scope.setCurrentGame = function(currGameId, currGameLink) {
+      $cookieStore.put('currentGameId', currGameId);
+      document.getElementById('mlbtv_iframe').src = currGameLink;
+    }
+
+    $scope.setTvModeType = function() {
+      $cookieStore.put('tvModeType', $scope.items.name);
+    }
+
+    $scope.getTvModeType = function(type) {
+      return $cookieStore.get('tvModeType');
+    }
+
+    $scope.changeGame = function() {
+      var currentGameIdInt = 0;
+      var tvModeType = "";
+      currentGameIdInt = parseInt($cookieStore.get('currentGameId'));
+      tvModeType = $cookieStore.get('tvModeType');
+
+      var maxLi = 0;
+      var maxLiGameLink = "http://mlb.tv";
+      var maxGameId = 0;
+
+      angular.forEach($scope.games, function(game) {
+        if (game.status.leverage_index >= maxLi) {
+          maxLiGameLink = game.links.mlb_tv;
+          maxLi = game.status.leverage_index;
+          maxGameId = game.id;
+        }
+      });
+
+      var gameLink = maxLiGameLink;
+      var gameId = maxGameId;
+
+      angular.forEach($scope.games, function(game) {
+        if (game.id == currentGameIdInt) {
+          if ((maxLi < (game.status.leverage_index + 2) && (tvModeType == 'semi')) ||
+             (tvModeType == 'none')) {
+               gameLink = game.links.mlb_tv;
+               gameId = game.id;
+          }
+        }
+      });
+
+      var currentGameLink = document.getElementById('mlbtv_iframe').src;
+      if (currentGameLink != gameLink) {
+        $scope.setCurrentGame(gameId, gameLink);
+      }
+    }
+
+    $scope.modes = [{name: 'auto', value: 'auto'},
+                    {name: 'semi', value: 'semi'},
+                    {name: 'none', value: 'none'}];
+
     $http.get('/games').success(function(data) {
       $scope.games = data;
+      $scope.changeGame();
     });
+
     $interval(function() {
       $http.get('/games').success(function(data) {
+        document.getElementById('miniGamesContainer').scrollLeft = 0;
         $scope.games = data;
+        $scope.changeGame();
       });
     }, 30000);
-
-    $scope.orderProp = ['-status.leverage_index', '-status.state', 'date_time'];
   }
 ]);

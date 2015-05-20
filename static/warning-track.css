@@ -166,6 +166,10 @@ div.footer {
   width: 100%;
 }
 
+div.home-button {
+  width: 90px;
+}
+
 .leverage-index {
   float: left;
   padding-left: 10px;
@@ -195,6 +199,10 @@ div.footer {
   margin: 0px 2px;
   padding: 0px 4px;
   width: 100px;
+}
+
+.mini-game-container:hover {
+  cursor: pointer;
 }
 
 .mini-games-container {
@@ -344,6 +352,21 @@ div.not-in-progress {
 
 .title-container {
   display: inline-block;
+}
+
+.view-select {
+  display: inline;
+  float: left;
+  margin-top: 32px;
+  padding-left: 10px;
+}
+
+.view-select select{
+  background-color: #000;
+  border: 0;
+  color: #55D400;
+  font-family: 'Roboto', Arial, serif;
+  font-size: 16px;
 }
 
 .watch {
