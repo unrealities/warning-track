@@ -76,7 +76,7 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		warningTrackGames[k].Teams = lg.Teams
 		warningTrackGames[k].Links = lg.Links
 
-		t, _ := time.Parse("2006/01/02 3:04PM MST", lg.DateTime)
+		t, _ := time.Parse("2006/01/02 3:04PM -0700", lg.DateTime)
 		warningTrackGames[k].DateTime = t.UTC().Format(time.RFC3339)
 
 		for _, ls := range liveStatuses {
@@ -117,7 +117,7 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 				g.Teams.Away = t.Id
 			}
 		}
-		g.DateTime = m.TimeDate + m.AmPm + " EST"
+		g.DateTime = m.TimeDate + m.AmPm + " -0500"
 		g.Links.MlbTv = mlbApiMlbTvLinkToUrl(m.Links.MlbTv)
 
 		games = append(games, g)

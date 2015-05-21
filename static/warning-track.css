@@ -50,7 +50,7 @@ div {
   display: inline;
   float: left;
   font-family: 'Lobster', cursive;
-  font-size: 64px;
+  font-size: 48px;
   padding-left: 10px;
 }
 
@@ -61,6 +61,39 @@ div.dark {
 
 div.dark a {
   color: #55D400;
+}
+
+.faq-answer {
+  background: #ECE2C2;
+  border-bottom: 1px solid #5D4200;
+  color: #225500;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  padding: 10px 40px;
+  text-align: justify;
+}
+
+.faq-answer a {
+  color: #112C00;
+  text-decoration: none;
+}
+
+.faq-container {
+  display: inline-block;
+  width: 100%;
+}
+
+.faq-question {
+  background: #DFCA85;
+  border-bottom: 1px solid #5D4200;
+  border-top: 1px solid #5D4200;
+  color: #5D4200;
+  font-family: 'Lobster', cursive;
+  font-size: 32px;
+  height: 60px;
+  padding: 10px 40px;
+  width: 100%;
 }
 
 div.footer {
@@ -213,7 +246,7 @@ div.home-button {
   overflow-x: scroll;
   overflow-y: hidden;
   padding-left: 10px;
-  width: 740px;
+  width: 694px;
 }
 
 .mini-leverage-index {
@@ -264,6 +297,13 @@ div.not-in-progress {
   float: left;
   margin-top: -4px;
   margin-bottom: 4px;
+}
+
+.sub-body-container {
+  clear: both;
+  float: left;
+  text-align: center;
+  width: 100%;
 }
 
 .svg-balls-strikes-outs {
@@ -325,14 +365,13 @@ div.not-in-progress {
   border-radius: 10px;
   display: inline;
   float: left;
-  height: 60px;
-  margin: 15px 0px 0px 30px;
-  width: 140px;
+  height: 40px;
+  margin: 15px 0px 0px 20px;
 }
 
 .title-button a {
   color: #225500;
-  font-size: 24px;
+  font-size: 18px;
   text-decoration: none;
 }
 
@@ -347,7 +386,14 @@ div.not-in-progress {
 
 .title-button .tv-mode {
   height: 100%;
-  padding-top: 14px;
+  padding-top: 6px;
+  width: 100px;
+}
+
+.title-button .faq-link {
+  height: 100%;
+  padding-top: 6px;
+  width: 60px;
 }
 
 .title-container {

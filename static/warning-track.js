@@ -18,21 +18,17 @@ warningTrackApp
         displayString = "Postponed";
       } else if (game.status.state > 10 && game.status.state < 20) {
         var d = new Date(game.date_time);
-        var ld = new Date(d.getTime()+d.getTimezoneOffset()*60*1000);
-        var offset = d.getTimezoneOffset() / 60;
-        var hours = d.getHours();
-        ld.setHours(hours - offset);
 
+        var hr = d.getHours();
         var ampm = hr < 12 ? "am" : "pm";
-        var hr = ld.getHours();
         if (hr > 12) {
           hr = hr-12;
         }
-        var min = ld.getMinutes();
+        var min = d.getMinutes();
         if (min < 10) {
             min = "0" + min;
         }
-        displayString = hr + ":" + min + " " + ampm + " EST";
+        displayString = hr + ":" + min + " " + ampm;
       } else if (game.status.state == 21) {
         displayString = "Delayed";
       } else {
@@ -57,17 +53,13 @@ warningTrackApp
           displayString = "PP";
         } else if (game.status.state > 10 && game.status.state < 20) {
           var d = new Date(game.date_time);
-          var ld = new Date(d.getTime()+d.getTimezoneOffset()*60*1000);
-          var offset = d.getTimezoneOffset() / 60;
-          var hours = d.getHours();
-          ld.setHours(hours - offset);
 
+          var hr = d.getHours();
           var ampm = hr < 12 ? "am" : "pm";
-          var hr = ld.getHours();
           if (hr > 12) {
             hr = hr-12;
           }
-          var min = ld.getMinutes();
+          var min = d.getMinutes();
           if (min < 10) {
               min = "0" + min;
           }
@@ -223,9 +215,11 @@ warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$
         }
       });
 
-      var currentGameLink = document.getElementById('mlbtv_iframe').src;
-      if (currentGameLink != gameLink) {
-        $scope.setCurrentGame(gameId, gameLink);
+      if (document.getElementById('mlbtv_iframe')) {
+        var currentGameLink = document.getElementById('mlbtv_iframe').src;
+        if (currentGameLink != gameLink) {
+          $scope.setCurrentGame(gameId, gameLink);
+        }
       }
     }
 
@@ -240,7 +234,9 @@ warningTrackApp.controller('WarningTrackCtrl', ['$scope', '$http', '$filter', '$
 
     $interval(function() {
       $http.get('/games').success(function(data) {
-        document.getElementById('miniGamesContainer').scrollLeft = 0;
+        if (document.getElementById('miniGamesContainer')) {
+          document.getElementById('miniGamesContainer').scrollLeft = 0;
+        }
         $scope.games = data;
         $scope.changeGame();
       });

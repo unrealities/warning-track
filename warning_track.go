@@ -14,4 +14,5 @@ func init() {
 	r := Routes()
 	http.Handle("/", r)
 	http.HandleFunc("/tv", redirectHandler("/tv.html"))
+	http.HandleFunc("/faq", redirectHandler("/faq.html"))
 }
