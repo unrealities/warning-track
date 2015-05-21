@@ -396,6 +396,12 @@ div.not-in-progress {
   width: 60px;
 }
 
+.title-button .home-link {
+  height: 100%;
+  padding-top: 6px;
+  width: 80px;
+}
+
 .title-container {
   display: inline-block;
 }

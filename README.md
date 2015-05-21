@@ -6,5 +6,5 @@ Parse mlb data and retrieve alerts based on [leverage index](http://www.fangraph
 
 ## TODO
 
-* Verify leverage index (especially at the beginning of an inning)
 * Smarter "fetchAllStatuses": Within so many minutes of a scheduled game, we should try to update that game's status. Or manually set their status to In Progress to allow it to be caught in the refresh cycle.
+* Clear cached game from previous days.
