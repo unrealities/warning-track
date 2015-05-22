@@ -302,6 +302,7 @@ div.not-in-progress {
 .sub-body-container {
   clear: both;
   float: left;
+  margin-bottom: 80px;
   text-align: center;
   width: 100%;
 }
