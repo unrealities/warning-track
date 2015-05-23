@@ -117,7 +117,7 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 				g.Teams.Away = t.Id
 			}
 		}
-		g.DateTime = m.TimeDate + m.AmPm + " -0500"
+		g.DateTime = m.TimeDate + m.AmPm + " -0400"
 		g.Links.MlbTv = mlbApiMlbTvLinkToUrl(m.Links.MlbTv)
 
 		games = append(games, g)
