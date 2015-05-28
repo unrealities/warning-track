@@ -43,5 +43,5 @@ type mlbApiLinks struct {
 func mlbApiMlbTvLinkToUrl(l string) string {
 	calEventId := regexp.MustCompile(`[0-9-]+`)
 	c := calEventId.FindString(l)
-	return "http://mlb.mlb.com/shared/flash/mediaplayer/v4.5/R7/MP4.jsp?calendar_event_id=" + c + "&content_id=&media_id=&view_key=&media_type=video&source=MLB&sponsor=MLB&clickOrigin=Media+Grid&affiliateId=Media+Grid&team=mlb"
+	return "http://m.mlb.com/tv/e" + c + "/v113652483/?&media_type=video&clickOrigin=Media%20Grid&team=mlb"
 }

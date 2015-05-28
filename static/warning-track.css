@@ -113,7 +113,7 @@ div.footer {
   float: left;
   height: 60px;
   margin-bottom: 0px;
-  margin-top: 10px;
+  margin-top: 30px;
   padding: 10px;
   width: 100%;
 }
@@ -448,8 +448,8 @@ div.not-in-progress {
 
 .watch-tv-iframe {
   display: inline-block;
-  height: 700px;
-  margin-top: -62px;
+  height: 830px;
+  margin-top: -96px;
   width: 1000px;
   overflow: hidden;
 }
