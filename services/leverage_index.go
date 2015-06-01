@@ -1,4 +1,4 @@
-package main
+package services
 
 func LeverageIndex(bo int, gs int) float64 {
 	// If game is over or bad data

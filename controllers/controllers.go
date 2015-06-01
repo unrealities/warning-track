@@ -1,4 +1,4 @@
-package main
+package controllers
 
 import (
 	"bytes"
@@ -8,16 +8,27 @@ import (
 	"time"
 
 	"github.com/julienschmidt/httprouter"
+	"github.com/unrealities/warning-track/models"
+	"github.com/unrealities/warning-track/services"
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/datastore"
 	"google.golang.org/appengine/memcache"
 )
 
+func JSONMarshal(v interface{}, safeEncoding bool) ([]byte, error) {
+	b, err := json.Marshal(v)
+
+	if safeEncoding {
+		b = bytes.Replace(b, []byte("\\u0026"), []byte("&"), -1)
+	}
+	return b, err
+}
+
 func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	c := appengine.NewContext(r)
 
-	liveGames := []game{}
-	liveStatuses := []status{}
+	liveGames := []models.Game{}
+	liveStatuses := []models.Status{}
 
 	_, get_cache_err := memcache.JSON.Get(c, "Game", &liveGames)
 	if get_cache_err != nil && get_cache_err != memcache.ErrCacheMiss {
@@ -44,7 +55,7 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		}
 	}
 
-	warningTrackGames := make([]wtGame, len(liveGames))
+	warningTrackGames := make([]models.WtGame, len(liveGames))
 
 	_, get_cache_err = memcache.JSON.Get(c, "Status", &liveStatuses)
 	if get_cache_err != nil && get_cache_err != memcache.ErrCacheMiss {
@@ -104,11 +115,11 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		gameTime = time.Now().UTC().Add(-12 * time.Hour)
 	}
 
-	teams := Teams()
-	games := []game{}
-	msb := MasterScoreboard(gameTime, r)
+	teams := services.Teams()
+	games := []models.Game{}
+	msb := services.MasterScoreboard(gameTime, r)
 	for _, m := range msb.Data.Games.Game {
-		g := game{}
+		g := models.Game{}
 		g.Id, _ = strconv.Atoi(m.GamePk)
 		for _, t := range teams {
 			if t.Abbr == m.HomeTeamAbbr {
@@ -118,7 +129,7 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			}
 		}
 		g.DateTime = m.TimeDate + m.AmPm + " -0400"
-		g.Links.MlbTv = mlbApiMlbTvLinkToUrl(m.Links.MlbTv)
+		g.Links.MlbTv = services.MlbApiMlbTvLinkToUrl(m.Links.MlbTv)
 
 		games = append(games, g)
 	}
@@ -162,7 +173,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		gameTime = time.Now().UTC().Add(-12 * time.Hour)
 	}
 
-	ls := []status{}
+	ls := []models.Status{}
 
 	// Fetch "In Progress" games
 	q := datastore.NewQuery("Status").
@@ -186,8 +197,8 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		liveGameIds = append(liveGameIds, liveStatus.GameId)
 	}
 
-	statuses := []status{}
-	msb := MasterScoreboard(gameTime, r)
+	statuses := []models.Status{}
+	msb := services.MasterScoreboard(gameTime, r)
 	for _, g := range msb.Data.Games.Game {
 		// only run for live games
 		update := false
@@ -237,19 +248,19 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		}
 
 		bo := (outs + 1) * base_runners
-		gs := GameState(inning, top, run_diff)
+		gs := services.GameState(inning, top, run_diff)
 		li := 0.0
 		if g.GameStatus.Status == "In Progress" || g.GameStatus.Status == "Manager Challenge" {
-			li = LeverageIndex(bo, gs)
+			li = services.LeverageIndex(bo, gs)
 		}
 		if init_run_diff > 4 || init_run_diff < -4 || init_outs > 2 {
 			li = 0.0
 		}
 
 		//convert from mlbApiGame to status
-		s := status{}
+		s := models.Status{}
 		s.GameId, _ = strconv.Atoi(g.GamePk)
-		s.State = gameStateToInt(g.GameStatus.Status)
+		s.State = services.GameStateToInt(g.GameStatus.Status)
 		s.Score.Home = home_team_runs
 		s.Score.Away = away_team_runs
 		s.BaseRunnerState = base_runners
@@ -264,8 +275,8 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		s.Li = li
 
 		if s.Li >= 3 {
-			a := alert{}
-			teams := Teams()
+			a := models.Alert{}
+			teams := services.Teams()
 
 			for _, t := range teams {
 				if t.Abbr == g.HomeTeamAbbr {
@@ -281,11 +292,11 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			a.Outs = s.Outs
 			a.BaseRunnerState = s.BaseRunnerState
 			a.Li = s.Li
-			a.Link = mlbApiMlbTvLinkToUrl(g.Links.MlbTv)
+			a.Link = services.MlbApiMlbTvLinkToUrl(g.Links.MlbTv)
 			a.Batter = g.Batter.Last
 
-			alertMessage := AlertMessage(a)
-			Tweet(alertMessage, w, r)
+			alertMessage := services.AlertMessage(a)
+			services.Tweet(alertMessage, w, r)
 		}
 
 		statuses = append(statuses, s)
@@ -323,8 +334,8 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		gameTime = time.Now().UTC().Add(-12 * time.Hour)
 	}
 
-	statuses := []status{}
-	msb := MasterScoreboard(gameTime, r)
+	statuses := []models.Status{}
+	msb := services.MasterScoreboard(gameTime, r)
 	for _, g := range msb.Data.Games.Game {
 		init_outs, _ := strconv.Atoi(g.GameStatus.Outs)
 		outs := init_outs
@@ -362,19 +373,19 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		}
 
 		bo := (outs + 1) * base_runners
-		gs := GameState(inning, top, run_diff)
+		gs := services.GameState(inning, top, run_diff)
 		li := 0.0
 		if g.GameStatus.Status == "In Progress" || g.GameStatus.Status == "Manager Challenge" {
-			li = LeverageIndex(bo, gs)
+			li = services.LeverageIndex(bo, gs)
 		}
 		if init_run_diff > 4 || init_run_diff < -4 || init_outs > 2 {
 			li = 0.0
 		}
 
 		//convert from mlbApiGame to status
-		s := status{}
+		s := models.Status{}
 		s.GameId, _ = strconv.Atoi(g.GamePk)
-		s.State = gameStateToInt(g.GameStatus.Status)
+		s.State = services.GameStateToInt(g.GameStatus.Status)
 		s.Score.Home = home_team_runs
 		s.Score.Away = away_team_runs
 		s.BaseRunnerState = base_runners
@@ -426,7 +437,7 @@ func DeleteGamesStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Pa
 	c := appengine.NewContext(r)
 
 	//delete games
-	g := []game{}
+	g := []models.Game{}
 	gq := datastore.NewQuery("Game").KeysOnly()
 
 	gk, Err := gq.GetAll(c, &g)
@@ -439,7 +450,7 @@ func DeleteGamesStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Pa
 	memcache.Delete(c, "Game")
 
 	//delete statuses
-	s := []status{}
+	s := []models.Status{}
 	sq := datastore.NewQuery("Status").KeysOnly()
 
 	sk, Err := sq.GetAll(c, &s)
@@ -456,32 +467,22 @@ func DeleteGamesStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Pa
 	SetAllStatuses(w, r, nil)
 }
 
-func JSONMarshal(v interface{}, safeEncoding bool) ([]byte, error) {
-	b, err := json.Marshal(v)
+// Only to be used manually to update Twitter Credentials.
+// Never store any keys, tokens or secrets in the code.
+func SetTwitterCredentials(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	c := appengine.NewContext(r)
 
-	if safeEncoding {
-		b = bytes.Replace(b, []byte("\\u0026"), []byte("&"), -1)
+	t := &models.Credentials{
+		ConsumerKey:       "",
+		ConsumerSecret:    "",
+		AccessToken:       "",
+		AccessTokenSecret: ""}
+
+	k := datastore.NewKey(c, "Credentials", "Twitter", 0, nil)
+
+	_, err := datastore.Put(c, k, t)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
-	return b, err
-}
-
-func redirectHandler(path string) func(http.ResponseWriter, *http.Request) {
-	return func(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, path, http.StatusMovedPermanently)
-	}
-}
-
-func Routes() http.Handler {
-	router := httprouter.New()
-
-	router.GET("/games", GameJSON)
-	router.GET("/fetchGames", SetGames)
-	router.GET("/fetchStatuses", SetStatuses)
-	router.GET("/fetchAllStatuses", SetAllStatuses)
-	router.GET("/setTwitterCredentials", SetTwitterCredentials)
-	router.GET("/deleteGamesStatuses", DeleteGamesStatuses)
-	router.NotFound = http.FileServer(http.Dir("static/")).ServeHTTP
-	router.ServeFiles("/static/*filepath", http.Dir("/tv"))
-
-	return router
 }

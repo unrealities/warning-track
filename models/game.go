@@ -1,13 +1,13 @@
-package main
+package models
 
-type game struct {
+type Game struct {
 	Id       int    `json:"id"`
 	Teams    teams  `json:"teams"`
 	DateTime string `json:"date_time"`
 	Links    links  `json:"links"`
 }
 
-type status struct {
+type Status struct {
 	GameId          int     `json:"game_id"`
 	State           int     `json:"state"`
 	Score           score   `json:"score"`
@@ -36,28 +36,4 @@ type score struct {
 type count struct {
 	Balls   int `json:"balls"`
 	Strikes int `json:"strikes"`
-}
-
-func gameStateToInt(gs string) int {
-	switch gs {
-	case "Final":
-		return 1
-	case "Game Over":
-		return 2
-	case "Postponed":
-		return 3
-	case "Preview":
-		return 11
-	case "Pre-Game":
-		return 12
-	case "Warmup":
-		return 13
-	case "Delayed":
-		return 21
-	case "Manager Challenge":
-		return 22
-	case "In Progress":
-		return 23
-	}
-	return 30
 }

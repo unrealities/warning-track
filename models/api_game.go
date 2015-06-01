@@ -1,6 +1,4 @@
-package main
-
-import "regexp"
+package models
 
 type mlbApiGame struct {
 	GamePk        string           `json:"game_pk"`
@@ -38,10 +36,4 @@ type mlbApiLineScore struct {
 
 type mlbApiLinks struct {
 	MlbTv string `json:"mlbtv"`
-}
-
-func mlbApiMlbTvLinkToUrl(l string) string {
-	calEventId := regexp.MustCompile(`[0-9-]+`)
-	c := calEventId.FindString(l)
-	return "http://m.mlb.com/tv/e" + c + "/v113652483/?&media_type=video&clickOrigin=Media%20Grid&team=mlb"
 }

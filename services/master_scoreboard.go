@@ -1,4 +1,4 @@
-package main
+package services
 
 import (
 	"encoding/json"
@@ -7,20 +7,13 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/unrealities/warning-track/models"
 	"google.golang.org/appengine"
 	"google.golang.org/appengine/urlfetch"
 )
 
-type scoreboard struct {
-	Data struct {
-		Games struct {
-			Game []mlbApiGame `json:"game"`
-		}
-	}
-}
-
-func MasterScoreboard(time time.Time, r *http.Request) scoreboard {
-	scoreboards := scoreboard{}
+func MasterScoreboard(time time.Time, r *http.Request) models.Scoreboard {
+	scoreboards := models.Scoreboard{}
 
 	c := appengine.NewContext(r)
 	client := urlfetch.Client(c)

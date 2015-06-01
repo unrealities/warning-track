@@ -1,9 +1,9 @@
-package main
+package models
 
-type wtGame struct {
+type WtGame struct {
 	Id       int    `json:"id"`
 	Teams    teams  `json:"teams"`
 	DateTime string `json:"date_time"`
-	Status   status `json:"status"`
+	Status   Status `json:"status"`
 	Links    links  `json:"links"`
 }

@@ -1,5 +1,5 @@
 application: warning-track
-version: 2-5-0
+version: 2-6-0
 runtime: go
 api_version: go1
 automatic_scaling:
@@ -40,4 +40,4 @@ handlers:
 
 - url: /*
   application_readable: true
-  static_dir: static
+  static_dir: www

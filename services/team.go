@@ -1,22 +1,17 @@
-package main
+package services
 
 import (
 	"encoding/json"
 	"fmt"
 	"os"
+
+	"github.com/unrealities/warning-track/models"
 )
 
-type team struct {
-	Id      int    `json:"id"`
-	MlbId   int64  `json:"mlb_id"`
-	Abbr    string `json:"abbr"`
-	Hashtag string `json:"hashtag"`
-}
+func Teams() []models.Team {
+	teams := []models.Team{}
 
-func Teams() []team {
-	teams := []team{}
-
-	teamsFile, err := os.Open("teams.json")
+	teamsFile, err := os.Open("../models/team.json")
 	if err != nil {
 		fmt.Println("Error opening teamsFile: " + err.Error())
 	}

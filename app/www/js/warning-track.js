@@ -3,7 +3,7 @@ var warningTrackApp = angular.module('warningTrackApp', ['ngCookies']);
 warningTrackApp
   .filter('svgIconBaseHref', function($sce) {
     return function(basesId) {
-      return $sce.trustAsResourceUrl('baseball-bases.svg#br' + basesId);
+      return $sce.trustAsResourceUrl('../img/baseball-bases.svg#br' + basesId);
     };
   });
 
@@ -80,21 +80,21 @@ warningTrackApp
 warningTrackApp
   .filter('svgIconStrikesOutsHref', function($sce) {
     return function(soId) {
-      return $sce.trustAsResourceUrl('strikes-outs.svg#so' + soId);
+      return $sce.trustAsResourceUrl('../img/strikes-outs.svg#so' + soId);
     };
   });
 
 warningTrackApp
   .filter('svgIconBallsHref', function($sce) {
     return function(ballsId) {
-      return $sce.trustAsResourceUrl('balls.svg#b' + ballsId);
+      return $sce.trustAsResourceUrl('../img/balls.svg#b' + ballsId);
     };
   });
 
 warningTrackApp
   .filter('svgIconTeamsHref', function($sce) {
     return function(teamAbbr) {
-      return $sce.trustAsResourceUrl('teams.svg#' + teamAbbr);
+      return $sce.trustAsResourceUrl('../img/teams.svg#' + teamAbbr);
     };
   });
 
@@ -118,7 +118,7 @@ warningTrackApp
       } else {
         warningId = "5"
       }
-      return $sce.trustAsResourceUrl('warning.svg#w' + warningId);
+      return $sce.trustAsResourceUrl('../img/warning.svg#w' + warningId);
     };
   });
 

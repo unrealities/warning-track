@@ -1,26 +1,17 @@
-package main
+package services
 
 import (
 	"encoding/json"
 	"fmt"
 	"os"
+
+	"github.com/unrealities/warning-track/models"
 )
 
-type baseRunners struct {
-	First  bool
-	Second bool
-	Third  bool
-}
+func BaseOuts() []models.BaseOut {
+	baseOuts := []models.BaseOut{}
 
-type baseOut struct {
-	Outs         int
-	Base_Runners baseRunners
-}
-
-func BaseOuts() []baseOut {
-	baseOuts := []baseOut{}
-
-	baseOutsFile, err := os.Open("base_outs.json")
+	baseOutsFile, err := os.Open("../models/base_out.json")
 	if err != nil {
 		fmt.Println("Error opening baseOutsFile: " + err.Error())
 	}
