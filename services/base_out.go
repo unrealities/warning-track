@@ -11,7 +11,7 @@ import (
 func BaseOuts() []models.BaseOut {
 	baseOuts := []models.BaseOut{}
 
-	baseOutsFile, err := os.Open("../models/base_out.json")
+	baseOutsFile, err := os.Open("base_out.json")
 	if err != nil {
 		fmt.Println("Error opening baseOutsFile: " + err.Error())
 	}

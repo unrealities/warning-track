@@ -11,7 +11,7 @@ import (
 func Teams() []models.Team {
 	teams := []models.Team{}
 
-	teamsFile, err := os.Open("../models/team.json")
+	teamsFile, err := os.Open("team.json")
 	if err != nil {
 		fmt.Println("Error opening teamsFile: " + err.Error())
 	}

@@ -11,7 +11,7 @@ import (
 func GameStates() []models.GameState {
 	gameStates := []models.GameState{}
 
-	gameStatesFile, err := os.Open("../models/game_state.json")
+	gameStatesFile, err := os.Open("game_state.json")
 	if err != nil {
 		fmt.Println("Error opening gameStatesFile: " + err.Error())
 	}
