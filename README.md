@@ -1,8 +1,8 @@
 # warning-track
 Parse mlb data and retrieve alerts based on [leverage index](http://www.fangraphs.com/library/misc/li/)
 
-[http://warningtrack.co/](http://warningtrack.co/)
-[@warningtrackco](http://twitter.com/warningtrackco)
+* [http://warningtrack.co/](http://warningtrack.co/)
+* [@warningtrackco](http://twitter.com/warningtrackco)
 
 ## TODO
 
@@ -11,3 +11,4 @@ Parse mlb data and retrieve alerts based on [leverage index](http://www.fangraph
 * Responsive layout to reduce code overalp with mobile app.
 * Tests :)
 * Reduce duplicate code
+* Authentication
