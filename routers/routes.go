@@ -16,8 +16,13 @@ func Routes() http.Handler {
 	router.GET("/fetchAllStatuses", controllers.SetAllStatuses)
 	router.GET("/setTwitterCredentials", controllers.SetTwitterCredentials)
 	router.GET("/deleteGamesStatuses", controllers.DeleteGamesStatuses)
-	router.NotFound = http.FileServer(http.Dir("www/")).ServeHTTP
 	router.ServeFiles("/www/*filepath", http.Dir("/tv"))
+
+	// TODO:
+	// From "github.com/julienschmidt/httprouter"
+	// this approach sidesteps the strict core rules of this router to avoid routing problems.
+	// A cleaner approach is to use a distinct sub-path for serving files, like /static/*filepath or /files/*filepath.
+	router.NotFound = http.FileServer(http.Dir("www/"))
 
 	return router
 }
