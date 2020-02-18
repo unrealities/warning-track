@@ -6,7 +6,7 @@ import (
 	"github.com/unrealities/warning-track/routers"
 )
 
-func init() {
+func main() {
 	r := routers.Routes()
 	http.Handle("/", r)
 	http.HandleFunc("/tv", routers.RedirectHandler("/tv.html"))

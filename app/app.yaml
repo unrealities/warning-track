@@ -1,43 +1,43 @@
-application: warning-track
-version: 2-6-2
-runtime: go
-api_version: go1
+runtime: go111
 automatic_scaling:
   min_pending_latency: 100ms
 
 handlers:
 - url: /
-  script: _go_app
+  script: auto
 
 - url: /deleteGamesStatuses
-  script: _go_app
+  script: auto
   login: admin
 
 - url: /faq
-  script: _go_app
+  script: auto
 
 - url: /games
-  script: _go_app
+  script: auto
 
 - url: /fetchGames
-  script: _go_app
+  script: auto
   login: admin
 
 - url: /fetchStatuses
-  script: _go_app
+  script: auto
   login: admin
 
 - url: /fetchAllStatuses
-  script: _go_app
+  script: auto
   login: admin
 
 - url: /setTwitterCredentials
-  script: _go_app
+  script: auto
   login: admin
 
 - url: /tv
-  script: _go_app
+  script: auto
 
-- url: /*
-  application_readable: true
+- url: /(.*\.(gif|png|jpg))$
+  static_files: www/\1
+  upload: www/.*\.(gif|png|jpg)$
+
+- url: /.*
   static_dir: www

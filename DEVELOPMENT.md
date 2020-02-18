@@ -33,3 +33,15 @@
 - [Download and install Go on your machine](https://golang.org/dl/)
 - `go get github.com/unrealities/warning-track/app`
 - `go install github.com/unrealities/warning-track/app`
+- [Download and install Google Cloud SDK](https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe)
+- `gcloud init`
+
+## Deploying New Code
+
+- If `go install` doesn't work, can do `go get -u github.com/unrealities/warning-track/app`
+- `gcloud config set project warning-track`
+- `gcloud app deploy --version 3-0-0` from `/warning-track/app` directory
+
+## GO Version
+
+- go112+ does not support `login:admin` in `app.yaml` 
