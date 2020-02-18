@@ -35,9 +35,5 @@ handlers:
 - url: /tv
   script: auto
 
-- url: /(.*\.(gif|png|jpg))$
-  static_files: www/\1
-  upload: www/.*\.(gif|png|jpg)$
-
-- url: /.*
+- url: /*
   static_dir: www
