@@ -38,11 +38,11 @@ func MasterScoreboard(time time.Time, r *http.Request) models.Scoreboard {
 }
 
 func MasterScoreBoardURL(time time.Time) string {
-	host := "http://gd2.mlb.com"
-	main := "components/game/mlb"
-	year := "year_" + time.Format("2006")
-	month := "month_" + time.Format("01")
-	day := "day_" + time.Format("02")
-	file := "master_scoreboard.json"
-	return host + "/" + main + "/" + year + "/" + month + "/" + day + "/" + file
+	host := "http://statsapi.mlb.com"
+	path := "/api/v1/schedule"
+	query := "?sportId=1&hydrate=game(content(summary,media(epg))),linescore(runners),flags,team&date="
+	month := time.Format("01")
+	day := time.Format("02")
+	year := time.Format("2006")
+	return host + "/" + path + query + month + "/" + day + "/" + year
 }
