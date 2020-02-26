@@ -12,7 +12,7 @@ statsapi.mlb.com
 /api/v1/schedule
 ?language=en
 &sportId=1
-&date=02/24/2020
+&date=MM/DD/YYYY
 &sortBy=gameDate
 &hydrate=game(content(summary,media(epg))),linescore(runners),flags,team
 
