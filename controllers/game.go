@@ -24,9 +24,7 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	if get_cache_err != nil && get_cache_err != memcache.ErrCacheMiss {
 		http.Error(w, get_cache_err.Error(), http.StatusInternalServerError)
 	}
-	if get_cache_err == nil {
-		//success
-	} else {
+	if get_cache_err != nil {
 		q := datastore.NewQuery("Game")
 
 		_, Err := q.GetAll(c, &liveGames)
@@ -51,9 +49,7 @@ func GameJSON(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	if get_cache_err != nil && get_cache_err != memcache.ErrCacheMiss {
 		http.Error(w, get_cache_err.Error(), http.StatusInternalServerError)
 	}
-	if get_cache_err == nil {
-		//success
-	} else {
+	if get_cache_err != nil {
 		q := datastore.NewQuery("Status")
 
 		_, Err := q.GetAll(c, &liveStatuses)
@@ -108,17 +104,14 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	teams := services.Teams()
 	games := []models.Game{}
 	msb := services.MasterScoreboard(gameTime, r)
-	for _, m := range msb.Data.Games.Game {
+	for _, s := range msb.Dates.Games {
 		g := models.Game{}
-		g.Id, _ = strconv.Atoi(m.GamePk)
-		for _, t := range teams {
-			if t.Abbr == m.HomeTeamAbbr {
-				g.Teams.Home = t.Id
-			} else if t.Abbr == m.AwayTeamAbbr {
-				g.Teams.Away = t.Id
-			}
-		}
-		g.DateTime = m.TimeDate + m.AmPm + " -0400"
+		g.Id, _ = strconv.Atoi(s.GamePk)
+		g.Teams.Away = s.Teams.Away.Team.Abbreviation
+		g.Teams.Home = s.Teams.Home.Team.Abbreviation
+		g.DateTime = s.GameDate // Might need to parse: 2020-02-24T18:05:00Z
+		// TODD:
+		// Change to new contentId and update services function
 		g.Links.MlbTv = services.MlbApiMlbTvLinkToUrl(m.Links.MlbTv)
 
 		games = append(games, g)
