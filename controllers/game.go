@@ -110,9 +110,13 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		g.Teams.Away = s.Teams.Away.Team.Abbreviation
 		g.Teams.Home = s.Teams.Home.Team.Abbreviation
 		g.DateTime = s.GameDate // Might need to parse: 2020-02-24T18:05:00Z
-		// TODD:
-		// Change to new contentId and update services function
-		g.Links.MlbTv = services.MlbApiMlbTvLinkToUrl(m.Links.MlbTv)
+
+		for _ e := range s.Content.Media.Epg {
+			if e.Title == "MLBTV"
+			// TODO: this may be a dangerous assumption that the first item has the contentID we want
+			g.Links.MlbTv = services.MlbApiMlbTvLinkToUrl(s.GamePk, e.Items[0].ContentID)
+			break
+		}
 
 		games = append(games, g)
 	}

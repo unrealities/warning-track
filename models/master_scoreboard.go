@@ -213,6 +213,24 @@ type Scoreboard struct {
 				Editorial struct {
 				} `json:"editorial"`
 				Media struct {
+					Epg []struct {
+						Title string `json:"title"`
+						Items []struct {
+							ID               int    `json:"id"`
+							ContentID        string `json:"contentId"`
+							MediaID          string `json:"mediaId"`
+							MediaState       string `json:"mediaState"`
+							MediaFeedType    string `json:"mediaFeedType"`
+							MediaFeedSubType string `json:"mediaFeedSubType"`
+							CallLetters      string `json:"callLetters"`
+							FoxAuthRequired  bool   `json:"foxAuthRequired"`
+							TbsAuthRequired  bool   `json:"tbsAuthRequired"`
+							EspnAuthRequired bool   `json:"espnAuthRequired"`
+							Fs1AuthRequired  bool   `json:"fs1AuthRequired"`
+							MlbnAuthRequired bool   `json:"mlbnAuthRequired"`
+							FreeGame         bool   `json:"freeGame"`
+						} `json:"items"`
+					} `json:"epg"`
 					EpgAlternate []struct {
 						Items []interface{} `json:"items"`
 						Title string        `json:"title"`
