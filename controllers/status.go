@@ -48,7 +48,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 	statuses := []models.Status{}
 	msb := services.MasterScoreboard(gameTime, r)
-	for _, g := range msb.Data.Games.Game {
+	for _, g := range msb.Dates[0].Games {
 		// only run for live games
 		update := false
 		for _, l := range liveGameIds {
@@ -141,8 +141,15 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			a.Outs = s.Outs
 			a.BaseRunnerState = s.BaseRunnerState
 			a.Li = s.Li
-			a.Link = services.MlbApiMlbTvLinkToUrl(g.Links.MlbTv)
 			a.Batter = g.Batter.Last
+
+			for _, e := range g.Content.Media.Epg {
+				if e.Title == "MLBTV" {
+					// TODO: this may be a dangerous assumption that the first item has the contentID we want
+					a.Link = services.MlbApiMlbTvLinkToUrl(g.GamePk, e.Items[0].ContentID)
+				}
+				break
+			}
 
 			alertMessage := services.AlertMessage(a)
 			services.Tweet(alertMessage, w, r)

@@ -1,5 +1,7 @@
 package services
 
-func MlbApiMlbTvLinkToUrl(g, c string) string {
-	return "http://www.mlb.com/tv/g" + g + "/v" + c
+import "fmt"
+
+func MlbApiMlbTvLinkToUrl(g int, c string) string {
+	return fmt.Sprintf("http://www.mlb.com/tv/g%v/v%v", g, c)
 }
