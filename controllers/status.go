@@ -52,7 +52,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		// only run for live games
 		update := false
 		for _, l := range liveGameIds {
-			if strconv.Itoa(l) == g.GamePk {
+			if l == g.GamePk {
 				update = true
 				break
 			}
@@ -61,26 +61,25 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			continue
 		}
 
-		init_outs, _ := strconv.Atoi(g.GameStatus.Outs)
-		outs := init_outs
-		base_runners, _ := strconv.Atoi(g.RunnersOnBase.Status)
+		initOuts := g.Linescore.Outs
+		outs := initOuts
+		baseRunners := g.Linescore.Offense
 
-		home_team_runs, _ := strconv.Atoi(g.LineScore.Runs.Home)
-		away_team_runs, _ := strconv.Atoi(g.LineScore.Runs.Away)
-		init_run_diff := home_team_runs - away_team_runs
-		run_diff := init_run_diff
+		htRuns := g.Linescore.Teams.Home.Runs
+		atRuns := g.Linescore.Teams.Away.Runs
+		runDiff := htRuns - atRuns
 
-		inning, _ := strconv.Atoi(g.GameStatus.Inning)
+		inning := g.Linescore.CurrentInning
 		top := false
-		if g.GameStatus.TopInning == "Y" {
+		if g.Linescore.IsTopInning {
 			top = true
 		}
 
-		if run_diff > 4 {
-			run_diff = 4
+		if runDiff > 4 {
+			runDiff = 4
 		}
-		if run_diff < -4 {
-			run_diff = -4
+		if runDiff < -4 {
+			runDiff = -4
 		}
 
 		if outs > 2 && top == true {
@@ -96,31 +95,31 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			inning = 9
 		}
 
-		bo := (outs + 1) * base_runners
-		gs := services.GameState(inning, top, run_diff)
+		bo := (outs + 1) * 1 // TODO: 1 should be replaced by the baseRunner state
+		gs := services.GameState(inning, top, runDiff)
 		li := 0.0
-		if g.GameStatus.Status == "In Progress" || g.GameStatus.Status == "Manager Challenge" {
+		if g.Status.DetailedState == "In Progress" || g.Status.DetailedState == "Manager Challenge" {
 			li = services.LeverageIndex(bo, gs)
 		}
-		if init_run_diff > 4 || init_run_diff < -4 || init_outs > 2 {
+		if runDiff >= 4 || runDiff <= -4 || initOuts > 2 {
 			li = 0.0
 		}
 
 		//convert from mlbApiGame to status
 		s := models.Status{}
-		s.GameId, _ = strconv.Atoi(g.GamePk)
-		s.State = services.GameStateToInt(g.GameStatus.Status)
-		s.Score.Home = home_team_runs
-		s.Score.Away = away_team_runs
-		s.BaseRunnerState = base_runners
-		s.Inning, _ = strconv.Atoi(g.GameStatus.Inning)
+		s.GameId = g.GamePk
+		s.State = services.GameStateToInt(g.Status.DetailedState)
+		s.Score.Home = htRuns
+		s.Score.Away = atRuns
+		s.BaseRunnerState = 1 // TODO: 1 should be replaced by the baseRunner state
+		s.Inning = g.Linescore.CurrentInning
 		s.HalfInning = "Bot"
-		if g.GameStatus.TopInning == "Y" {
+		if top {
 			s.HalfInning = "Top"
 		}
-		s.Count.Balls, _ = strconv.Atoi(g.GameStatus.Balls)
-		s.Count.Strikes, _ = strconv.Atoi(g.GameStatus.Strikes)
-		s.Outs, _ = strconv.Atoi(g.GameStatus.Outs)
+		s.Count.Balls = g.Linescore.Balls
+		s.Count.Strikes = g.Linescore.Strikes
+		s.Outs = g.Linescore.Outs
 		s.Li = li
 
 		if s.Li >= 3 {
@@ -128,9 +127,9 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			teams := services.Teams()
 
 			for _, t := range teams {
-				if t.Abbr == g.HomeTeamAbbr {
+				if t.Abbr == g.Teams.Home.Team.Abbreviation {
 					a.Teams.Home = t.Id
-				} else if t.Abbr == g.AwayTeamAbbr {
+				} else if t.Abbr == g.Teams.Away.Team.Abbreviation {
 					a.Teams.Away = t.Id
 				}
 			}
@@ -141,7 +140,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			a.Outs = s.Outs
 			a.BaseRunnerState = s.BaseRunnerState
 			a.Li = s.Li
-			a.Batter = g.Batter.Last
+			a.Batter = g.Linescore.Defense.Batter.FullName
 
 			for _, e := range g.Content.Media.Epg {
 				if e.Title == "MLBTV" {
@@ -192,7 +191,7 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 
 	statuses := []models.Status{}
 	msb := services.MasterScoreboard(gameTime, r)
-	for _, g := range msb.Data.Games.Game {
+	for _, g := range msb.Dates[0].Games {
 		init_outs, _ := strconv.Atoi(g.GameStatus.Outs)
 		outs := init_outs
 		base_runners, _ := strconv.Atoi(g.RunnersOnBase.Status)

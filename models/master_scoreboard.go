@@ -13,12 +13,14 @@ type Scoreboard struct {
 			Teams    struct {
 				Away struct {
 					Team struct {
-						ID int `json:"id"`
+						ID           int    `json:"id"`
+						Abbreviation string `json:"abbreviation"`
 					} `json:"team"`
 				} `json:"away"`
 				Home struct {
 					Team struct {
-						ID int `json:"id"`
+						ID           int    `json:"id"`
+						Abbreviation string `json:"abbreviation"`
 					} `json:"team"`
 				} `json:"home"`
 			} `json:"teams"`
@@ -76,6 +78,23 @@ type Scoreboard struct {
 						Link     string `json:"link"`
 					} `json:"inHole"`
 				} `json:"defense"`
+				Offense struct {
+					First struct {
+						ID       int    `json:"id"`
+						FullName string `json:"fullName"`
+						Link     string `json:"link"`
+					} `json:"first,omitempty"`
+					Second struct {
+						ID       int    `json:"id"`
+						FullName string `json:"fullName"`
+						Link     string `json:"link"`
+					} `json:"second,omitempty"`
+					Third struct {
+						ID       int    `json:"id"`
+						FullName string `json:"fullName"`
+						Link     string `json:"link"`
+					} `json:"third,omitempty"`
+				} `json:"offense"`
 				Balls   int `json:"balls"`
 				Strikes int `json:"strikes"`
 				Outs    int `json:"outs"`
@@ -100,6 +119,13 @@ type Scoreboard struct {
 					} `json:"epg"`
 				} `json:"media"`
 			} `json:"content"`
+			Status struct {
+				AbstractGameState string `json:"abstractGameState"`
+				CodedGameState    string `json:"codedGameState"`
+				DetailedState     string `json:"detailedState"`
+				StatusCode        string `json:"statusCode"`
+				AbstractGameCode  string `json:"abstractGameCode"`
+			} `json:"status"`
 		} `json:"games"`
 	} `json:"dates"`
 }
