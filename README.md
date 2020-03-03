@@ -4,6 +4,11 @@ Parse mlb data and retrieve alerts based on [leverage index](http://www.fangraph
 * [http://warningtrack.co/](http://warningtrack.co/)
 * [@warningtrackco](http://twitter.com/warningtrackco)
 
+## VERSION
+
+4.0.x Using statsapi.mlb.com
+3.0.x Updating to go 1.10
+
 ## TODO
 
 * Smarter "fetchAllStatuses": Within so many minutes of a scheduled game, we should try to update that game's status. Or manually set their status to In Progress to allow it to be caught in the refresh cycle.
