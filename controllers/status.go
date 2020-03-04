@@ -111,7 +111,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		s.State = services.GameStateToInt(g.Status.DetailedState)
 		s.Score.Home = htRuns
 		s.Score.Away = atRuns
-		s.BaseRunnerState = 1 // TODO: 1 should be replaced by the baseRunner state
+		s.BaseRunnerState = offenseToBaseRunner(g.Linescore.Offense)
 		s.Inning = g.Linescore.CurrentInning
 		s.HalfInning = "Bot"
 		if top {
@@ -242,7 +242,7 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		s.State = services.GameStateToInt(g.Status.DetailedState)
 		s.Score.Home = htRuns
 		s.Score.Away = atRuns
-		s.BaseRunnerState = 1 // TODO: 1 should be replaced by the baseRunner state
+		s.BaseRunnerState = offenseToBaseRunner(g.Linescore.Offense)
 		s.Inning = g.Linescore.CurrentInning
 		s.HalfInning = "Bot"
 		if top {
@@ -285,4 +285,18 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		return
 	}
 	w.Write(js)
+}
+
+func offenseToBaseRunner(o models.Offense) models.baseRunner {
+	br = models.baseRunner {}
+	if o.First.ID > 0 {
+		br.First = true
+	}
+	if o.Second.ID > 0 {
+		br.Second = true
+	}
+	if o.Third.ID > 0 {
+		br.Third = true
+	}
+	return br
 }

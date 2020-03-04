@@ -78,23 +78,7 @@ type Scoreboard struct {
 						Link     string `json:"link"`
 					} `json:"inHole"`
 				} `json:"defense"`
-				Offense struct {
-					First struct {
-						ID       int    `json:"id"`
-						FullName string `json:"fullName"`
-						Link     string `json:"link"`
-					} `json:"first,omitempty"`
-					Second struct {
-						ID       int    `json:"id"`
-						FullName string `json:"fullName"`
-						Link     string `json:"link"`
-					} `json:"second,omitempty"`
-					Third struct {
-						ID       int    `json:"id"`
-						FullName string `json:"fullName"`
-						Link     string `json:"link"`
-					} `json:"third,omitempty"`
-				} `json:"offense"`
+				Offense Offense `json:"offense"`
 				Balls   int `json:"balls"`
 				Strikes int `json:"strikes"`
 				Outs    int `json:"outs"`
@@ -128,4 +112,22 @@ type Scoreboard struct {
 			} `json:"status"`
 		} `json:"games"`
 	} `json:"dates"`
+}
+
+Offense struct {
+	First struct {
+		ID       int    `json:"id"`
+		FullName string `json:"fullName"`
+		Link     string `json:"link"`
+	} `json:"first,omitempty"`
+	Second struct {
+		ID       int    `json:"id"`
+		FullName string `json:"fullName"`
+		Link     string `json:"link"`
+	} `json:"second,omitempty"`
+	Third struct {
+		ID       int    `json:"id"`
+		FullName string `json:"fullName"`
+		Link     string `json:"link"`
+	} `json:"third,omitempty"`
 }
