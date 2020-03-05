@@ -287,16 +287,25 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 	w.Write(js)
 }
 
-func offenseToBaseRunner(o models.Offense) models.baseRunner {
-	br = models.baseRunner {}
-	if o.First.ID > 0 {
-		br.First = true
+// 0:none; 1:1b; 2:2b; 3:3b; 4:1b,2b; 5:1b,3b; 6:2b,3b; 7:1b,2b,3b
+func offenseToBaseRunnerState(o models.Offense) int {
+	switch o {
+	case o.First.ID == 0 && o.Second.ID == 0 && o.Third.ID == 0:
+		return 0
+	case o.First.ID > 0 && o.Second.ID == 0 && o.Third.ID == 0:
+		return 1
+	case o.First.ID == 0 && o.Second.ID > 0 && o.Third.ID == 0:
+		return 2
+	case o.First.ID == 0 && o.Second.ID == 0 && o.Third.ID > 0:
+		return 3
+	case o.First.ID > 0 && o.Second.ID > 0 && o.Third.ID == 0:
+		return 4
+	case o.First.ID > 0 && o.Second.ID == 0 && o.Third.ID > 0:
+		return 5
+	case o.First.ID == 0 && o.Second.ID > 0 && o.Third.ID > 0:
+		return 6
+	case o.First.ID > 0 && o.Second.ID > 0 && o.Third.ID > 0:
+		return 7
 	}
-	if o.Second.ID > 0 {
-		br.Second = true
-	}
-	if o.Third.ID > 0 {
-		br.Third = true
-	}
-	return br
+	return 0
 }
