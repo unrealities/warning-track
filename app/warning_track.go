@@ -10,8 +10,6 @@ import (
 )
 
 func main() {
-	appengine.Main()
-
 	r := routers.Routes()
 	http.Handle("/", r)
 	http.HandleFunc("/tv", routers.RedirectHandler("/tv.html"))
@@ -29,4 +27,6 @@ func main() {
 		log.Fatal(err)
 	}
 	// [END setting_port]
+
+	appengine.Main()
 }
