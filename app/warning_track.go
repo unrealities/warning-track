@@ -6,9 +6,12 @@ import (
 	"os"
 
 	"github.com/unrealities/warning-track/routers"
+	"google.golang.org/appengine"
 )
 
 func main() {
+	appengine.Main()
+
 	r := routers.Routes()
 	http.Handle("/", r)
 	http.HandleFunc("/tv", routers.RedirectHandler("/tv.html"))
