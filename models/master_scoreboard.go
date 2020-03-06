@@ -79,9 +79,9 @@ type Scoreboard struct {
 					} `json:"inHole"`
 				} `json:"defense"`
 				Offense Offense `json:"offense"`
-				Balls   int `json:"balls"`
-				Strikes int `json:"strikes"`
-				Outs    int `json:"outs"`
+				Balls   int     `json:"balls"`
+				Strikes int     `json:"strikes"`
+				Outs    int     `json:"outs"`
 			} `json:"linescore,omitempty"`
 			Content struct {
 				Media struct {
@@ -114,7 +114,7 @@ type Scoreboard struct {
 	} `json:"dates"`
 }
 
-Offense struct {
+type Offense struct {
 	First struct {
 		ID       int    `json:"id"`
 		FullName string `json:"fullName"`

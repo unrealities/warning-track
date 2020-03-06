@@ -100,7 +100,6 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		gameTime = time.Now().UTC().Add(-12 * time.Hour)
 	}
 
-	teams := services.Teams()
 	games := []models.Game{}
 	msb := services.MasterScoreboard(gameTime, r)
 	for _, s := range msb.Dates[0].Games {

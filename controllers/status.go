@@ -3,7 +3,6 @@ package controllers
 import (
 	"encoding/json"
 	"net/http"
-	"strconv"
 	"time"
 
 	"github.com/julienschmidt/httprouter"
@@ -63,7 +62,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 
 		initOuts := g.Linescore.Outs
 		outs := initOuts
-		baseRunners := g.Linescore.Offense
+		baseRunnerState := offenseToBaseRunnerState(g.Linescore.Offense)
 
 		htRuns := g.Linescore.Teams.Home.Runs
 		atRuns := g.Linescore.Teams.Away.Runs
@@ -95,7 +94,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			inning = 9
 		}
 
-		bo := (outs + 1) * 1 // TODO: 1 should be replaced by the baseRunner state
+		bo := (outs + 1) * baseRunnerState
 		gs := services.GameState(inning, top, runDiff)
 		li := 0.0
 		if g.Status.DetailedState == "In Progress" || g.Status.DetailedState == "Manager Challenge" {
@@ -111,7 +110,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		s.State = services.GameStateToInt(g.Status.DetailedState)
 		s.Score.Home = htRuns
 		s.Score.Away = atRuns
-		s.BaseRunnerState = offenseToBaseRunner(g.Linescore.Offense)
+		s.BaseRunnerState = baseRunnerState
 		s.Inning = g.Linescore.CurrentInning
 		s.HalfInning = "Bot"
 		if top {
@@ -194,7 +193,7 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 	for _, g := range msb.Dates[0].Games {
 		initOuts := g.Linescore.Outs
 		outs := initOuts
-		baseRunners := g.Linescore.Offense
+		baseRunnerState := offenseToBaseRunnerState(g.Linescore.Offense)
 
 		htRuns := g.Linescore.Teams.Home.Runs
 		atRuns := g.Linescore.Teams.Away.Runs
@@ -226,7 +225,7 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 			inning = 9
 		}
 
-		bo := (outs + 1) * 1 // TODO: 1 should be replaced by the baseRunner state
+		bo := (outs + 1) * baseRunnerState
 		gs := services.GameState(inning, top, runDiff)
 		li := 0.0
 		if g.Status.DetailedState == "In Progress" || g.Status.DetailedState == "Manager Challenge" {
@@ -242,7 +241,7 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 		s.State = services.GameStateToInt(g.Status.DetailedState)
 		s.Score.Home = htRuns
 		s.Score.Away = atRuns
-		s.BaseRunnerState = offenseToBaseRunner(g.Linescore.Offense)
+		s.BaseRunnerState = baseRunnerState
 		s.Inning = g.Linescore.CurrentInning
 		s.HalfInning = "Bot"
 		if top {
@@ -289,7 +288,7 @@ func SetAllStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 
 // 0:none; 1:1b; 2:2b; 3:3b; 4:1b,2b; 5:1b,3b; 6:2b,3b; 7:1b,2b,3b
 func offenseToBaseRunnerState(o models.Offense) int {
-	switch o {
+	switch {
 	case o.First.ID == 0 && o.Second.ID == 0 && o.Third.ID == 0:
 		return 0
 	case o.First.ID > 0 && o.Second.ID == 0 && o.Third.ID == 0:

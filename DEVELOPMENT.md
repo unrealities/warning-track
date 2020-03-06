@@ -40,7 +40,7 @@
 
 - If `go install` doesn't work, can do `go get -u github.com/unrealities/warning-track/app`
 - `gcloud config set project warning-track`
-- `gcloud app deploy --version 3-0-0` from `/warning-track/app` directory
+- `gcloud app deploy --version 4-0-0` from `/warning-track/app` directory
 
 ## GO Version
 
