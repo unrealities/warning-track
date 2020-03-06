@@ -44,5 +44,5 @@ func MasterScoreBoardURL(time time.Time) string {
 	month := time.Format("01")
 	day := time.Format("02")
 	year := time.Format("2006")
-	return host + "/" + path + query + month + "/" + day + "/" + year
+	return host + path + query + month + "/" + day + "/" + year
 }
