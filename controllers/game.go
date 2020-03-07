@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 	"time"
 
@@ -110,7 +111,9 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		g.DateTime = s.GameDate.Format("2006-01-02") // Might need to parse: 2020-02-24T18:05:00Z
 
 		for _, e := range s.Content.Media.Epg {
+			log.Printf("s.Content.Media.Epg: %v", e)
 			if e.Title == "MLBTV" {
+				log.Printf("MLBTV e.Items: %v", e.Items)
 				// TODO: this may be a dangerous assumption that the first item has the contentID we want
 				g.Links.MlbTv = services.MlbApiMlbTvLinkToUrl(s.GamePk, e.Items[0].ContentID)
 			}
