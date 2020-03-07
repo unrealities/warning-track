@@ -9,7 +9,7 @@ import (
 	"google.golang.org/appengine"
 )
 
-func main() {
+func init() {
 	r := routers.Routes()
 	http.Handle("/", r)
 	http.HandleFunc("/tv", routers.RedirectHandler("/tv.html"))
