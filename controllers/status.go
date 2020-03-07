@@ -140,14 +140,7 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			a.BaseRunnerState = s.BaseRunnerState
 			a.Li = s.Li
 			a.Batter = g.Linescore.Defense.Batter.FullName
-
-			for _, e := range g.Content.Media.Epg {
-				if e.Title == "MLBTV" {
-					// TODO: this may be a dangerous assumption that the first item has the contentID we want
-					a.Link = services.MlbApiMlbTvLinkToUrl(g.GamePk, e.Items[0].ContentID)
-				}
-				break
-			}
+			a.Link = services.MlbApiMlbTvLinkToUrl(g.GamePk)
 
 			alertMessage := services.AlertMessage(a)
 			services.Tweet(alertMessage, w, r)
