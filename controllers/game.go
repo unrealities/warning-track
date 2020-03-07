@@ -104,6 +104,7 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	games := []models.Game{}
 	msb := services.MasterScoreboard(gameTime, r)
 	for _, s := range msb.Dates[0].Games {
+		log.Printf("msb.Dates[0].Games: %+v", s)
 		g := models.Game{}
 		g.Id = s.GamePk
 		g.Teams.Away = s.Teams.Away.Team.ID
@@ -111,9 +112,9 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 		g.DateTime = s.GameDate.Format("2006-01-02") // Might need to parse: 2020-02-24T18:05:00Z
 
 		for _, e := range s.Content.Media.Epg {
-			log.Printf("s.Content.Media.Epg: %v", e)
-			if e.Title == "MLBTV" {
-				log.Printf("MLBTV e.Items: %v", e.Items)
+			log.Printf("s.Content.Media.Epg: %+v", e)
+			if e.Title == "MLBTV" && len(e.Items) > 0 {
+				log.Printf("MLBTV e.Items: %+v", e.Items)
 				// TODO: this may be a dangerous assumption that the first item has the contentID we want
 				g.Links.MlbTv = services.MlbApiMlbTvLinkToUrl(s.GamePk, e.Items[0].ContentID)
 			}
