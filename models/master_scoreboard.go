@@ -13,13 +13,13 @@ type Scoreboard struct {
 			Teams    struct {
 				Away struct {
 					Team struct {
-						ID           int    `json:"id"`
+						ID           int64  `json:"id"`
 						Abbreviation string `json:"abbreviation"`
 					} `json:"team"`
 				} `json:"away"`
 				Home struct {
 					Team struct {
-						ID           int    `json:"id"`
+						ID           int64  `json:"id"`
 						Abbreviation string `json:"abbreviation"`
 					} `json:"team"`
 				} `json:"home"`

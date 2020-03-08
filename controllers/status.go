@@ -126,9 +126,9 @@ func SetStatuses(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 			teams := services.Teams()
 
 			for _, t := range teams {
-				if t.Abbr == g.Teams.Home.Team.Abbreviation {
+				if t.MlbId == g.Teams.Home.Team.ID {
 					a.Teams.Home = t.Id
-				} else if t.Abbr == g.Teams.Away.Team.Abbreviation {
+				} else if t.MlbId == g.Teams.Away.Team.ID {
 					a.Teams.Away = t.Id
 				}
 			}

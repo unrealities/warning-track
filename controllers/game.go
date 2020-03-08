@@ -103,8 +103,15 @@ func SetGames(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	for _, s := range msb.Dates[0].Games {
 		g := models.Game{}
 		g.Id = s.GamePk
-		g.Teams.Away = s.Teams.Away.Team.ID
-		g.Teams.Home = s.Teams.Home.Team.ID
+		teams := services.Teams()
+
+		for _, t := range teams {
+			if t.MlbId == s.Teams.Home.Team.ID {
+				g.Teams.Home = t.Id
+			} else if t.MlbId == s.Teams.Away.Team.ID {
+				g.Teams.Away = t.Id
+			}
+		}
 		g.DateTime = s.GameDate.Format(time.RFC3339)
 		g.Links.MlbTv = services.MlbApiMlbTvLinkToUrl(s.GamePk)
 		games = append(games, g)
