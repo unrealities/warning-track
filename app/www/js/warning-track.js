@@ -42,40 +42,40 @@ warningTrackApp
     };
   });
 
-  warningTrackApp
-    .filter('miniGameStatus', function() {
-      return function(game) {
-        var displayString = "";
+warningTrackApp
+  .filter('miniGameStatus', function() {
+    return function(game) {
+      var displayString = "";
 
-        if (game.status.state < 3) {
-          displayString = "Final";
-        } else if (game.status.state == 3) {
-          displayString = "PP";
-        } else if (game.status.state > 10 && game.status.state < 20) {
-          var d = new Date(game.date_time);
+      if (game.status.state < 3) {
+        displayString = "Final";
+      } else if (game.status.state == 3) {
+        displayString = "PP";
+      } else if (game.status.state > 10 && game.status.state < 20) {
+        var d = new Date(game.date_time);
 
-          var hr = d.getHours();
-          var ampm = hr < 12 ? "am" : "pm";
-          if (hr > 12) {
-            hr = hr-12;
-          }
-          var min = d.getMinutes();
-          if (min < 10) {
-              min = "0" + min;
-          }
-          displayString = hr + ":" + min;
-        } else if (game.status.state == 21) {
-          displayString = "Delay";
-        } else {
-          var halfInning = "B";
-          if (game.status.half_inning == "Top") {
-            halfInning = "T";
-          }
-          displayString = halfInning + game.status.inning;
+        var hr = d.getHours();
+        var ampm = hr < 12 ? "am" : "pm";
+        if (hr > 12) {
+          hr = hr-12;
         }
-        return displayString;
-      };
-    });
+        var min = d.getMinutes();
+        if (min < 10) {
+            min = "0" + min;
+        }
+        displayString = hr + ":" + min;
+      } else if (game.status.state == 21) {
+        displayString = "Delay";
+      } else {
+        var halfInning = "B";
+        if (game.status.half_inning == "Top") {
+          halfInning = "T";
+        }
+        displayString = halfInning + game.status.inning;
+      }
+      return displayString;
+    };
+  });
 
 warningTrackApp
   .filter('svgIconStrikesOutsHref', function($sce) {
