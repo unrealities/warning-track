@@ -125,14 +125,14 @@ warningTrackApp
 warningTrackApp
   .filter('logoPosition', function($filter) {
     return function(id) {
-      return "{'background-image: url('../img/team_logos/" + yPos.toString() + ".svg'}";
+      return "{'background-image: url('../img/team_logos/" + id.toString() + ".svg'}";
     };
   });
 
 warningTrackApp
   .filter('minilogoPosition', function($filter) {
     return function(id) {
-      return "{'background-image: url('../img/team_logos/" + yPos.toString() + ".svg'}";
+      return "{'background-image: url('../img/team_logos/" + id.toString() + ".svg'}";
     };
   });
 
