@@ -125,16 +125,14 @@ warningTrackApp
 warningTrackApp
   .filter('logoPosition', function($filter) {
     return function(id) {
-      var yPos = (-64 * (id-1)) - 1.3*(id-1);
-      return "{'background-position':'-64px " + yPos.toString() + "px'}";
+      return "{'background-image: url('../img/team_logos/" + yPos.toString() + ".svg'}";
     };
   });
 
 warningTrackApp
   .filter('minilogoPosition', function($filter) {
     return function(id) {
-      var yPos = (-24 * (id-1)) - 0.5*(id-1);
-      return "{'background-position':'-24px " + yPos.toString() + "px'}";
+      return "{'background-image: url('../img/team_logos/" + yPos.toString() + ".svg'}";
     };
   });
 
