@@ -269,7 +269,7 @@ div.home-button {
 
 .mini-team-logo {
   float: left;
-  background-size: cover;
+  background-size: 24px 24px;
   height: 24px;
   width: 24px;
 }
@@ -336,9 +336,9 @@ div.not-in-progress {
 
 .team-logo {
   float: left;
-  background-size: cover;
+  background-size: 64px 64px;
   height: 64px;
-  width: 68px;
+  width: 64px;
 }
 
 .team-score {
