@@ -34,6 +34,7 @@
     </div>
   </div>
   <div class="all-games-container">
+    <div ng-show="!(games | filter:query).length">No Games Today</div>
     <div ng-repeat="game in games | gameDate | orderBy : orderProp" class="games-container">
       <div class="game-container" ng-class="{'animated tada' : game.status.leverage_index > 3, 'not-in-progress': game.status.state < 22}">
         <div class="leverage-index" ng-if="game.status.state > 21" title="leverage index: {{game.status.leverage_index}}">
