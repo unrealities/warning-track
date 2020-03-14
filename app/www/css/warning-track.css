@@ -282,6 +282,14 @@ div.home-button {
   width: 24px;
 }
 
+.no-games {
+  color: #FFF;
+  display: block;
+  float: left;
+  font-size: 128px;
+  text-align: center;
+}
+
 .no-wrap {
   white-space: nowrap;
   width: auto;
