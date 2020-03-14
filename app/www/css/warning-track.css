@@ -288,6 +288,7 @@ div.home-button {
   float: left;
   font-size: 128px;
   text-align: center;
+  width: 100%;
 }
 
 .no-wrap {
